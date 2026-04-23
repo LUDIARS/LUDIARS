@@ -1,0 +1,173 @@
+{
+  "_schema": "v1. categories[] defines display order + label. services{} is keyed by GitHub repo name (as it appears in LUDIARS org).",
+
+  "categories": [
+    { "id": "infra",     "label": "メタ / インフラ",      "accent": "#9a8cff",
+      "repos": ["LUDIARS", "infra", "Codex"] },
+    { "id": "engine",    "label": "コアエンジン / SDK",    "accent": "#5eb2ff",
+      "repos": ["Ars", "Ergo", "Pictor", "AIFormat"] },
+    { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
+      "repos": ["Cernere", "Nuntius"] },
+    { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
+      "repos": ["Actio", "Actio-PublicModules", "Actio-SchoolModules", "Calicula", "Discutere"] },
+    { "id": "game",      "label": "ゲーム / ネットワーク", "accent": "#f39c9c",
+      "repos": ["AdventureCube", "Synergos", "Tessera"] },
+    { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter"] },
+    { "id": "ars_plugin","label": "Ars プラグイン",        "accent": "#f7b878",
+      "repos": ["Ars-Module", "Ars-Musa", "Ars-PlatformPlugin"] }
+  ],
+
+  "services": {
+    "LUDIARS": {
+      "icon": "🏛",
+      "category": "infra",
+      "summary": "組織全体のメタリポジトリ。全サービスの統合イメージ・Docker Compose・初期化スクリプト・CI/CD を管理",
+      "stack": ["Docker", "Node.js", "GitHub Actions"]
+    },
+    "infra": {
+      "icon": "🛢",
+      "category": "infra",
+      "summary": "Cernere/Schedula/Curare/Nuntius 共有の PostgreSQL・Redis・MinIO・MailHog を Docker Compose で統一管理",
+      "stack": ["Docker", "PostgreSQL 17", "Redis 7", "Drizzle"]
+    },
+    "Codex": {
+      "icon": "📜",
+      "category": "infra",
+      "summary": "検証可能な署名済イベント台帳。ed25519 + blake3 で権利 / 所有 / 出席を記録、モバイル軽量クライアント前提",
+      "stack": ["Rust", "ed25519", "blake3"]
+    },
+    "Ars": {
+      "icon": "🎨",
+      "category": "engine",
+      "summary": "アクターモデル基盤のコンテンツ設計エディタ & ゲームエンジン。ノードベース編集 + 複数プラットフォーム向けコード生成",
+      "stack": ["Tauri 2", "React 19", "Rust", "TypeScript"]
+    },
+    "Ergo": {
+      "icon": "⚙",
+      "category": "engine",
+      "summary": "C++17 モジュール群 + Web 開発者ツール。AdventureCube 等で共用される入力・音響・パーティクル・UI 基盤",
+      "stack": ["C++17", "Vulkan", "Hono", "TypeScript"]
+    },
+    "Pictor": {
+      "icon": "🖼",
+      "category": "engine",
+      "summary": "データ駆動型レンダリングパイプライン。ObjectDescriptor + 動的 pipeline + GPU Compute。Vulkan / モバイル対応",
+      "stack": ["C++20", "Vulkan", "CMake"]
+    },
+    "AIFormat": {
+      "icon": "📐",
+      "category": "engine",
+      "summary": "LUDIARS 全リポ対象の設計・品質・セキュリティレビュー標準フォーマット。CLAUDE.md コマンド群と仕様書記法を定義",
+      "stack": ["Markdown", "Convention"]
+    },
+    "Cernere": {
+      "icon": "🔑",
+      "category": "auth",
+      "summary": "汎用認証 & リアルタイムデータリレー。OAuth / MFA / WebSocket セッション / 組織・プロジェクト管理を提供する LUDIARS 基盤",
+      "stack": ["TypeScript", "Hono", "uWebSockets", "Drizzle", "Redis"]
+    },
+    "Nuntius": {
+      "icon": "📯",
+      "category": "auth",
+      "summary": "統合通知・メッセージング基盤。REST/WS で通知要求を受け、Slack/Discord/LINE/Email/SMS に非同期配信",
+      "stack": ["TypeScript", "BullMQ", "Redis", "Drizzle"]
+    },
+    "Actio": {
+      "icon": "📅",
+      "category": "schedule",
+      "summary": "プラグインベースのスケジューリング基盤。予定 (Event) + タスク (Task) コアを中心に JIRA 型プラットフォームを構築",
+      "stack": ["TypeScript", "Hono", "React", "Drizzle"]
+    },
+    "Actio-PublicModules": {
+      "icon": "📦",
+      "category": "schedule",
+      "summary": "Ergo スタイルの module/<name> ブランチ monorepo。Actio 用モジュールを GitHub Packages に独立配信",
+      "stack": ["TypeScript", "GitHub Packages"]
+    },
+    "Actio-SchoolModules": {
+      "icon": "🎓",
+      "category": "schedule",
+      "summary": "Schedula 上の学校・カリキュラム管理モジュール集。curriculum-scheduler / facility-booking / holiday を統合",
+      "stack": ["TypeScript", "@ludiars/schedula-sdk"]
+    },
+    "Calicula": {
+      "icon": "📓",
+      "category": "schedule",
+      "summary": "カリキュラム予定管理の独立デスクトップアプリ。Tauri 2 + 内蔵 Web UI。Actio curriculum-scheduler へ JSON export",
+      "stack": ["Tauri 2", "SQLite", "Rust"]
+    },
+    "Discutere": {
+      "icon": "💬",
+      "category": "schedule",
+      "summary": "Chat-to-Task 自動化。Slack / Discord メッセージを解析してタスク自動生成。チャンネルモードで柔軟処理",
+      "stack": ["TypeScript", "Hono", "React", "Anthropic Haiku"]
+    },
+    "AdventureCube": {
+      "icon": "🎮",
+      "category": "game",
+      "summary": "Vulkan + Pictor で描画する BPM アクション 3D ゲーム。キューブプレイヤーでスキル・装備を駆使してステージクリア",
+      "stack": ["C++20", "Vulkan", "Pictor", "Ergo"]
+    },
+    "Synergos": {
+      "icon": "🔗",
+      "category": "game",
+      "summary": "P2P コラボ基盤。Cloudflare Tunnel + QUIC で NAT 内からファイル共有。デーモン + GUI + CLI + Ars プラグインの 4 層",
+      "stack": ["Rust", "quinn (QUIC)", "egui"]
+    },
+    "Tessera": {
+      "icon": "🀄",
+      "category": "game",
+      "summary": "Synergos 下層流用のモバイルゲーム通信基盤。ed25519 署名入力による真性認証で低遅延リアルタイム同期 (設計段階)",
+      "stack": ["Rust", "Synergos-net"]
+    },
+    "Curare": {
+      "icon": "💎",
+      "category": "asset",
+      "summary": "ゲーム開発アセット管理サーバ。バージョン管理 + ワークフロー + 依存 DAG + マジックリンクを統合",
+      "stack": ["TypeScript", "Hono", "Drizzle", "MinIO"]
+    },
+    "Clio": {
+      "icon": "🧭",
+      "category": "asset",
+      "summary": "リソース抽象化・自動取得モジュール。個人嗜好とメタデータを組み合わせ最適オブジェクトを抽出 (設計段階)",
+      "stack": ["Python"]
+    },
+    "Signum": {
+      "icon": "✒",
+      "category": "asset",
+      "summary": "画像アウトライン → SVG 生成 Web サービス。detail スライダで精度を連続切り替え",
+      "stack": ["TypeScript", "Hono", "React 19", "pngjs"]
+    },
+    "Imperativus": {
+      "icon": "🎙",
+      "category": "asset",
+      "summary": "WebRTC 音声入力をコマンドルーティング。Claude Code CLI バックエンド、faster-whisper/Vosk 等 STT 対応",
+      "stack": ["Node.js", "Python gRPC", "mediasoup", "faster-whisper"]
+    },
+    "Iter": {
+      "icon": "🗺",
+      "category": "asset",
+      "summary": "C++ コンパイルエラーのノードグラフ可視化エディタ。libclang + Cairo + Scintilla (設計段階)",
+      "stack": ["C++17", "libclang", "Cairo", "Scintilla"]
+    },
+    "Ars-Module": {
+      "icon": "🧩",
+      "category": "ars_plugin",
+      "summary": "Ars エコシステム向け Rust モジュール集。Git / GitHub / Auth / Collab プレゼンス",
+      "stack": ["Rust", "git2", "reqwest"]
+    },
+    "Ars-Musa": {
+      "icon": "🎭",
+      "category": "ars_plugin",
+      "summary": "Ars 向け音声・UI モジュール群 (Melpomene / Terpsichore / Thaleia の 3 Tauri アプリ)",
+      "stack": ["Tauri 2", "Rust", "axum"]
+    },
+    "Ars-PlatformPlugin": {
+      "icon": "🔌",
+      "category": "ars_plugin",
+      "summary": "Ars エディタ向けプラグイン (Data Organizer / Resource Depot) + 管理ツール (SpecTracker)",
+      "stack": ["Tauri 2", "React 19", "Rust", "Axum"]
+    }
+  }
+}
