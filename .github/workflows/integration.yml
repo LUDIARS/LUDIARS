@@ -1,0 +1,146 @@
+name: All-in-One Integration
+
+# LUDIARS の 4 コアサービス (Cernere / Actio / Nuntius / Imperativus) を
+# self-hosted runner 上で統合ビルド & 動作確認する。
+#
+# 対応 OS: Linux / macOS / Windows (Docker Desktop バックエンド)
+#   Linux  — bash スクリプトで動作
+#   macOS  — bash スクリプトで動作 (BSD 互換の書き方に注意)
+#   Windows — PowerShell スクリプトで動作 (bash / wget / curl をランナーに
+#            要求しない。検査系コマンドは docker exec 経由で container 内で走る)
+#
+# 設計方針: self-hosted のワークスペース永続性を最大限活用し、
+#   2 回目以降を 2–5 分で完走させる。詳細は docs/INTEGRATION-CI.md
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      clean_services:
+        description: "サービスリポを再 clone (通常は false)"
+        type: boolean
+        default: false
+      skip_imperativus:
+        description: "Imperativus STT を省略 (ビルド時間短縮)"
+        type: boolean
+        default: false
+      os_filter:
+        description: "特定 OS のみ実行 (linux / macos / windows / all)"
+        type: choice
+        default: all
+        options: [all, linux, macos, windows]
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  integration:
+    name: ${{ matrix.os.id }} — build & smoke
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - id: linux
+            labels: [self-hosted, linux, docker]
+          - id: macos
+            labels: [self-hosted, macOS, docker]
+          - id: windows
+            labels: [self-hosted, Windows, docker]
+    runs-on: ${{ matrix.os.labels }}
+    timeout-minutes: 60
+    if: >
+      github.event.inputs.os_filter == null ||
+      github.event.inputs.os_filter == 'all' ||
+      github.event.inputs.os_filter == matrix.os.id
+    env:
+      SERVICES_ROOT: ${{ github.workspace }}/../ludiars-services
+      COMPOSE_FILE: ${{ github.workspace }}/compose/all-in-one.yaml
+      COMPOSE_PROJECT_NAME: ludiars-ci
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SKIP_IMPERATIVUS: ${{ github.event.inputs.skip_imperativus || 'false' }}
+      CLEAN_SERVICES: ${{ github.event.inputs.clean_services || 'false' }}
+
+    steps:
+      - name: Checkout LUDIARS meta repo
+        uses: actions/checkout@v4
+        with:
+          clean: false
+
+      # ── Fetch / refresh service repos ─────────────────
+      - name: Fetch service repos (bash)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/fetch-services.sh
+
+      - name: Fetch service repos (pwsh)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/fetch-services.ps1
+
+      # ── Build + up ────────────────────────────────────
+      - name: Bring up All-in-One stack (bash)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/integration-up.sh
+
+      - name: Bring up All-in-One stack (pwsh)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/integration-up.ps1
+
+      # ── Wait for healthy ──────────────────────────────
+      - name: Wait for services to become healthy (bash)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/integration-wait.sh
+
+      - name: Wait for services to become healthy (pwsh)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/integration-wait.ps1
+
+      # ── Smoke test ────────────────────────────────────
+      - name: Run integration smoke tests (bash)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/integration-test.sh
+
+      - name: Run integration smoke tests (pwsh)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/integration-test.ps1
+
+      # ── Logs (always, even on failure) ────────────────
+      - name: Capture service logs (bash)
+        if: always() && runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/integration-logs.sh
+
+      - name: Capture service logs (pwsh)
+        if: always() && runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/integration-logs.ps1
+
+      - name: Upload logs artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-logs-${{ matrix.os.id }}-${{ github.run_number }}
+          path: ${{ github.workspace }}/logs
+          retention-days: 7
+          if-no-files-found: warn
+
+      # ── Tear down (always) ────────────────────────────
+      - name: Tear down stack (bash)
+        if: always() && runner.os != 'Windows'
+        shell: bash
+        run: bash scripts/integration-down.sh
+
+      - name: Tear down stack (pwsh)
+        if: always() && runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/integration-down.ps1

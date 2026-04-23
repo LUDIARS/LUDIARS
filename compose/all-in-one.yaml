@@ -1,0 +1,286 @@
+# LUDIARS All-in-One Integration Stack
+#
+# Cernere + Actio + Nuntius + Imperativus を 1 つの compose で起動する。
+# - 各サービスのソースは $SERVICES_ROOT/<Name> に clone されている前提
+#   (scripts/fetch-services.sh が保証する)
+# - 共通 network `ludiars` を通じてサービス間で名前解決できる
+# - integration test 用に CERNERE_URL を空にして各下流サービスの bootstrap を
+#   Cernere 無しで通す (詳細: docs/INTEGRATION-CI.md)
+#
+# Usage (CI 内):
+#   docker compose -f compose/all-in-one.yaml \
+#     --project-directory compose \
+#     up -d --build
+#
+# Usage (ローカル、self-hosted 模擬):
+#   SERVICES_ROOT=$PWD/../ludiars-services \
+#     docker compose -f compose/all-in-one.yaml up -d --build
+
+name: ludiars-ci
+
+networks:
+  ludiars:
+    name: ludiars
+
+volumes:
+  # 各サービスが独立した DB/Redis を持つ (schema が衝突しないため)
+  cernere-pg: {}
+  cernere-redis: {}
+  actio-pg: {}
+  actio-redis: {}
+  nuntius-pg: {}
+  nuntius-redis: {}
+  imperativus-data: {}
+  imperativus-stt-models: {}
+
+# ─── Cernere ────────────────────────────────────────────────
+# 認証基盤。他サービスが参照できるよう真っ先に起動させる。
+
+services:
+  cernere-postgres:
+    image: postgres:17-alpine
+    container_name: ludiars-ci-cernere-pg
+    environment:
+      POSTGRES_USER: cernere
+      POSTGRES_PASSWORD: cernere
+      POSTGRES_DB: cernere
+    volumes:
+      - cernere-pg:/var/lib/postgresql/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cernere"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  cernere-redis:
+    image: redis:7-alpine
+    container_name: ludiars-ci-cernere-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - cernere-redis:/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  cernere-backend:
+    build:
+      context: ${SERVICES_ROOT}/Cernere/server
+      dockerfile: Dockerfile
+    container_name: ludiars-ci-cernere-backend
+    ports:
+      - "18080:8080"
+    environment:
+      DATABASE_URL: "postgresql://cernere:cernere@cernere-postgres:5432/cernere"
+      REDIS_URL: "redis://cernere-redis:6379/0"
+      LISTEN_PORT: "8080"
+      FRONTEND_URL: "http://localhost:5173"
+      JWT_SECRET: "ci-jwt-secret-insecure-do-not-use-in-prod"
+      NODE_ENV: "production"
+    networks: [ludiars]
+    depends_on:
+      cernere-postgres:
+        condition: service_healthy
+      cernere-redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+
+  # ─── Actio ──────────────────────────────────────────────────
+  # Cernere を参照するが、CI 用 JWT を直受する方向で起動。
+
+  actio-postgres:
+    image: postgres:16-alpine
+    container_name: ludiars-ci-actio-pg
+    environment:
+      POSTGRES_USER: actio
+      POSTGRES_PASSWORD: actio
+      POSTGRES_DB: actio
+    volumes:
+      - actio-pg:/var/lib/postgresql/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U actio"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  actio-redis:
+    image: redis:7-alpine
+    container_name: ludiars-ci-actio-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - actio-redis:/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  actio-backend:
+    build:
+      context: ${SERVICES_ROOT}/Actio
+      dockerfile: Dockerfile
+    container_name: ludiars-ci-actio-backend
+    ports:
+      - "13000:3000"
+    environment:
+      BACKEND_PORT: "3000"
+      DB_DIALECT: "postgres"
+      DATABASE_URL: "postgresql://actio:actio@actio-postgres:5432/actio"
+      REDIS_URL: "redis://actio-redis:6379"
+      CERNERE_URL: "http://cernere-backend:8080"
+      FRONTEND_URL: ""
+      # Infisical は CI では無効
+      SECRETS_PROVIDER: ""
+    networks: [ludiars]
+    depends_on:
+      actio-postgres:
+        condition: service_healthy
+      actio-redis:
+        condition: service_healthy
+      cernere-backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health/live || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+
+  # ─── Nuntius ────────────────────────────────────────────────
+
+  nuntius-postgres:
+    image: postgres:17-alpine
+    container_name: ludiars-ci-nuntius-pg
+    environment:
+      POSTGRES_USER: nuntius
+      POSTGRES_PASSWORD: nuntius
+      POSTGRES_DB: nuntius
+    volumes:
+      - nuntius-pg:/var/lib/postgresql/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nuntius"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  nuntius-redis:
+    image: redis:7-alpine
+    container_name: ludiars-ci-nuntius-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - nuntius-redis:/data
+    networks: [ludiars]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  nuntius-api:
+    build:
+      context: ${SERVICES_ROOT}/Nuntius
+      dockerfile: Dockerfile
+      target: prod
+    container_name: ludiars-ci-nuntius-api
+    command: ["node", "dist/src/index.js"]
+    ports:
+      - "13100:3100"
+    environment:
+      BACKEND_PORT: "3100"
+      DATABASE_URL: "postgresql://nuntius:nuntius@nuntius-postgres:5432/nuntius"
+      REDIS_URL: "redis://nuntius-redis:6379"
+      CERNERE_URL: "http://cernere-backend:8080"
+      JWT_SECRET: "ci-jwt-secret-insecure-do-not-use-in-prod"
+    networks: [ludiars]
+    depends_on:
+      nuntius-postgres:
+        condition: service_healthy
+      nuntius-redis:
+        condition: service_healthy
+      cernere-backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3100/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
+
+  nuntius-worker:
+    build:
+      context: ${SERVICES_ROOT}/Nuntius
+      dockerfile: Dockerfile
+      target: prod
+    container_name: ludiars-ci-nuntius-worker
+    command: ["node", "dist/src/worker.js"]
+    environment:
+      DATABASE_URL: "postgresql://nuntius:nuntius@nuntius-postgres:5432/nuntius"
+      REDIS_URL: "redis://nuntius-redis:6379"
+    networks: [ludiars]
+    depends_on:
+      nuntius-postgres:
+        condition: service_healthy
+      nuntius-redis:
+        condition: service_healthy
+
+  # ─── Imperativus ────────────────────────────────────────────
+  # STT (faster-whisper) を伴うので初回ビルドは重い。
+  # CI では STT_MODEL=tiny でダウンロード量を最小化。
+
+  imperativus-stt:
+    build:
+      context: ${SERVICES_ROOT}/Imperativus/stt-service
+      dockerfile: Dockerfile
+    container_name: ludiars-ci-imperativus-stt
+    environment:
+      STT_BACKEND: "faster-whisper"
+      STT_LANGUAGE: "ja"
+      STT_MODEL: "tiny"
+      STT_DEVICE: "cpu"
+    volumes:
+      - imperativus-stt-models:/models
+    networks: [ludiars]
+    expose:
+      - "50051"
+
+  imperativus-app:
+    build:
+      context: ${SERVICES_ROOT}/Imperativus
+      dockerfile: Dockerfile
+    container_name: ludiars-ci-imperativus-app
+    ports:
+      - "15963:5963"
+    environment:
+      IMPERATIVUS_SERVER_PORT: "5963"
+      IMPERATIVUS_SERVER_HOST: "0.0.0.0"
+      IMPERATIVUS_STT_ADDRESS: "imperativus-stt:50051"
+      IMPERATIVUS_CERNERE_URL: "http://cernere-backend:8080"
+      IMPERATIVUS_CERNERE_JWT_SECRET: "ci-jwt-secret-insecure-do-not-use-in-prod"
+      IMPERATIVUS_SERVICE_TOKEN_SECRET: "ci-service-token-secret-insecure"
+      IMPERATIVUS_CLAUDE_CLI_PATH: "/bin/echo"
+      IMPERATIVUS_CLAUDE_WORKING_DIRECTORY: "/data/workspace"
+    volumes:
+      - imperativus-data:/data
+    networks: [ludiars]
+    depends_on:
+      imperativus-stt:
+        condition: service_started
+      cernere-backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:5963/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
