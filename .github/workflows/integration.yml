@@ -1,0 +1,88 @@
+name: All-in-One Integration
+
+# LUDIARS の 4 コアサービス (Cernere / Actio / Nuntius / Imperativus) を
+# self-hosted runner 上で統合ビルド & 動作確認する。
+#
+# 設計方針:
+#   - self-hosted runner (ラベル [self-hosted, linux, docker]) で
+#     インクリメンタルビルドを享受する。
+#       * サービスの clone は persistent dir に残し、git pull で差分更新
+#       * docker buildkit のレイヤーキャッシュはランナーに残す
+#       * node_modules / Rust target / npm cache もランナーに残す
+#   - 依存が重い Imperativus STT (faster-whisper) は初回のみ時間を要し、
+#     2 回目以降は既存のコンテナイメージを再利用する
+#   - 失敗時は各サービスの docker logs を artifact に上げる
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      clean_services:
+        description: "サービスリポを再 clone (通常は false)"
+        type: boolean
+        default: false
+      skip_imperativus:
+        description: "Imperativus STT を省略 (ビルド時間短縮)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  SERVICES_ROOT: ${{ github.workspace }}/../ludiars-services
+  COMPOSE_FILE: ${{ github.workspace }}/compose/all-in-one.yaml
+  # docker compose が作る network / volume のプレフィックス。
+  # 同じランナーで他の workflow が走っても衝突しないよう project 名を固定
+  COMPOSE_PROJECT_NAME: ludiars-ci
+
+jobs:
+  integration:
+    name: Build & smoke test
+    runs-on: [self-hosted, linux, docker]
+    timeout-minutes: 60
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SKIP_IMPERATIVUS: ${{ github.event.inputs.skip_imperativus || 'false' }}
+
+    steps:
+      - name: Checkout LUDIARS meta repo
+        uses: actions/checkout@v4
+        with:
+          # self-hosted で前回の artefact (.env 等) を保持する
+          clean: false
+
+      - name: Fetch / refresh service repos
+        run: bash scripts/fetch-services.sh
+        env:
+          CLEAN_SERVICES: ${{ github.event.inputs.clean_services || 'false' }}
+
+      - name: Bring up All-in-One stack (build with BuildKit cache)
+        run: bash scripts/integration-up.sh
+
+      - name: Wait for services to become healthy
+        run: bash scripts/integration-wait.sh
+
+      - name: Run integration smoke tests
+        run: bash scripts/integration-test.sh
+
+      - name: Capture service logs
+        if: always()
+        run: bash scripts/integration-logs.sh
+
+      - name: Upload logs artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-logs-${{ github.run_number }}
+          path: ${{ github.workspace }}/logs
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Tear down stack
+        if: always()
+        run: bash scripts/integration-down.sh
