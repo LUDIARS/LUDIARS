@@ -1,0 +1,10 @@
+# Preserve LF on shell scripts so Windows checkouts don't corrupt them
+# (bash scripts are still run on the macOS / Linux runners).
+*.sh          text eol=lf
+# PowerShell scripts are Windows-native — keep CRLF for Windows tooling.
+*.ps1         text eol=crlf
+# Compose / YAML / Markdown: LF for consistent diffs across OSes
+*.yaml        text eol=lf
+*.yml         text eol=lf
+*.md          text eol=lf
+Dockerfile    text eol=lf
