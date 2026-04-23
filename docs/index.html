@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUDIARS · Services Dashboard</title>
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80'%3E%F0%9F%8F%9B%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="brand">
+        <span class="brand-icon">🏛</span>
+        <div>
+            <h1>LUDIARS</h1>
+            <p class="tagline">Services Dashboard</p>
+        </div>
+    </div>
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#services">Services</a>
+        <a href="#history">History</a>
+        <a href="https://github.com/LUDIARS" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+</header>
+
+<main>
+    <!-- ── HERO: overall progress ───────────────────────── -->
+    <section id="overview" class="hero card">
+        <div class="hero-head">
+            <h2>Overall completion</h2>
+            <span class="snapshot-date" id="snapshot-date">—</span>
+        </div>
+        <div class="progress-wrap">
+            <div class="progress-bar">
+                <div class="progress-fill" id="overall-fill"></div>
+                <span class="progress-label" id="overall-label">—</span>
+            </div>
+        </div>
+        <div class="tier-grid" id="tier-grid"></div>
+        <div class="highlights">
+            <h3>Highlights</h3>
+            <ul id="highlights-list"></ul>
+        </div>
+    </section>
+
+    <!-- ── SERVICES (by category) ──────────────────────── -->
+    <section id="services" class="services">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">カテゴリ別に完成度順で表示。クリックで GitHub リポジトリへ。</p>
+        <div id="categories-root"></div>
+    </section>
+
+    <!-- ── HISTORY ─────────────────────────────────────── -->
+    <section id="history" class="history card">
+        <h2 class="section-title">Snapshot history</h2>
+        <p class="section-sub">過去のスナップショットを時系列で並べています。</p>
+        <ol class="timeline" id="timeline"></ol>
+    </section>
+</main>
+
+<footer>
+    <span>Generated from <a href="https://github.com/LUDIARS/LUDIARS" target="_blank" rel="noopener">LUDIARS/LUDIARS</a> — automated weekly by the <code>ludiars-status</code> routine.</span>
+</footer>
+
+<template id="tpl-category">
+    <article class="category">
+        <header class="category-head">
+            <h3 class="category-title"></h3>
+            <span class="category-count"></span>
+        </header>
+        <ul class="service-list"></ul>
+    </article>
+</template>
+
+<template id="tpl-service">
+    <li class="service-row">
+        <a class="service-link" target="_blank" rel="noopener">
+            <span class="service-icon"></span>
+            <div class="service-meta">
+                <span class="service-name"></span>
+                <span class="service-summary"></span>
+            </div>
+            <div class="service-progress">
+                <span class="service-pct"></span>
+                <div class="mini-bar"><div class="mini-fill"></div></div>
+            </div>
+        </a>
+    </li>
+</template>
+
+<template id="tpl-tier">
+    <div class="tier">
+        <span class="tier-range"></span>
+        <span class="tier-count"></span>
+        <span class="tier-repos"></span>
+    </div>
+</template>
+
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>
