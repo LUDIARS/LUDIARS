@@ -1,0 +1,47 @@
+{
+  "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
+
+  "latest": "2026-04-24",
+
+  "snapshots": [
+    {
+      "date": "2026-04-24",
+      "weighted_completion": 55,
+      "md": "snapshots/2026-04-24.md",
+      "repos": {
+        "LUDIARS": 70,
+        "infra": 90,
+        "Codex": 45,
+        "Ars": 60,
+        "Ergo": 75,
+        "Pictor": 65,
+        "AIFormat": 80,
+        "Cernere": 85,
+        "Nuntius": 70,
+        "Actio": 85,
+        "Actio-PublicModules": 40,
+        "Actio-SchoolModules": 65,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 65,
+        "Synergos": 55,
+        "Tessera": 10,
+        "Curare": 45,
+        "Clio": 20,
+        "Signum": 25,
+        "Imperativus": 75,
+        "Iter": 5,
+        "Ars-Module": 35,
+        "Ars-Musa": 25,
+        "Ars-PlatformPlugin": 55
+      },
+      "highlights": [
+        "ergo_ui に SVG raster / 9-slice / gradient / line-glow を新設",
+        "AdventureCube 装備 UI の FrameLibrary 完成 (描画は次 PR)",
+        "Pictor text effects (outline / shadow / glow × post-process + path-data) 追加",
+        "Synergos Bitswap v2 + CatalogSyncService で auto-update 経路が繋がった",
+        "Codex が Synergos から独立プロジェクトに切り出し"
+      ]
+    }
+  ]
+}
