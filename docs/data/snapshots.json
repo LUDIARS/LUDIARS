@@ -1,7 +1,7 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
 
-  "latest": "2026-04-24",
+  "latest": "2026-04-27",
 
   "snapshots": [
     {
@@ -41,6 +41,46 @@
         "Pictor text effects (outline / shadow / glow × post-process + path-data) 追加",
         "Synergos Bitswap v2 + CatalogSyncService で auto-update 経路が繋がった",
         "Codex が Synergos から独立プロジェクトに切り出し"
+      ]
+    },
+    {
+      "date": "2026-04-27",
+      "weighted_completion": 56,
+      "md": "snapshots/2026-04-27.md",
+      "repos": {
+        "LUDIARS": 72,
+        "infra": 90,
+        "Codex": 45,
+        "Ars": 60,
+        "Ergo": 78,
+        "Pictor": 70,
+        "AIFormat": 80,
+        "Cernere": 86,
+        "Nuntius": 75,
+        "Actio": 86,
+        "Actio-PublicModules": 40,
+        "Actio-SchoolModules": 65,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 70,
+        "Synergos": 55,
+        "Tessera": 10,
+        "Curare": 45,
+        "Clio": 20,
+        "Signum": 25,
+        "Imperativus": 75,
+        "Iter": 5,
+        "Ars-Module": 35,
+        "Ars-Musa": 25,
+        "Ars-PlatformPlugin": 55
+      },
+      "highlights": [
+        "Pictor 65% → 70% (headless test suite + hologram シェーダ + WebGL frustum culling + Android NDK 計画)",
+        "AdventureCube 65% → 70% (Skill→ActiveObject→Action 戦闘層 + Shield Block で HP 概念廃止)",
+        "Nuntius 70% → 75% (Cernere service-adapter PeerAdapter + 配信履歴 API + AES-256-GCM channel credentials)",
+        "Ergo 75% → 78% (ergo_custos in-process HTTP bridge + benchmark harness + GPU particle CPU fallback)",
+        "Cernere 85% → 86% (WS authz 4 層防御 + project conn registry)",
+        "Custos / All-In-OneTest / Voluptas / Ludus / Educatus / ErgoDLLs を新規記載 (services.json 未登録のため要追加)"
       ]
     }
   ]
