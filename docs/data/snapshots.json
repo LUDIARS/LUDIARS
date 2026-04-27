@@ -50,11 +50,12 @@
       "repos": {
         "LUDIARS": 72,
         "infra": 90,
+        "AIFormat": 80,
+        "All-In-OneTest": 15,
         "Codex": 45,
         "Ars": 60,
         "Ergo": 78,
         "Pictor": 70,
-        "AIFormat": 80,
         "Cernere": 86,
         "Nuntius": 75,
         "Actio": 86,
@@ -70,6 +71,8 @@
         "Signum": 25,
         "Imperativus": 75,
         "Iter": 5,
+        "Memoria": 30,
+        "Custos": 25,
         "Ars-Module": 35,
         "Ars-Musa": 25,
         "Ars-PlatformPlugin": 55
