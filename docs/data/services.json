@@ -3,17 +3,19 @@
 
   "categories": [
     { "id": "infra",     "label": "メタ / インフラ",      "accent": "#9a8cff",
-      "repos": ["LUDIARS", "infra", "Codex"] },
+      "repos": ["LUDIARS", "infra", "AIFormat", "All-In-OneTest"] },
     { "id": "engine",    "label": "コアエンジン / SDK",    "accent": "#5eb2ff",
-      "repos": ["Ars", "Ergo", "Pictor", "AIFormat"] },
+      "repos": ["Ars", "Ergo", "Pictor"] },
     { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
       "repos": ["Cernere", "Nuntius"] },
     { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
       "repos": ["Actio", "Actio-PublicModules", "Actio-SchoolModules", "Calicula", "Discutere"] },
-    { "id": "game",      "label": "ゲーム / ネットワーク", "accent": "#f39c9c",
-      "repos": ["AdventureCube", "Synergos", "Tessera"] },
+    { "id": "game",      "label": "ゲーム",                "accent": "#f39c9c",
+      "repos": ["AdventureCube"] },
+    { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
+      "repos": ["Synergos", "Tessera", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Memoria", "Custos"] },
     { "id": "ars_plugin","label": "Ars プラグイン",        "accent": "#f7b878",
       "repos": ["Ars-Module", "Ars-Musa", "Ars-PlatformPlugin"] }
   ],
@@ -33,7 +35,7 @@
     },
     "Codex": {
       "icon": "📜",
-      "category": "infra",
+      "category": "network",
       "summary": "検証可能な署名済イベント台帳。ed25519 + blake3 で権利 / 所有 / 出席を記録、モバイル軽量クライアント前提",
       "stack": ["Rust", "ed25519", "blake3"]
     },
@@ -57,9 +59,15 @@
     },
     "AIFormat": {
       "icon": "📐",
-      "category": "engine",
+      "category": "infra",
       "summary": "LUDIARS 全リポ対象の設計・品質・セキュリティレビュー標準フォーマット。CLAUDE.md コマンド群と仕様書記法を定義",
       "stack": ["Markdown", "Convention"]
+    },
+    "All-In-OneTest": {
+      "icon": "🧪",
+      "category": "infra",
+      "summary": "LUDIARS 統合 CI 用の private monorepo。各サービスを submodule で束ね self-hosted runner で end-to-end テストを回す",
+      "stack": ["GitHub Actions", "Docker Compose", "Submodule"]
     },
     "Cernere": {
       "icon": "🔑",
@@ -111,13 +119,13 @@
     },
     "Synergos": {
       "icon": "🔗",
-      "category": "game",
+      "category": "network",
       "summary": "P2P コラボ基盤。Cloudflare Tunnel + QUIC で NAT 内からファイル共有。デーモン + GUI + CLI + Ars プラグインの 4 層",
       "stack": ["Rust", "quinn (QUIC)", "egui"]
     },
     "Tessera": {
       "icon": "🀄",
-      "category": "game",
+      "category": "network",
       "summary": "Synergos 下層流用のモバイルゲーム通信基盤。ed25519 署名入力による真性認証で低遅延リアルタイム同期 (設計段階)",
       "stack": ["Rust", "Synergos-net"]
     },
@@ -150,6 +158,18 @@
       "category": "asset",
       "summary": "C++ コンパイルエラーのノードグラフ可視化エディタ。libclang + Cairo + Scintilla (設計段階)",
       "stack": ["C++17", "libclang", "Cairo", "Scintilla"]
+    },
+    "Memoria": {
+      "icon": "🔖",
+      "category": "asset",
+      "summary": "Web ブックマーキング + RAG + Deep Research。Chrome 拡張 + Hono + claude CLI + transformers.js + Cernere/Imperativus 連携。online は read-public + write-relay-only",
+      "stack": ["TypeScript", "Hono", "Chrome Extension", "transformers.js", "claude CLI"]
+    },
+    "Custos": {
+      "icon": "🛡",
+      "category": "asset",
+      "summary": "遠隔テストランナー。apps.json で対象を宣言、ホスト ffmpeg/nut-js を ergo_custos でバイパス、Phase 2 で WebRTC capture / Cernere 認証 / Android 対応",
+      "stack": ["Hono", "ws", "Electron", "tsx watch"]
     },
     "Ars-Module": {
       "icon": "🧩",

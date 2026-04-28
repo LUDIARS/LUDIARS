@@ -1,5 +1,8 @@
 # LUDIARS サービス構成
 
+> プロジェクト略称 (project codes) は [PROJECT-CODES.md](./PROJECT-CODES.md) を参照。
+
+
 ## 基盤サービス
 
 | サービス | 役割 | 技術 |
