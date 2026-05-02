@@ -63,6 +63,7 @@
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (設計段階) |
 | Mm | [Memoria](https://github.com/LUDIARS/Memoria) | Web ブックマーキング + RAG |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
+| Qu | [Quaestor](https://github.com/LUDIARS/Quaestor) | 個人会計自動化 (AR receipt + 取引照合 + 仕訳帳 export) |
 
 ## Ars プラグイン
 
