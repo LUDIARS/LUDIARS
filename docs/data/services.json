@@ -15,7 +15,9 @@
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
       "repos": ["Synergos", "Tessera", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Memoria", "Custos"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos"] },
+    { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
+      "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora"] },
     { "id": "ars_plugin","label": "Ars プラグイン",        "accent": "#f7b878",
       "repos": ["Ars-Module", "Ars-Musa", "Ars-PlatformPlugin"] }
   ],
@@ -161,9 +163,33 @@
     },
     "Memoria": {
       "icon": "🔖",
-      "category": "asset",
-      "summary": "Web ブックマーキング + RAG + Deep Research。Chrome 拡張 + Hono + claude CLI + transformers.js + Cernere/Imperativus 連携。online は read-public + write-relay-only",
-      "stack": ["TypeScript", "Hono", "Chrome Extension", "transformers.js", "claude CLI"]
+      "category": "local",
+      "summary": "Web ブクマ + 日記 + Dig + 辞書 + ドメイン辞書 + 多 LLM プロバイダのデスクトップアプリ。Electron + 内蔵 Node server。online は read-public + write-relay-only",
+      "stack": ["TypeScript", "Electron", "Hono", "Chrome Extension", "claude CLI"]
+    },
+    "Legatus": {
+      "icon": "📡",
+      "category": "local",
+      "summary": "個人 PC 常駐の LUDIARS サービス代理人。Tray app + loopback POST API + MCP server。OwnTracks (MQTT) → Memoria/Actio forwarder で DMZ Iv の代替",
+      "stack": ["TypeScript", "Electron", "Hono", "MCP", "MQTT"]
+    },
+    "Concordia": {
+      "icon": "🤝",
+      "category": "local",
+      "summary": "複数 AI コーディングエージェント (Claude Code / Gemini CLI / Codex CLI) のセッション間協調・記録サービス。loopback 17330。lock せず軽い通知だけで干渉回避、個人データ非保管",
+      "stack": ["TypeScript", "Hono", "React 19", "better-sqlite3", "ws"]
+    },
+    "Quaestor": {
+      "icon": "💰",
+      "category": "local",
+      "summary": "個人会計の自動化。AR レシート OCR スキャナ + クレカ/銀行/Amazon 取込 + receipt × tx 照合。E:\\calc 後継、loopback only",
+      "stack": ["TypeScript", "Tauri 2", "Hono", "Rust"]
+    },
+    "Hora": {
+      "icon": "🕰",
+      "category": "local",
+      "summary": "Desktop Ojisan アプリ。pivot spec + relation model + dialogue pack。残 24 issue で本格実装フェーズ",
+      "stack": ["Tauri 2", "Rust", "React"]
     },
     "Custos": {
       "icon": "🛡",

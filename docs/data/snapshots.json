@@ -116,19 +116,23 @@
         "Iter": 50,
         "Memoria": 50,
         "Custos": 25,
+        "Concordia": 75,
+        "Legatus": 55,
+        "Hora": 50,
+        "Quaestor": 45,
         "Ars-Module": 35,
         "Ars-Musa": 25,
         "Ars-PlatformPlugin": 55
       },
       "highlights": [
+        "ローカルログツール category 追加: Memoria / Legatus / Concordia / Quaestor / Hora を services.json 登録",
         "Iter 5% → 50% (+45) 完全リブート Tauri 2 + Monaco MVP + Phase 2 (clangd / React Flow / cache / stack-trace graph)",
         "Memoria 30% → 50% (+20) Tauri → Electron 完全移行 + GPS / 食事 / Legatus 連携 15 PR",
         "Synergos 55% → 65% (+10) peer 接続自動化 13 PR (peer-info HTTP / bootstrap_urls / IPv4 fallback / Tauri GUI Dashboard)",
         "Ars 60% → 64% (+4) game-lexicon 9 ジャンル + game-template 17 ジャンル + Pages 公開 7 PR",
         "Nuntius 75% → 78% (+3) Discord BOT/Webhook + WebPush + cancel-by-source API",
         "Imperativus 75% → 78% (+3) DMZ packet capture + OwnTracks MQTT + Cernere PeerAdapter",
-        "Actio 86% → 88% (+2) cocoiru WS push + placement + PWA WebPush + Task notify (7 PR)",
-        "未登録の急成長: Concordia 75% / Legatus 55% / Hora 50% / Quaestor 45% — services.json 追加要"
+        "Actio 86% → 88% (+2) cocoiru WS push + placement + PWA WebPush + Task notify (7 PR)"
       ]
     }
   ]
