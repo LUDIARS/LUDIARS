@@ -1,7 +1,7 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
 
-  "latest": "2026-04-27",
+  "latest": "2026-05-03",
 
   "snapshots": [
     {
@@ -84,6 +84,51 @@
         "Ergo 75% → 78% (ergo_custos in-process HTTP bridge + benchmark harness + GPU particle CPU fallback)",
         "Cernere 85% → 86% (WS authz 4 層防御 + project conn registry)",
         "Custos / All-In-OneTest / Voluptas / Ludus / Educatus / ErgoDLLs を新規記載 (services.json 未登録のため要追加)"
+      ]
+    },
+    {
+      "date": "2026-05-03",
+      "weighted_completion": 58,
+      "md": "snapshots/2026-05-03.md",
+      "repos": {
+        "LUDIARS": 73,
+        "infra": 91,
+        "AIFormat": 82,
+        "All-In-OneTest": 70,
+        "Codex": 45,
+        "Ars": 64,
+        "Ergo": 80,
+        "Pictor": 70,
+        "Cernere": 87,
+        "Nuntius": 78,
+        "Actio": 88,
+        "Actio-PublicModules": 40,
+        "Actio-SchoolModules": 65,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 72,
+        "Synergos": 65,
+        "Tessera": 10,
+        "Curare": 45,
+        "Clio": 20,
+        "Signum": 25,
+        "Imperativus": 78,
+        "Iter": 50,
+        "Memoria": 50,
+        "Custos": 25,
+        "Ars-Module": 35,
+        "Ars-Musa": 25,
+        "Ars-PlatformPlugin": 55
+      },
+      "highlights": [
+        "Iter 5% → 50% (+45) 完全リブート Tauri 2 + Monaco MVP + Phase 2 (clangd / React Flow / cache / stack-trace graph)",
+        "Memoria 30% → 50% (+20) Tauri → Electron 完全移行 + GPS / 食事 / Legatus 連携 15 PR",
+        "Synergos 55% → 65% (+10) peer 接続自動化 13 PR (peer-info HTTP / bootstrap_urls / IPv4 fallback / Tauri GUI Dashboard)",
+        "Ars 60% → 64% (+4) game-lexicon 9 ジャンル + game-template 17 ジャンル + Pages 公開 7 PR",
+        "Nuntius 75% → 78% (+3) Discord BOT/Webhook + WebPush + cancel-by-source API",
+        "Imperativus 75% → 78% (+3) DMZ packet capture + OwnTracks MQTT + Cernere PeerAdapter",
+        "Actio 86% → 88% (+2) cocoiru WS push + placement + PWA WebPush + Task notify (7 PR)",
+        "未登録の急成長: Concordia 75% / Legatus 55% / Hora 50% / Quaestor 45% — services.json 追加要"
       ]
     }
   ]
