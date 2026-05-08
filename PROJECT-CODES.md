@@ -63,6 +63,7 @@
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (設計段階) |
 | Mm | [Memoria](https://github.com/LUDIARS/Memoria) | Web ブックマーキング + RAG |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
+| Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
 
 ## Ars プラグイン
 
