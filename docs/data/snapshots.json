@@ -1,7 +1,7 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
 
-  "latest": "2026-05-03",
+  "latest": "2026-05-10",
 
   "snapshots": [
     {
@@ -133,6 +133,53 @@
         "Nuntius 75% → 78% (+3) Discord BOT/Webhook + WebPush + cancel-by-source API",
         "Imperativus 75% → 78% (+3) DMZ packet capture + OwnTracks MQTT + Cernere PeerAdapter",
         "Actio 86% → 88% (+2) cocoiru WS push + placement + PWA WebPush + Task notify (7 PR)"
+      ]
+    },
+    {
+      "date": "2026-05-10",
+      "weighted_completion": 59,
+      "md": "snapshots/2026-05-10.md",
+      "repos": {
+        "LUDIARS": 75,
+        "infra": 91,
+        "AIFormat": 82,
+        "All-In-OneTest": 70,
+        "Codex": 45,
+        "Ars": 64,
+        "Ergo": 80,
+        "Pictor": 70,
+        "Cernere": 87,
+        "Nuntius": 78,
+        "Actio": 88,
+        "Actio-PublicModules": 40,
+        "Actio-SchoolModules": 65,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 72,
+        "Synergos": 67,
+        "Tessera": 10,
+        "Curare": 45,
+        "Clio": 20,
+        "Signum": 25,
+        "Imperativus": 78,
+        "Iter": 50,
+        "Memoria": 70,
+        "Custos": 25,
+        "Concordia": 78,
+        "Legatus": 55,
+        "Hora": 50,
+        "Quaestor": 45,
+        "Ars-Module": 35,
+        "Ars-Musa": 25,
+        "Ars-PlatformPlugin": 55
+      },
+      "highlights": [
+        "Memoria 50% → 70% (+20) TS 全面移行 phase 1-11 (#106-119) + WYSIWYG ノート (#120, #122) + multi rev3 Cernere accessToken 直接検証 (#123) + AI agent 委託 (#100) + 25+ PR",
+        "Susurrus 新設 (35%) — 2026-05-08 created、 13 commits で v0.0 → v1.0 を scaffold (チャット基盤、 Cernere 認証 + Synergos 依存、 Overlay SDK + Opus 3D 音声)",
+        "Synergos 65% → 67% (+2) peer stream extension hook (PR #60) で上位サービス向け基盤化 (Susurrus / Tessera 依存解決)",
+        "Concordia 75% → 78% (+3) codex CLI worker + /v1/processes/stop-all + persona/setup UI",
+        "LUDIARS meta 73% → 75% (+2) ローカルログツール category 公式登録 + Susurrus 略称 (Su) を PROJECT-CODES に追加",
+        "他のコアサービス (Cernere / Nuntius / Actio / Ergo / Pictor / Imperativus / Iter / Quaestor / AdventureCube) は安定運用、 今週は活動なし"
       ]
     }
   ]
