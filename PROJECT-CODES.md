@@ -64,6 +64,7 @@
 | Mm | [Memoria](https://github.com/LUDIARS/Memoria) | Web ブックマーキング + RAG |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
 | Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
+| Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 (ISBN / QR スキャン + admin 返却) |
 
 ## Ars プラグイン
 
