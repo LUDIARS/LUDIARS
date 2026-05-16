@@ -65,6 +65,8 @@
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
 | Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
 | Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 (ISBN / QR スキャン + admin 返却) |
+| Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 + クレバーマージ支援 |
+| Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
 
 ## Ars プラグイン
 
