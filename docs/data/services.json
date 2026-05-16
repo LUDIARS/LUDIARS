@@ -5,7 +5,7 @@
     { "id": "infra",     "label": "メタ / インフラ",      "accent": "#9a8cff",
       "repos": ["LUDIARS", "infra", "AIFormat", "All-In-OneTest"] },
     { "id": "engine",    "label": "コアエンジン / SDK",    "accent": "#5eb2ff",
-      "repos": ["Ars", "Ergo", "ErgoDLLs", "Pictor"] },
+      "repos": ["Ars", "Ergo", "Pictor"] },
     { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
       "repos": ["Cernere", "Nuntius"] },
     { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
@@ -208,12 +208,6 @@
       "category": "asset",
       "summary": "Cernere 認証 + Synergos Core ベースのローカル先行チャット。md ファイル正本 + SQLite キャッシュ、active 時 WebRTC+QUIC realtime / 休眠時 async sync",
       "stack": ["TypeScript", "Tauri 2", "Synergos", "WebRTC"]
-    },
-    "ErgoDLLs": {
-      "icon": "🧱",
-      "category": "engine",
-      "summary": "Ergo のプリビルド DLL / .lib 配布リポジトリ。CI で各プラットフォーム向けバイナリを生成し、依存先プロジェクトが軽量にリンク可能",
-      "stack": ["C++17", "CMake", "GitHub Actions"]
     },
     "Excubitor": {
       "icon": "🛰",

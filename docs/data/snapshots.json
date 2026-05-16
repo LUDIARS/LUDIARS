@@ -1,8 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-
-  "latest": "2026-05-10",
-
+  "latest": "2026-05-16",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -180,6 +178,59 @@
         "Concordia 75% → 78% (+3) codex CLI worker + /v1/processes/stop-all + persona/setup UI",
         "LUDIARS meta 73% → 75% (+2) ローカルログツール category 公式登録 + Susurrus 略称 (Su) を PROJECT-CODES に追加",
         "他のコアサービス (Cernere / Nuntius / Actio / Ergo / Pictor / Imperativus / Iter / Quaestor / AdventureCube) は安定運用、 今週は活動なし"
+      ]
+    },
+    {
+      "date": "2026-05-16",
+      "weighted_completion": 62,
+      "md": "snapshots/2026-05-16.md",
+      "repos": {
+        "LUDIARS": 75,
+        "infra": 91,
+        "AIFormat": 82,
+        "All-In-OneTest": 70,
+        "Ars": 64,
+        "Ergo": 80,
+        "Pictor": 70,
+        "Cernere": 87,
+        "Nuntius": 78,
+        "Actio": 88,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 72,
+        "Ludellus": 40,
+        "Ludellus-Server": 30,
+        "Synergos": 72,
+        "Tessera": 8,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Imperativus": 78,
+        "Iter": 65,
+        "Custos": 55,
+        "Susurrus": 75,
+        "Bibliotheca": 35,
+        "Conciliator": 75,
+        "Praeforma": 15,
+        "Memoria": 72,
+        "Legatus": 45,
+        "Concordia": 78,
+        "Quaestor": 58,
+        "Hora": 28,
+        "Excubitor": 35,
+        "Ars-Musa": 15,
+        "Educatus": 5,
+        "Ludus": 5,
+        "Voluptas": 5
+      },
+      "highlights": [
+        "dashboard 再編: 3 新規追加 (Bb/Cn/Pf) + 8 整理 (Actio-Modules/Ars-Module/PlatformPlugin 削除 + Ars-Musa planned 化 + ErgoDLLs 削除) + 4 planned 化",
+        "Codex M0-M9 完遂 (12 crate + C ABI FFI + bench)",
+        "Conciliator v1.0 リリース (15 test green、 3 モード smoke test)",
+        "Custos WebRTC h264 streaming + 仮想キー入力完成",
+        "Synergos peer stream extension hook (#60) で上位サービス hookup 経路成立",
+        "Ludellus / Ludellus-Server 新設 (UniLand 改名 + 3 ゲーム移植 + Server scaffold)"
       ]
     }
   ]
