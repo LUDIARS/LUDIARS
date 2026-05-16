@@ -5,21 +5,21 @@
     { "id": "infra",     "label": "メタ / インフラ",      "accent": "#9a8cff",
       "repos": ["LUDIARS", "infra", "AIFormat", "All-In-OneTest"] },
     { "id": "engine",    "label": "コアエンジン / SDK",    "accent": "#5eb2ff",
-      "repos": ["Ars", "Ergo", "Pictor"] },
+      "repos": ["Ars", "Ergo", "ErgoDLLs", "Pictor"] },
     { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
       "repos": ["Cernere", "Nuntius"] },
     { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
-      "repos": ["Actio", "Actio-PublicModules", "Actio-SchoolModules", "Calicula", "Discutere"] },
+      "repos": ["Actio", "Calicula", "Discutere"] },
     { "id": "game",      "label": "ゲーム",                "accent": "#f39c9c",
-      "repos": ["AdventureCube"] },
+      "repos": ["AdventureCube", "Ludellus", "Ludellus-Server"] },
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
       "repos": ["Synergos", "Tessera", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Bibliotheca", "Conciliator", "Praeforma"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
-      "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora"] },
-    { "id": "ars_plugin","label": "Ars プラグイン",        "accent": "#f7b878",
-      "repos": ["Ars-Module", "Ars-Musa", "Ars-PlatformPlugin"] }
+      "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora", "Excubitor"] },
+    { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
+      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas"] }
   ],
 
   "services": {
@@ -88,18 +88,6 @@
       "category": "schedule",
       "summary": "プラグインベースのスケジューリング基盤。予定 (Event) + タスク (Task) コアを中心に JIRA 型プラットフォームを構築",
       "stack": ["TypeScript", "Hono", "React", "Drizzle"]
-    },
-    "Actio-PublicModules": {
-      "icon": "📦",
-      "category": "schedule",
-      "summary": "Ergo スタイルの module/<name> ブランチ monorepo。Actio 用モジュールを GitHub Packages に独立配信",
-      "stack": ["TypeScript", "GitHub Packages"]
-    },
-    "Actio-SchoolModules": {
-      "icon": "🎓",
-      "category": "schedule",
-      "summary": "Schedula 上の学校・カリキュラム管理モジュール集。curriculum-scheduler / facility-booking / holiday を統合",
-      "stack": ["TypeScript", "@ludiars/schedula-sdk"]
     },
     "Calicula": {
       "icon": "📓",
@@ -215,23 +203,59 @@
       "summary": "仕様書 ↔ 実装連携ツール。placeholder + 構造化 spec + asset 差し替えを 1 プロジェクトに束ねる (Unity / Web の 2 系統、設計段階)",
       "stack": ["Unity", "WebGL", "Spec-as-Data"]
     },
-    "Ars-Module": {
-      "icon": "🧩",
-      "category": "ars_plugin",
-      "summary": "Ars エコシステム向け Rust モジュール集。Git / GitHub / Auth / Collab プレゼンス",
-      "stack": ["Rust", "git2", "reqwest"]
+    "Susurrus": {
+      "icon": "🗨",
+      "category": "asset",
+      "summary": "Cernere 認証 + Synergos Core ベースのローカル先行チャット。md ファイル正本 + SQLite キャッシュ、active 時 WebRTC+QUIC realtime / 休眠時 async sync",
+      "stack": ["TypeScript", "Tauri 2", "Synergos", "WebRTC"]
+    },
+    "ErgoDLLs": {
+      "icon": "🧱",
+      "category": "engine",
+      "summary": "Ergo のプリビルド DLL / .lib 配布リポジトリ。CI で各プラットフォーム向けバイナリを生成し、依存先プロジェクトが軽量にリンク可能",
+      "stack": ["C++17", "CMake", "GitHub Actions"]
+    },
+    "Excubitor": {
+      "icon": "🛰",
+      "category": "local",
+      "summary": "LUDIARS 全サービスの可観測性 + 復旧 + Infisical 遠隔 + Claude Code CLI auto-fix。Concordia の services/processes を切り出した後継、port 17331/17332",
+      "stack": ["TypeScript", "Hono", "ws", "Infisical", "claude CLI"]
+    },
+    "Ludellus": {
+      "icon": "🦄",
+      "category": "game",
+      "summary": "知育系教材アプリ (旧 UniLand)。Claude Web モックを軽量に動かし入力動態を分析する Capacitor/PWA/Electron クライアント。マスコット「うに」",
+      "stack": ["TypeScript", "Capacitor", "PWA", "Electron"]
+    },
+    "Ludellus-Server": {
+      "icon": "🛰",
+      "category": "game",
+      "summary": "Ludellus 中央 Web サーバ。子供プロファイル / スコア sync / 分岐ストア / Cernere PASETO + Memoria 通知",
+      "stack": ["TypeScript", "Hono", "Cernere", "PASETO"]
     },
     "Ars-Musa": {
       "icon": "🎭",
-      "category": "ars_plugin",
-      "summary": "Ars 向け音声・UI モジュール群 (Melpomene / Terpsichore / Thaleia の 3 Tauri アプリ)",
+      "category": "planned",
+      "summary": "Ars 向け音声・UI モジュール群 (Melpomene / Terpsichore / Thaleia)。LUDIARS 外で再構成予定のためダッシュボード上は計画扱い",
       "stack": ["Tauri 2", "Rust", "axum"]
     },
-    "Ars-PlatformPlugin": {
-      "icon": "🔌",
-      "category": "ars_plugin",
-      "summary": "Ars エディタ向けプラグイン (Data Organizer / Resource Depot) + 管理ツール (SpecTracker)",
-      "stack": ["Tauri 2", "React 19", "Rust", "Axum"]
+    "Educatus": {
+      "icon": "🎓",
+      "category": "planned",
+      "summary": "未着手 / 計画中のプレースホルダリポ",
+      "stack": []
+    },
+    "Ludus": {
+      "icon": "🎲",
+      "category": "planned",
+      "summary": "未着手 / 計画中のプレースホルダリポ",
+      "stack": []
+    },
+    "Voluptas": {
+      "icon": "✨",
+      "category": "planned",
+      "summary": "未着手 / 計画中のプレースホルダリポ",
+      "stack": []
     }
   }
 }
