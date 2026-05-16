@@ -15,7 +15,7 @@
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
       "repos": ["Synergos", "Tessera", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Bibliotheca", "Conciliator", "Praeforma"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
       "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora"] },
     { "id": "ars_plugin","label": "Ars プラグイン",        "accent": "#f7b878",
@@ -196,6 +196,24 @@
       "category": "asset",
       "summary": "遠隔テストランナー。apps.json で対象を宣言、ホスト ffmpeg/nut-js を ergo_custos でバイパス、Phase 2 で WebRTC capture / Cernere 認証 / Android 対応",
       "stack": ["Hono", "ws", "Electron", "tsx watch"]
+    },
+    "Bibliotheca": {
+      "icon": "📚",
+      "category": "asset",
+      "summary": "本 / 機材 の貸出台帳。Cernere SSO + ISBN/QR スキャン + admin 専用返却、MasterSource 抽象でマスタ DB を差替可能",
+      "stack": ["TypeScript", "Hono", "React 19", "Drizzle"]
+    },
+    "Conciliator": {
+      "icon": "🤝",
+      "category": "asset",
+      "summary": "git が苦手なバイナリ / 非マージファイルの作業衝突を検知・予防・クレバーマージ支援。standalone / server / agent + Cernere identity + AI hook",
+      "stack": ["TypeScript", "Hono", "ws", "Cernere"]
+    },
+    "Praeforma": {
+      "icon": "🧱",
+      "category": "asset",
+      "summary": "仕様書 ↔ 実装連携ツール。placeholder + 構造化 spec + asset 差し替えを 1 プロジェクトに束ねる (Unity / Web の 2 系統、設計段階)",
+      "stack": ["Unity", "WebGL", "Spec-as-Data"]
     },
     "Ars-Module": {
       "icon": "🧩",
