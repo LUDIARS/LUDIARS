@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-05-16",
+  "latest": "2026-05-17",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -231,6 +231,59 @@
         "Custos WebRTC h264 streaming + 仮想キー入力完成",
         "Synergos peer stream extension hook (#60) で上位サービス hookup 経路成立",
         "Ludellus / Ludellus-Server 新設 (UniLand 改名 + 3 ゲーム移植 + Server scaffold)"
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "weighted_completion": 57,
+      "md": "snapshots/2026-05-17.md",
+      "repos": {
+        "LUDIARS": 75,
+        "infra": 91,
+        "AIFormat": 82,
+        "All-In-OneTest": 70,
+        "Ars": 64,
+        "Ergo": 81,
+        "Pictor": 71,
+        "Cernere": 88,
+        "Nuntius": 78,
+        "Actio": 88,
+        "Calicula": 60,
+        "Discutere": 75,
+        "AdventureCube": 72,
+        "Ludellus": 40,
+        "Ludellus-Server": 35,
+        "Synergos": 72,
+        "Tessera": 8,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Imperativus": 78,
+        "Iter": 65,
+        "Custos": 55,
+        "Susurrus": 75,
+        "Bibliotheca": 45,
+        "Conciliator": 75,
+        "Praeforma": 60,
+        "Memoria": 80,
+        "Legatus": 45,
+        "Concordia": 84,
+        "Quaestor": 58,
+        "Hora": 28,
+        "Excubitor": 35,
+        "Ars-Musa": 15,
+        "Educatus": 5,
+        "Ludus": 5,
+        "Voluptas": 5
+      },
+      "highlights": [
+        "Praeforma 15% → 60% (+45) 1 日で Step 1.5 + 1.6 + 2-7 + 10-13 完了 (14 step 中 13 step、 server + web + Unity UPM v0.1 + WS collab + 3D preview)",
+        "Memoria 72% → 80% (+8) v1.0.0 release + 8 PR (#163-#170): Local+Hub mix / mobile タブ / 🛡 パケット監視 / paseto 双方向 / .deb",
+        "Concordia 78% → 84% (+6) Excubitor 観測性 (services/processes/logs/auto-fix/reviews) を src/observability/ に完全吸収 (#4-#7) + claude-runner timeout 設定可化",
+        "Bibliotheca 35% → 45% (+10) QR 生成 + CSV 一括登録 + ラベル印刷 + Infisical env-cli + MasterSource を BookSource/EquipmentSource に分割",
+        "Excubitor 35% → obsolete (機能を Concordia へ統合、 services.json から削除推奨)",
+        "Pictor + Ergo に Visus 描画定義レイヤー追加 (Pictor 70→71, Ergo 80→81): Material 上位の 7 kind ObjectDescriptor テンプレ"
       ]
     }
   ]
