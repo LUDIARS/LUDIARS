@@ -32,10 +32,12 @@
 
 | Code | Project | 役割 |
 |------|---------|------|
-| At / A | [Actio](https://github.com/LUDIARS/Actio) | スケジュール / カレンダー基盤 |
-| Ap | [Actio-PublicModules](https://github.com/LUDIARS/Actio-PublicModules) | Actio 用公開モジュール集 |
-| As | [Actio-SchoolModules](https://github.com/LUDIARS/Actio-SchoolModules) | Actio 学校系モジュール (curriculum / facility / Cocoiru 等) |
+| At / A | [Actio](https://github.com/LUDIARS/Actio) | タスク (Task) 管理基盤 (2026-05-20 〜 予定軸は Schedula へ分離) |
+| Sc | [Schedula](https://github.com/LUDIARS/Schedula) | 予定 (Event) / カレンダー管理基盤 (2026-05-20 Actio から再分離) |
+| Ap | [Actio-PublicModules](https://github.com/LUDIARS/Actio-PublicModules) | 公開モジュール集 |
+| As | [Actio-SchoolModules](https://github.com/LUDIARS/Actio-SchoolModules) | 学校系モジュール (curriculum / facility / Cocoiru 等) |
 | Ca | [Calicula](https://github.com/LUDIARS/Calicula) | カリキュラム予定管理デスクトップアプリ |
+| Ae | [Aedilis](https://github.com/LUDIARS/Aedilis) | 施設予約 + 予定登録/反映 (Schedula / Google Calendar 連携) |
 | Di | [Discutere](https://github.com/LUDIARS/Discutere) | Chat-to-Task 自動化 (Slack / Discord) |
 
 ## ゲーム
