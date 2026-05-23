@@ -33,6 +33,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { createInterface } from 'node:readline';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SERVICES, findService, resolveIds } from './services.mjs';
@@ -118,7 +119,8 @@ function writeBatchTemplate() {
     cernere: {
       url: 'http://localhost:8080',
       adminEmail: '<cernere-system-admin-email>',
-      adminPassword: '<cernere-system-admin-password>',
+      // adminPassword: 平文を file に置く代わりに `CERNERE_ADMIN_PASSWORD` env か
+      // 対話入力を推奨。 ローカル開発で利便性のため file 保管も可だが警告される。
     },
   };
   writeFileSync(p, JSON.stringify(tpl, null, 2) + '\n', 'utf-8');
@@ -213,7 +215,7 @@ function runSetupBatch(rest) {
 // Cernere の `managed_project.register` は WS dispatch のみ (HTTP REST 経由が
 // ない)。 流れは:
 //   1. POST /api/auth/login (email + password) → adminAccessToken
-//   2. WS /auth?token=<adminAccessToken> 接続
+//   2. WS /auth?token=<adminAccessToken> 接続  (※)
 //   3. server から { type: "connected" } 受信
 //   4. send { type: "module_request", module: "managed_project", action: "register",
 //             payload: { project: {key, name}, user_data: {columns: {}} } }
@@ -222,6 +224,90 @@ function runSetupBatch(rest) {
 //      → 即 サービスの .env.cernere に書出す
 //   7. 既存 active project → "already exists" エラーで skip
 //      既存 inactive project → 再登録で reactivate (clientSecret は返らない)
+//
+// (※) Cernere `/auth` WS は token を query string でのみ受ける仕様 (Cernere
+//     server/src/app.ts:140-142, CLAUDE.md 1.2 Step 1)。 Sec-WebSocket-Protocol /
+//     Authorization header は現状未対応で、 本スクリプトは仕様に従い query
+//     経由で送る。 token が Cernere の access log に残るリスクは Cernere 側で
+//     access log のクエリ redact を強化することで対処する (本ツールではせめて
+//     自分のログから漏らさないように `redactToken()` を通す)。
+
+/** URL や error message から `token=...` を伏字に置換。 ログ漏出防止用。 */
+function redactToken(s) {
+  return String(s ?? '').replace(/(token=)[^&\s]+/gi, '$1<redacted>');
+}
+
+/** WS error event から人間可読なメッセージを抽出。 ErrorEvent には
+ *  `message` が無いケースがあり (browser 互換 native WS)、 `error`/`type` 等を
+ *  フォールバックで拾う。 */
+function wsErrorMessage(e) {
+  if (e == null) return 'unknown';
+  if (typeof e === 'string') return redactToken(e);
+  const m = e?.error?.message ?? e?.message ?? e?.reason ?? e?.type;
+  if (m) return redactToken(String(m));
+  try {
+    return redactToken(JSON.stringify(e));
+  } catch {
+    return redactToken(String(e));
+  }
+}
+
+/** stdin から password を no-echo で読む (TTY のみ)。 piped 入力では fallback。 */
+function promptPasswordSilently(prompt) {
+  return new Promise((resolveP) => {
+    process.stdout.write(prompt);
+    const stdin = process.stdin;
+    const isTty = stdin.isTTY === true;
+    if (isTty && typeof stdin.setRawMode === 'function') {
+      stdin.setRawMode(true);
+      stdin.resume();
+      stdin.setEncoding('utf8');
+      let buf = '';
+      const onData = (ch) => {
+        if (ch === '\n' || ch === '\r' || ch === '\x04') {
+          stdin.setRawMode(false);
+          stdin.pause();
+          stdin.removeListener('data', onData);
+          process.stdout.write('\n');
+          resolveP(buf);
+          return;
+        }
+        if (ch === '\x03') { // Ctrl-C
+          stdin.setRawMode(false);
+          stdin.pause();
+          process.stdout.write('\n');
+          process.exit(130);
+        }
+        if (ch === '\x7f' || ch === '\b') { // backspace
+          buf = buf.slice(0, -1);
+          return;
+        }
+        buf += ch;
+      };
+      stdin.on('data', onData);
+    } else {
+      const rl = createInterface({ input: stdin, output: process.stdout, terminal: false });
+      rl.question('', (ans) => { rl.close(); resolveP(ans); });
+    }
+  });
+}
+
+/** cernere.adminPassword を解決。 env > file > 対話入力 の優先順位。 */
+async function resolveCernereAdminPassword(ce) {
+  const fromEnv = process.env.CERNERE_ADMIN_PASSWORD;
+  if (fromEnv) return fromEnv;
+  if (ce.adminPassword && !String(ce.adminPassword).startsWith('<')) {
+    console.warn(`[cernere-register] adminPassword が ${BATCH_CONFIG_PATH} に平文で保管されています。`);
+    console.warn(`[cernere-register]   推奨: file から削除し、 CERNERE_ADMIN_PASSWORD env か対話入力を使用してください。`);
+    return ce.adminPassword;
+  }
+  // 対話入力
+  if (!process.stdin.isTTY) {
+    console.error(`adminPassword が ${BATCH_CONFIG_PATH} にも env (CERNERE_ADMIN_PASSWORD) にも無く、 stdin が TTY ではないため対話入力もできません`);
+    process.exit(1);
+  }
+  return await promptPasswordSilently(`Cernere admin password (${ce.adminEmail}): `);
+}
 
 async function adminLogin(cernereUrl, email, password) {
   const res = await fetch(`${cernereUrl}/api/auth/login`, {
@@ -260,7 +346,7 @@ function wsCommand(cernereUrl, accessToken, module_, action, payload) {
     const timer = setTimeout(() => finish(new Error('WS timeout (15s)')), 15000);
 
     ws.addEventListener('open', () => { /* wait for "connected" before send */ });
-    ws.addEventListener('error', (e) => finish(new Error(`WS error: ${e?.message ?? e}`)));
+    ws.addEventListener('error', (e) => finish(new Error(`WS error: ${wsErrorMessage(e)}`)));
     ws.addEventListener('close', () => {
       clearTimeout(timer);
       if (!settled) finish(new Error('WS closed without response'));
@@ -346,8 +432,9 @@ function writeCernereCreds(spec, cernereUrl, clientId, clientSecret) {
 async function runCernereRegister(rest) {
   const cfg = loadBatchConfig();
   const ce = cfg.cernere;
-  if (!ce || !ce.url || !ce.adminEmail || !ce.adminPassword) {
-    console.error(`${BATCH_CONFIG_PATH} に cernere { url, adminEmail, adminPassword } を設定してください`);
+  if (!ce || !ce.url || !ce.adminEmail) {
+    console.error(`${BATCH_CONFIG_PATH} に cernere { url, adminEmail } を設定してください`);
+    console.error(`  (adminPassword は env CERNERE_ADMIN_PASSWORD か 対話入力でも可)`);
     process.exit(1);
   }
 
@@ -361,12 +448,14 @@ async function runCernereRegister(rest) {
     process.exit(2);
   }
 
+  const adminPassword = await resolveCernereAdminPassword(ce);
+
   console.log(`[cernere-register] admin login -> ${ce.url}`);
   let token;
   try {
-    token = await adminLogin(ce.url, ce.adminEmail, ce.adminPassword);
+    token = await adminLogin(ce.url, ce.adminEmail, adminPassword);
   } catch (e) {
-    console.error(`admin login 失敗: ${e.message}`);
+    console.error(`admin login 失敗: ${redactToken(e.message)}`);
     process.exit(1);
   }
   console.log(`[cernere-register] login OK`);
@@ -398,7 +487,7 @@ async function runCernereRegister(rest) {
         skipped++;
       }
     } catch (e) {
-      const m = e.message ?? String(e);
+      const m = redactToken(e.message ?? String(e));
       if (m.includes('already exists')) {
         console.log(`[${id}] 既に active project — skip (既存の .env credentials が有効である想定)`);
         skipped++;
