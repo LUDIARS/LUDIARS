@@ -9,14 +9,18 @@
 //   node scripts/infisical.mjs setup-batch --init
 //
 // op:
-//   setup        対話形式で 1 サービスの Infisical 設定
-//   setup-batch  .infisical-batch.json から shared credentials + per-service projectId
-//                を読んで全サービスの .env.secrets を非対話で生成
-//   test         接続テスト
-//   gen          .env 生成
-//   initialize   デフォルト値を Infisical に登録 + 続けて gen も実行 (= .env も生成)。
-//                単独 env-cli の initialize は Infisical 登録だけだが、 この wrapper は
-//                LUDIARS 一括 bootstrap でよく使う流れに合わせて gen を連結する。
+//   setup            対話形式で 1 サービスの Infisical 設定
+//   setup-batch      .infisical-batch.json から shared credentials + per-service projectId
+//                    を読んで全サービスの .env.secrets を非対話で生成
+//   test             接続テスト
+//   gen              .env 生成
+//   initialize       デフォルト値を Infisical に登録 + 続けて gen も実行 (= .env も生成)。
+//                    単独 env-cli の initialize は Infisical 登録だけだが、 この wrapper は
+//                    LUDIARS 一括 bootstrap でよく使う流れに合わせて gen を連結する。
+//   cernere-register Cernere admin で login → 各サービスを managed_project として WS で register
+//                    → 返却された clientId/secret を各サービスの .env に idempotent 書出
+//                    (marker でブロック管理、 重複定義は自動統合)。
+//                    .infisical-batch.json の cernere.{url,adminEmail,adminPassword} を使う。
 //   list / get / set
 //
 // 通常の op は <repoDir>/<subDir?> で `npm run env:<op>` を直列実行。
@@ -36,7 +40,7 @@ import { SERVICES, findService, resolveIds } from './services.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BATCH_CONFIG_PATH = '.infisical-batch.json';
 
-const VALID_OPS = ['setup', 'setup-batch', 'test', 'gen', 'list', 'get', 'set', 'initialize'];
+const VALID_OPS = ['setup', 'setup-batch', 'test', 'gen', 'list', 'get', 'set', 'initialize', 'cernere-register'];
 
 function printUsage() {
   console.log(`Usage:
@@ -45,6 +49,7 @@ function printUsage() {
   node scripts/infisical.mjs set <key=value> <id...>
   node scripts/infisical.mjs setup-batch (--all | <id...>) [--force]
   node scripts/infisical.mjs setup-batch --init
+  node scripts/infisical.mjs cernere-register (--all | <id...>)
 
 op: ${VALID_OPS.join(' | ')}
 
@@ -110,6 +115,11 @@ function writeBatchTemplate() {
       clientSecret: '<shared-universal-auth-client-secret>',
     },
     services,
+    cernere: {
+      url: 'http://localhost:8080',
+      adminEmail: '<cernere-system-admin-email>',
+      adminPassword: '<cernere-system-admin-password>',
+    },
   };
   writeFileSync(p, JSON.stringify(tpl, null, 2) + '\n', 'utf-8');
   console.log(`テンプレを生成しました: ${p}`);
@@ -198,6 +208,214 @@ function runSetupBatch(rest) {
   }
 }
 
+// ── cernere-register ─────────────────────────────────────────
+//
+// Cernere の `managed_project.register` は WS dispatch のみ (HTTP REST 経由が
+// ない)。 流れは:
+//   1. POST /api/auth/login (email + password) → adminAccessToken
+//   2. WS /auth?token=<adminAccessToken> 接続
+//   3. server から { type: "connected" } 受信
+//   4. send { type: "module_request", module: "managed_project", action: "register",
+//             payload: { project: {key, name}, user_data: {columns: {}} } }
+//   5. recv { type: "module_response", payload: { clientId, clientSecret, ... } }
+//   6. clientSecret は **この 1 度しか** 平文で返ってこない (DB は bcrypt hash)
+//      → 即 サービスの .env.cernere に書出す
+//   7. 既存 active project → "already exists" エラーで skip
+//      既存 inactive project → 再登録で reactivate (clientSecret は返らない)
+
+async function adminLogin(cernereUrl, email, password) {
+  const res = await fetch(`${cernereUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    throw new Error(`admin login failed: ${res.status} ${body}`);
+  }
+  const data = await res.json();
+  if (!data.accessToken) throw new Error('admin login: accessToken が返ってこない');
+  return data.accessToken;
+}
+
+/**
+ * Cernere WS で 1 件の module_request を送って response を待つ。
+ * Promise が resolve したら接続は閉じる (短命接続)。
+ */
+function wsCommand(cernereUrl, accessToken, module_, action, payload) {
+  return new Promise((resolveP, rejectP) => {
+    const wsUrl = cernereUrl.replace(/^http/, 'ws') + `/auth?token=${accessToken}`;
+    if (typeof WebSocket === 'undefined') {
+      rejectP(new Error('Node 22+ の native WebSocket が必要です (`node --version`)'));
+      return;
+    }
+    const ws = new WebSocket(wsUrl);
+    let settled = false;
+    const finish = (err, value) => {
+      if (settled) return;
+      settled = true;
+      try { ws.close(); } catch { /* ignore */ }
+      err ? rejectP(err) : resolveP(value);
+    };
+    const timer = setTimeout(() => finish(new Error('WS timeout (15s)')), 15000);
+
+    ws.addEventListener('open', () => { /* wait for "connected" before send */ });
+    ws.addEventListener('error', (e) => finish(new Error(`WS error: ${e?.message ?? e}`)));
+    ws.addEventListener('close', () => {
+      clearTimeout(timer);
+      if (!settled) finish(new Error('WS closed without response'));
+    });
+    ws.addEventListener('message', (ev) => {
+      let msg;
+      try { msg = JSON.parse(typeof ev.data === 'string' ? ev.data : String(ev.data)); }
+      catch { return; }
+      if (msg.type === 'connected') {
+        ws.send(JSON.stringify({ type: 'module_request', module: module_, action, payload }));
+        return;
+      }
+      if (msg.type === 'ping') {
+        ws.send(JSON.stringify({ type: 'pong', ts: msg.ts }));
+        return;
+      }
+      if (msg.type === 'module_response' && msg.module === module_ && msg.action === action) {
+        clearTimeout(timer);
+        finish(null, msg.payload);
+        return;
+      }
+      if (msg.type === 'error') {
+        clearTimeout(timer);
+        finish(new Error(msg.message ?? 'unknown WS error'));
+        return;
+      }
+    });
+  });
+}
+
+const CERNERE_KEYS = ['CERNERE_URL', 'CERNERE_PROJECT_CLIENT_ID', 'CERNERE_PROJECT_CLIENT_SECRET'];
+const CERNERE_MARKER_BEGIN = '# >>> LUDIARS cernere-register (managed by scripts/infisical.mjs) >>>';
+const CERNERE_MARKER_END   = '# <<< LUDIARS cernere-register <<<';
+
+/**
+ * CERNERE_URL / CLIENT_ID / CLIENT_SECRET を <repoDir>/.env に idempotent 書込。
+ *   - 既存の .env の中で本ツール管理ブロック (marker 内) を全置換
+ *   - marker 外で同名キーが書かれていたら警告して remove (重複定義回避)
+ * tsx --env-file-if-exists=.env がそのまま load するので サービス側は無改修。
+ */
+function writeCernereCreds(spec, cernereUrl, clientId, clientSecret) {
+  const dir = resolve(ROOT, spec.repoDir, spec.subDir ?? '.');
+  const target = join(dir, '.env');
+
+  let original = '';
+  if (existsSync(target)) original = readFileSync(target, 'utf-8');
+
+  // 既存の cernere-register ブロックと、 marker 外の同名キーを除去。
+  const lines = original.split('\n');
+  /** @type {string[]} */
+  const kept = [];
+  let inBlock = false;
+  const warnedKeysOutside = [];
+  for (const line of lines) {
+    if (line.trim() === CERNERE_MARKER_BEGIN) { inBlock = true; continue; }
+    if (line.trim() === CERNERE_MARKER_END)   { inBlock = false; continue; }
+    if (inBlock) continue;
+    // marker 外で CERNERE_* が手書きされていたら drop して warn
+    const m = line.match(/^\s*(CERNERE_URL|CERNERE_PROJECT_CLIENT_ID|CERNERE_PROJECT_CLIENT_SECRET)\s*=/);
+    if (m) { warnedKeysOutside.push(m[1]); continue; }
+    kept.push(line);
+  }
+  // 末尾改行を整える
+  while (kept.length && kept[kept.length - 1].trim() === '') kept.pop();
+
+  const block = [
+    CERNERE_MARKER_BEGIN,
+    `# 生成時刻: ${new Date().toISOString()}`,
+    `# このブロックは cernere-register が上書きします。 手で書き換えても次回実行で消えます。`,
+    `CERNERE_URL=${cernereUrl}`,
+    `CERNERE_PROJECT_CLIENT_ID=${clientId}`,
+    `CERNERE_PROJECT_CLIENT_SECRET=${clientSecret}`,
+    CERNERE_MARKER_END,
+  ];
+  const content = [...kept, '', ...block, ''].join('\n');
+  writeFileSync(target, content, 'utf-8');
+  if (warnedKeysOutside.length) {
+    console.warn(`[${spec.id}] .env の marker 外で書かれていた ${warnedKeysOutside.join('/')} を統合 (重複定義回避)`);
+  }
+  return target;
+}
+
+async function runCernereRegister(rest) {
+  const cfg = loadBatchConfig();
+  const ce = cfg.cernere;
+  if (!ce || !ce.url || !ce.adminEmail || !ce.adminPassword) {
+    console.error(`${BATCH_CONFIG_PATH} に cernere { url, adminEmail, adminPassword } を設定してください`);
+    process.exit(1);
+  }
+
+  const { ids, unknown } = resolveIds(rest);
+  if (unknown.length) {
+    console.error(`unknown service IDs: ${unknown.join(', ')}`);
+    process.exit(2);
+  }
+  if (!ids.length) {
+    console.error('対象サービスがありません。 <id...> か --all を指定してください');
+    process.exit(2);
+  }
+
+  console.log(`[cernere-register] admin login -> ${ce.url}`);
+  let token;
+  try {
+    token = await adminLogin(ce.url, ce.adminEmail, ce.adminPassword);
+  } catch (e) {
+    console.error(`admin login 失敗: ${e.message}`);
+    process.exit(1);
+  }
+  console.log(`[cernere-register] login OK`);
+
+  let registered = 0, skipped = 0, reactivated = 0, failed = 0;
+  for (const id of ids) {
+    const spec = findService(id);
+    if (!spec) continue;
+    if (!spec.needsCernere) {
+      console.warn(`[${id}] needsCernere=false — skip`);
+      skipped++;
+      continue;
+    }
+    const definition = {
+      project: { key: spec.id, name: spec.displayName },
+      user_data: { columns: {} },
+    };
+    try {
+      const res = await wsCommand(ce.url, token, 'managed_project', 'register', definition);
+      if (res?.clientId && res?.clientSecret) {
+        const path = writeCernereCreds(spec, ce.url, res.clientId, res.clientSecret);
+        console.log(`[${id}] register OK — ${path} に書込 (clientId=${res.clientId.slice(0, 16)}...)`);
+        registered++;
+      } else if (res?.message?.includes('reactivated')) {
+        console.warn(`[${id}] 既存 inactive project を reactivate — 既存 clientSecret は不明、 必要なら手動 rotate`);
+        reactivated++;
+      } else {
+        console.warn(`[${id}] register 応答が想定外: ${JSON.stringify(res).slice(0, 200)}`);
+        skipped++;
+      }
+    } catch (e) {
+      const m = e.message ?? String(e);
+      if (m.includes('already exists')) {
+        console.log(`[${id}] 既に active project — skip (既存の .env credentials が有効である想定)`);
+        skipped++;
+      } else {
+        console.error(`[${id}] register 失敗: ${m}`);
+        failed++;
+      }
+    }
+  }
+
+  console.log(`\n[cernere-register] 完了: 登録=${registered}, reactivated=${reactivated}, skip=${skipped}, 失敗=${failed}`);
+  if (registered > 0) {
+    console.log(`各サービスの .env に CERNERE_* を書込済 — 即 dev で動きます (tsx が自動 load)`);
+  }
+  if (failed) process.exit(1);
+}
+
 // ── 通常 op (npm run env:<op>) ────────────────────────────────
 
 /** 1 サービスで 1 op を実行。 失敗時 false。 */
@@ -278,6 +496,14 @@ function main() {
 
   if (op === 'setup-batch') {
     runSetupBatch(argv.slice(1));
+    return;
+  }
+
+  if (op === 'cernere-register') {
+    runCernereRegister(argv.slice(1)).catch((e) => {
+      console.error(e);
+      process.exit(1);
+    });
     return;
   }
 
