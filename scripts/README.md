@@ -27,6 +27,12 @@ npm run infisical -- set FOO=bar bibliotheca      # 1 key 設定
 op = `setup / setup-batch / test / gen / list / get / set / initialize`。
 通常 op は各サービスの `<repoDir>/<subDir?>` で `npm run env:<op>` を直列実行。
 
+**`initialize` だけは特別**: `env:initialize` (Infisical に defaults 登録) の
+直後に `env:gen` (.env 書出) も自動で回す。 単独 env-cli の `initialize` は
+登録のみで .env を書かないが、 この wrapper は LUDIARS 一括 bootstrap でよく
+使う流れに合わせて連結する。 → 1 コマンドで「Infisical 登録 + 各サービスの
+`.env` 生成」 までが完了する。
+
 ### setup-batch — 各サービスの ProjectID を 1 config で一括
 
 `env:setup` の対話 5 項目のうち:
