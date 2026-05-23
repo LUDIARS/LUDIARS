@@ -14,7 +14,9 @@
 //                を読んで全サービスの .env.secrets を非対話で生成
 //   test         接続テスト
 //   gen          .env 生成
-//   initialize   デフォルト値を Infisical に登録
+//   initialize   デフォルト値を Infisical に登録 + 続けて gen も実行 (= .env も生成)。
+//                単独 env-cli の initialize は Infisical 登録だけだが、 この wrapper は
+//                LUDIARS 一括 bootstrap でよく使う流れに合わせて gen を連結する。
 //   list / get / set
 //
 // 通常の op は <repoDir>/<subDir?> で `npm run env:<op>` を直列実行。
@@ -198,6 +200,24 @@ function runSetupBatch(rest) {
 
 // ── 通常 op (npm run env:<op>) ────────────────────────────────
 
+/** 1 サービスで 1 op を実行。 失敗時 false。 */
+function runEnvOp(spec, op, opArg) {
+  const dir = resolve(ROOT, spec.repoDir, spec.subDir ?? '.');
+  if (!existsSync(join(dir, 'package.json'))) {
+    console.error(`[${spec.id}] package.json 不在 (${dir}) — skip`);
+    return false;
+  }
+  console.log(`\n=== [${spec.id}] ${spec.displayName}  env:${op}${opArg ? ` ${opArg}` : ''} ===`);
+  const args = ['run', `env:${op}`];
+  if (opArg) args.push('--', opArg);
+  const r = spawnSync('npm', args, { cwd: dir, stdio: 'inherit', shell: true });
+  if (r.status !== 0) {
+    console.error(`[${spec.id}] env:${op} 失敗 (exit ${r.status})`);
+    return false;
+  }
+  return true;
+}
+
 function runNpmOp(op, opArg, rest) {
   const { ids, unknown } = resolveIds(rest, { requireEnvCli: rest.includes('--all') });
   if (unknown.length) {
@@ -218,19 +238,18 @@ function runNpmOp(op, opArg, rest) {
       console.warn(`[${id}] hasEnvCli=false — skip`);
       continue;
     }
-    const dir = resolve(ROOT, spec.repoDir, spec.subDir ?? '.');
-    if (!existsSync(join(dir, 'package.json'))) {
-      console.error(`[${id}] package.json 不在 (${dir}) — skip`);
-      failed++;
-      continue;
-    }
-    console.log(`\n=== [${id}] ${spec.displayName}  env:${op}${opArg ? ` ${opArg}` : ''} ===`);
-    const args = ['run', `env:${op}`];
-    if (opArg) args.push('--', opArg);
-    const r = spawnSync('npm', args, { cwd: dir, stdio: 'inherit', shell: true });
-    if (r.status !== 0) {
-      console.error(`[${id}] env:${op} 失敗 (exit ${r.status})`);
-      failed++;
+    const ok = runEnvOp(spec, op, opArg);
+    if (!ok) { failed++; continue; }
+
+    // initialize は Infisical に defaults を登録するだけで .env を書かない。
+    // この wrapper は initialize 直後に gen も回して .env を生成しておく
+    // (= サービスの dev script が走る状態にする)。 standalone env-cli の
+    // initialize とは behaviour が違うが、 「LUDIARS 一括 bootstrap」 として
+    // よく使う流れなので統合する。
+    if (op === 'initialize') {
+      console.log(`[${id}] initialize 完了 — 続けて env:gen で .env を書込`);
+      const genOk = runEnvOp(spec, 'gen', null);
+      if (!genOk) failed++;
     }
   }
 
