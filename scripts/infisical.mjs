@@ -260,7 +260,7 @@ function wsCommand(cernereUrl, accessToken, module_, action, payload) {
     const timer = setTimeout(() => finish(new Error('WS timeout (15s)')), 15000);
 
     ws.addEventListener('open', () => { /* wait for "connected" before send */ });
-    ws.addEventListener('error', (e) => finish(new Error(`WS error: ${e?.message ?? e}`)));
+    ws.addEventListener('error', (e) => finish(new Error(`WS error: ${e?.message ?? e?.error?.message ?? e?.type ?? 'unknown'}`)));
     ws.addEventListener('close', () => {
       clearTimeout(timer);
       if (!settled) finish(new Error('WS closed without response'));

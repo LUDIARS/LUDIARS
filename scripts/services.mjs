@@ -1,5 +1,6 @@
 // LUDIARS service registry — scripts/infisical.mjs と共有する一覧。
-// infra/PORT-MAP.md + Corpus/server/hub/discovery.ts と同期させる。
+// hasEnvCli=true のサービスのみ収録 (Infisical wrapper 用 subset)。
+// org 全体のサービス一覧は PROJECT-CODES.md / docs/data/services.json を参照。
 //
 // 各サービスは <repoDir>/<subDir?> で npm script を走らせる前提。
 // hasEnvCli: ../Cernere/packages/env-cli を経由する Infisical 連携を持つ。
