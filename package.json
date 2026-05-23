@@ -5,6 +5,7 @@
   "scripts": {
     "setup": "node setup.mjs",
     "start": "node setup.mjs --start",
-    "stop": "node setup.mjs --stop"
+    "stop": "node setup.mjs --stop",
+    "infisical": "node scripts/infisical.mjs"
   }
 }

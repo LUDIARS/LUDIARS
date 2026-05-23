@@ -1,3 +1,5 @@
 node_modules/
 .setup-config.json
 .env
+# scripts/infisical.mjs setup-batch の shared credentials + per-service projectId 設定
+.infisical-batch.json
