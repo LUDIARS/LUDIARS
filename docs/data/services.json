@@ -9,13 +9,17 @@
     { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
       "repos": ["Cernere", "Nuntius"] },
     { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
-      "repos": ["Actio", "Calicula", "Discutere"] },
+      "repos": ["Actio", "Schedula", "Calicula", "Aedilis", "Discutere"] },
     { "id": "game",      "label": "ゲーム",                "accent": "#f39c9c",
       "repos": ["AdventureCube", "Ludellus", "Ludellus-Server"] },
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
       "repos": ["Synergos", "Tessera", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma", "Tirocinium"] },
+    { "id": "hub",       "label": "Hub フレームワーク",     "accent": "#c8b9ff",
+      "repos": ["Corpus", "VantanHub"] },
+    { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
+      "repos": ["Foundation"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
       "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora", "Excubitor"] },
     { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
@@ -250,6 +254,42 @@
       "category": "planned",
       "summary": "未着手 / 計画中のプレースホルダリポ",
       "stack": []
+    },
+    "Schedula": {
+      "icon": "🗓",
+      "category": "schedule",
+      "summary": "予定 (Event) / カレンダー基盤。2026-05-20 Actio から再分離。Google Calendar / Aedilis と双方向連携",
+      "stack": ["TypeScript", "Hono", "Drizzle", "React"]
+    },
+    "Aedilis": {
+      "icon": "🏟",
+      "category": "schedule",
+      "summary": "施設予約 + 予定登録/反映。Bibliotheca と同パターン (Hono + SQLite + Cernere PASETO)。Schedula / Google Calendar 連携",
+      "stack": ["TypeScript", "Hono", "better-sqlite3", "vitest"]
+    },
+    "Tirocinium": {
+      "icon": "🎤",
+      "category": "asset",
+      "summary": "面接練習アプリ。 ES/portfolio 学習 AI + 音声対話 (Imperativus 経由) + 複合 LLM (Sonnet/GPT/Opus) 評価",
+      "stack": ["TypeScript", "Hono", "Tauri", "LLM"]
+    },
+    "Corpus": {
+      "icon": "🧩",
+      "category": "hub",
+      "summary": "汎用 hub フレームワーク。 サービスにコネクタ接続して横断集約 + declarative renderer (descriptor × layouter 直交)",
+      "stack": ["TypeScript", "Hono", "better-sqlite3", "esbuild"]
+    },
+    "VantanHub": {
+      "icon": "🏫",
+      "category": "hub",
+      "summary": "EducationPartner 校特化の学校生活 hub。 Corpus を submodule で取り込み 5 モジュール (在席/施設/カリキュラム/予定/チャット) + Electron マスコット",
+      "stack": ["TypeScript", "Corpus", "Electron"]
+    },
+    "Foundation": {
+      "icon": "🧱",
+      "category": "ui",
+      "summary": "LUDIARS 全 Web フロントエンド共通デザインシステム。 CSS Variables + Tailwind + モバイル縦画面対応",
+      "stack": ["CSS", "Tailwind", "TypeScript"]
     }
   }
 }

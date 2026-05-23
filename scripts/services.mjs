@@ -3,6 +3,23 @@
 //
 // 各サービスは <repoDir>/<subDir?> で npm script を走らせる前提。
 // hasEnvCli: ../Cernere/packages/env-cli を経由する Infisical 連携を持つ。
+//
+// ── スコープ ──
+// 本 registry は「独立した node サーバプロセスを持つ LUDIARS サービス」 のみを
+// 列挙する。 PROJECT-CODES.md は全リポジトリ (28+) を対象だが、 以下は意図的に
+// 除外している (Infisical 一括処理の対象外のため):
+//
+//   - C++ / Rust 等のライブラリ・クライアント: Pictor, Ergo, Synergos, Tessera,
+//     Codex, Curare, Clio, Signum, Iter, AdventureCube, PrivateGame, Ludellus,
+//     Ludellus-Server, Ars 系, infra (docker compose), AIFormat, All-In-OneTest,
+//     Foundation, Conciliator
+//   - Tauri デスクトップ専用 (host port bind 無し): Hora, Calicula
+//   - obsolete: Excubitor (Concordia に統合済み)
+//   - npm package のみ (サービス本体無し): Actio-PublicModules, Actio-SchoolModules
+//   - 計画段階で未起動: Discutere, Educatus, Ludus, Voluptas
+//
+// 新規サービスを追加する時は (a) 本 registry に 1 行 + (b) infra/PORT-MAP.md
+// 更新 + (c) docs/data/services.json も更新 (dashboard 表示用)。
 
 /**
  * @typedef {Object} ServiceSpec
@@ -45,6 +62,52 @@ export const SERVICES = [
     needsCernere: true,
     hasEnvCli: true,
     note: 'タスク管理。 declarative β は /declarative.html',
+  },
+  {
+    id: 'schedula',
+    displayName: 'Schedula (予定)',
+    repoDir: '../Schedula',
+    port: 3000,
+    needsCernere: true,
+    hasEnvCli: true,
+    note: '予定 / カレンダー基盤 (2026-05-20 Actio から再分離)',
+  },
+  {
+    id: 'nuntius',
+    displayName: 'Nuntius (通知)',
+    repoDir: '../Nuntius',
+    port: 3100,
+    needsCernere: true,
+    hasEnvCli: true,
+    note: '統合通知 (Slack / Discord / LINE / Email / SMS)',
+  },
+  {
+    id: 'imperativus',
+    displayName: 'Imperativus (GPS/音声)',
+    repoDir: '../Imperativus',
+    port: 5963,
+    needsCernere: true,
+    hasEnvCli: true,
+    note: 'GPS + 音声コマンド relay。 MQTT broker 同梱',
+  },
+  {
+    id: 'praeforma',
+    displayName: 'Praeforma (仕様↔実装)',
+    repoDir: '../Praeforma',
+    subDir: 'server',
+    port: 8889,
+    needsCernere: true,
+    hasEnvCli: true,
+    note: '仕様書 ↔ 実装連携。 placeholder + 構造化 spec + asset 差し替え',
+  },
+  {
+    id: 'legatus',
+    displayName: 'Legatus (PC 常駐代理)',
+    repoDir: '../Legatus',
+    port: 17320,
+    needsCernere: false,
+    hasEnvCli: true,
+    note: '個人 PC 常駐の LUDIARS サービス代理人 (OwnTracks forwarder 等)',
   },
   {
     id: 'concordia',
@@ -99,6 +162,24 @@ export const SERVICES = [
     needsCernere: false,
     hasEnvCli: false,
     note: '遠隔テストランナー',
+  },
+  {
+    id: 'corpus',
+    displayName: 'Corpus (hub framework)',
+    repoDir: '../Corpus',
+    port: 5187,
+    needsCernere: true,
+    hasEnvCli: false,
+    note: '汎用 hub フレームワーク。 declarative renderer + connector レジストリ。 env は自前 bootstrap',
+  },
+  {
+    id: 'vantanhub',
+    displayName: 'VantanHub (EducationPartner 校 hub)',
+    repoDir: '../VantanHub',
+    port: 5188,
+    needsCernere: true,
+    hasEnvCli: false,
+    note: 'Corpus submodule + 学校特化プラグインパック。 env は Corpus bootstrap 経由',
   },
 ];
 
