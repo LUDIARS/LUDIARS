@@ -33,6 +33,41 @@ op = `setup / setup-batch / test / gen / list / get / set / initialize`。
 使う流れに合わせて連結する。 → 1 コマンドで「Infisical 登録 + 各サービスの
 `.env` 生成」 までが完了する。
 
+### cernere-register — Cernere managed_project を一括登録
+
+各サービスは Cernere に project として登録され、 `clientId / clientSecret` を
+受け取って `project_credentials` grant で認証する (= schema-sync 等 server-to-
+server 通信)。 これを admin login → register → 認証情報書出までを 1 コマンドで。
+
+`.infisical-batch.json` に `cernere` セクションを追加:
+
+```json
+{
+  "defaults": { ... },
+  "services": { ... },
+  "cernere": {
+    "url": "http://localhost:8080",
+    "adminEmail": "admin@example.com",
+    "adminPassword": "..."
+  }
+}
+```
+
+実行:
+
+```sh
+npm run infisical -- cernere-register --all     # 全 needsCernere サービスを登録
+npm run infisical -- cernere-register actio     # 単一
+```
+
+挙動:
+
+- admin で REST login → WS `/auth?token=...` で `managed_project.register` 送信
+- 新規登録: `clientId / clientSecret` を **その場で 1 度だけ返ってくる** ので
+  即各サービスの `.env` に書出 (marker ブロック内、 idempotent)
+- 既存 active project: skip (既存 `.env` の認証情報が有効である想定)
+- 既存 inactive: reactivate (但し `clientSecret` は返らない — 必要なら手動 rotate)
+
 ### setup-batch — 各サービスの ProjectID を 1 config で一括
 
 `env:setup` の対話 5 項目のうち:
