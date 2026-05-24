@@ -21,7 +21,7 @@
     { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
       "repos": ["Foundation"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
-      "repos": ["Memoria", "Legatus", "Concordia", "Quaestor", "Hora", "Excubitor"] },
+      "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora", "Excubitor"] },
     { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
       "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas"] }
   ],
@@ -170,6 +170,12 @@
       "category": "local",
       "summary": "複数 AI コーディングエージェント (Claude Code / Gemini CLI / Codex CLI) のセッション間協調・記録サービス。loopback 17330。lock せず軽い通知だけで干渉回避、個人データ非保管",
       "stack": ["TypeScript", "Hono", "React 19", "better-sqlite3", "ws"]
+    },
+    "Lictor": {
+      "icon": "🔗",
+      "category": "local",
+      "summary": "Claude Code / Codex CLI をラップする per-session sidecar (略称 Li)。端末タイトル / Concordia 双方向統合 / skill 注入 / pty 経由 slash・keys・answer 注入 / permission proxy / fs-RPC / transcript-tail",
+      "stack": ["TypeScript", "Hono", "node-pty", "Concordia"]
     },
     "Quaestor": {
       "icon": "💰",
