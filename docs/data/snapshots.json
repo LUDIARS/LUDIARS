@@ -288,8 +288,8 @@
     },
     {
       "date": "2026-05-24",
-      "weighted_completion": 63,
-      "_calc": "planned (Ars-Musa/Educatus/Ludus/Voluptas) は進捗計算対象外。 40 リポの算術平均",
+      "weighted_completion": 55,
+      "_calc": "planned カテゴリ (Ars-Musa/Educatus/Ludus/Voluptas/Tessera/VantanHub) は進捗 0 として算入、 全 44 リポの算術平均 (Foundation 除く)",
       "md": "snapshots/2026-05-24.md",
       "repos": {
         "LUDIARS": 78,
@@ -310,7 +310,7 @@
         "Ludellus": 40,
         "Ludellus-Server": 35,
         "Synergos": 72,
-        "Tessera": 8,
+        "Tessera": 0,
         "Codex": 65,
         "Curare": 52,
         "Clio": 28,
@@ -324,7 +324,7 @@
         "Praeforma": 60,
         "Tirocinium": 70,
         "Corpus": 75,
-        "VantanHub": 40,
+        "VantanHub": 0,
         "Memoria": 86,
         "Legatus": 45,
         "Concordia": 92,
@@ -332,13 +332,14 @@
         "Quaestor": 58,
         "Hora": 28,
         "Excubitor": 35,
-        "Ars-Musa": 15,
-        "Educatus": 5,
-        "Ludus": 8,
-        "Voluptas": 5
+        "Ars-Musa": 0,
+        "Educatus": 0,
+        "Ludus": 0,
+        "Voluptas": 0
       },
       "highlights": [
-        "進捗計算ルール変更: 計画中 4 リポ (Ars-Musa/Educatus/Ludus/Voluptas) を weighted_completion から除外し、 Lictor を services.json local カテゴリに追加。 同方式で 2026-05-17 を再計算すると 62% → 今週 63% (+1)",
+        "進捗計算ルール再変更: planned カテゴリ (Ars-Musa/Educatus/Ludus/Voluptas + Tessera + VantanHub を新規移動) は 0 として計上。 全 44 リポ (Foundation 除く) の算術平均で 55%。 前週同方式 (2026-05-17) は 56% → 表面上 -1pt。 ただし divisor が 38 → 44 に拡大 (新規 5 サービス + Lictor 取込) + Tessera/VantanHub の 0 化が主因で、 共通 38 リポ集合で比較すると +1pt 相当の実質前進",
+        "Tessera が network → planned (実装着手まで進捗評価対象外)。 VantanHub が hub → planned (scaffold + Corpus plumbing 段階、 5 モジュール wire 着手まで保留)。 network カテゴリは Synergos + Codex の 2 リポ、 hub は Corpus 単独",
         "Concordia 84% → 92% (+8) Lictor sidecar 統合大波 (PR #17-#34): spawn orchestrator / machines API / transcript ingest / tool permission proxy / filesystem RPC / session fork / thinking indicator / session_task_records / runtime kill switches (Rules page) / conflicts same-branch fix",
         "Pictor 71% → 80% (+9) Phase 3 系統B 解体 (#53-#68): 外部 JSON pipeline config + Visus CUSTOM shader + 実 Vulkan GpuTimer + 4-pass 解体 + 3 Registry external API + PipelineCompiler + host_recorded pass",
         "Ergo 81% → 86% (+5) render_pipeline plugin が visualizer → 設定編集 → タイムライン → post-process sub-node まで Phase 3 完遂、 ergo_render + ergo_profile + visus plugin が増設",
