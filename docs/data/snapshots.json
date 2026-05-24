@@ -288,7 +288,8 @@
     },
     {
       "date": "2026-05-24",
-      "weighted_completion": 58,
+      "weighted_completion": 63,
+      "_calc": "planned (Ars-Musa/Educatus/Ludus/Voluptas) は進捗計算対象外。 40 リポの算術平均",
       "md": "snapshots/2026-05-24.md",
       "repos": {
         "LUDIARS": 78,
@@ -327,6 +328,7 @@
         "Memoria": 86,
         "Legatus": 45,
         "Concordia": 92,
+        "Lictor": 75,
         "Quaestor": 58,
         "Hora": 28,
         "Excubitor": 35,
@@ -336,12 +338,13 @@
         "Voluptas": 5
       },
       "highlights": [
+        "進捗計算ルール変更: 計画中 4 リポ (Ars-Musa/Educatus/Ludus/Voluptas) を weighted_completion から除外し、 Lictor を services.json local カテゴリに追加。 同方式で 2026-05-17 を再計算すると 62% → 今週 63% (+1)",
         "Concordia 84% → 92% (+8) Lictor sidecar 統合大波 (PR #17-#34): spawn orchestrator / machines API / transcript ingest / tool permission proxy / filesystem RPC / session fork / thinking indicator / session_task_records / runtime kill switches (Rules page) / conflicts same-branch fix",
         "Pictor 71% → 80% (+9) Phase 3 系統B 解体 (#53-#68): 外部 JSON pipeline config + Visus CUSTOM shader + 実 Vulkan GpuTimer + 4-pass 解体 + 3 Registry external API + PipelineCompiler + host_recorded pass",
         "Ergo 81% → 86% (+5) render_pipeline plugin が visualizer → 設定編集 → タイムライン → post-process sub-node まで Phase 3 完遂、 ergo_render + ergo_profile + visus plugin が増設",
         "Bibliotheca 45% → 60% (+15) Corpus declarative panel 全面移行 + 返却ランデブー (ゲスト QR + admin スキャン) + secure-headers",
         "Memoria 80% → 86% (+6) v1.0.1 GitHub Release auto-update + Hub-shell Phase 0 + Corpus hub manifest + packet-monitor tshark allowlist + タスク 「目標」 種別",
-        "新規 5 サービス: Corpus 75% (hub framework v0.1 → v1.0 + declarative renderer) / Tirocinium 70% (25 PR で server + Tauri + 音声 + Memoria RAG + LLM ft-loop) / Aedilis 40% (v0.2 施設予約 + Corpus pilot) / VantanHub 40% (Corpus submodule + PASETO) / Schedula 30% (Actio split + P4 設計)"
+        "新規サービス: Lictor 75% (CC sidecar、 services.json 新規登録) / Corpus 75% (hub framework v0.1 → v1.0 + declarative renderer) / Tirocinium 70% (25 PR で server + Tauri + 音声 + Memoria RAG + LLM ft-loop) / Aedilis 40% (v0.2 施設予約 + Corpus pilot) / VantanHub 40% (Corpus submodule + PASETO) / Schedula 30% (Actio split + P4 設計)"
       ]
     }
   ]
