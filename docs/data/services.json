@@ -13,17 +13,17 @@
     { "id": "game",      "label": "ゲーム",                "accent": "#f39c9c",
       "repos": ["AdventureCube", "Ludellus", "Ludellus-Server"] },
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
-      "repos": ["Synergos", "Tessera", "Codex"] },
+      "repos": ["Synergos", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
       "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma", "Tirocinium"] },
     { "id": "hub",       "label": "Hub フレームワーク",     "accent": "#c8b9ff",
-      "repos": ["Corpus", "VantanHub"] },
+      "repos": ["Corpus"] },
     { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
       "repos": ["Foundation"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
       "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora", "Excubitor"] },
     { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
-      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas"] }
+      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera", "VantanHub"] }
   ],
 
   "services": {
@@ -119,8 +119,8 @@
     },
     "Tessera": {
       "icon": "🀄",
-      "category": "network",
-      "summary": "Synergos 下層流用のモバイルゲーム通信基盤。ed25519 署名入力による真性認証で低遅延リアルタイム同期 (設計段階)",
+      "category": "planned",
+      "summary": "Synergos 下層流用のモバイルゲーム通信基盤。ed25519 署名入力による真性認証で低遅延リアルタイム同期。 設計段階のため 2026-05-24 から planned に移動 (実装着手まで進捗評価対象外)",
       "stack": ["Rust", "Synergos-net"]
     },
     "Curare": {
@@ -287,8 +287,8 @@
     },
     "VantanHub": {
       "icon": "🏫",
-      "category": "hub",
-      "summary": "Vantan 校特化の学校生活 hub。 Corpus を submodule で取り込み 5 モジュール (在席/施設/カリキュラム/予定/チャット) + Electron マスコット",
+      "category": "planned",
+      "summary": "Vantan 校特化の学校生活 hub。 Corpus を submodule で取り込み 5 モジュール (在席/施設/カリキュラム/予定/チャット) + Electron マスコット。 scaffold + plumbing 段階のため 2026-05-24 から planned に移動 (5 モジュール wire 着手まで進捗評価対象外)",
       "stack": ["TypeScript", "Corpus", "Electron"]
     },
     "Foundation": {
