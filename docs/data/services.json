@@ -23,7 +23,7 @@
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
       "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora", "Excubitor"] },
     { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
-      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera", "VantanHub"] }
+      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"] }
   ],
 
   "services": {
@@ -284,12 +284,6 @@
       "category": "hub",
       "summary": "汎用 hub フレームワーク。 サービスにコネクタ接続して横断集約 + declarative renderer (descriptor × layouter 直交)",
       "stack": ["TypeScript", "Hono", "better-sqlite3", "esbuild"]
-    },
-    "VantanHub": {
-      "icon": "🏫",
-      "category": "planned",
-      "summary": "Vantan 校特化の学校生活 hub。 Corpus を submodule で取り込み 5 モジュール (在席/施設/カリキュラム/予定/チャット) + Electron マスコット。 scaffold + plumbing 段階のため 2026-05-24 から planned に移動 (5 モジュール wire 着手まで進捗評価対象外)",
-      "stack": ["TypeScript", "Corpus", "Electron"]
     },
     "Foundation": {
       "icon": "🧱",
