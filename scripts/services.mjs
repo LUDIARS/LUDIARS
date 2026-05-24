@@ -176,10 +176,10 @@ export const SERVICES = [
     id: 'vantanhub',
     displayName: 'VantanHub (EducationPartner 校 hub)',
     repoDir: '../VantanHub',
-    port: 5188,
+    port: 5186,
     needsCernere: true,
-    hasEnvCli: false,
-    note: 'Corpus submodule + 学校特化プラグインパック。 env は Corpus bootstrap 経由',
+    hasEnvCli: true,
+    note: 'Corpus submodule + 学校特化プラグインパック。 自前 env-cli.config.ts で独立 Infisical project',
   },
 ];
 
