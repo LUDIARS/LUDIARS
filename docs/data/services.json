@@ -21,7 +21,7 @@
     { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
       "repos": ["Foundation"] },
     { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
-      "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora", "Excubitor"] },
+      "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora"] },
     { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
       "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"] }
   ],
@@ -218,12 +218,6 @@
       "category": "asset",
       "summary": "Cernere 認証 + Synergos Core ベースのローカル先行チャット。md ファイル正本 + SQLite キャッシュ、active 時 WebRTC+QUIC realtime / 休眠時 async sync",
       "stack": ["TypeScript", "Tauri 2", "Synergos", "WebRTC"]
-    },
-    "Excubitor": {
-      "icon": "🛰",
-      "category": "local",
-      "summary": "LUDIARS 全サービスの可観測性 + 復旧 + Infisical 遠隔 + Claude Code CLI auto-fix。Concordia の services/processes を切り出した後継、port 17331/17332",
-      "stack": ["TypeScript", "Hono", "ws", "Infisical", "claude CLI"]
     },
     "Ludellus": {
       "icon": "🦄",
