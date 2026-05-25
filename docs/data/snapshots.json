@@ -288,8 +288,8 @@
     },
     {
       "date": "2026-05-24",
-      "weighted_completion": 65,
-      "_calc": "公開リポ対象、 planned 完全除外 (avg 計算にも含めない / 別枠表示)。 38 リポの算術平均 (Foundation 除外、 planned 5 リポは planned[] へ別記)",
+      "weighted_completion": 66,
+      "_calc": "公開リポ対象、 planned 完全除外 (avg 計算にも含めない / 別枠表示)。 37 リポの算術平均 (Foundation 除外、 Excubitor は archived 化 + Concordia 統合済で services.json から削除、 planned 5 リポは planned[] へ別記)",
       "md": "snapshots/2026-05-24.md",
       "repos": {
         "LUDIARS": 78,
@@ -328,12 +328,12 @@
         "Concordia": 92,
         "Lictor": 75,
         "Quaestor": 58,
-        "Hora": 28,
-        "Excubitor": 35
+        "Hora": 28
       },
       "planned": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"],
       "highlights": [
-        "進捗計算ルール再変更: planned カテゴリは avg 計算から完全除外 (値も持たず別枠表示)。 38 公開非 planned リポの算術平均で 65%。 前週同方式 (2026-05-17、 non-planned 33 リポ) は 64% → +1pt",
+        "進捗計算ルール再変更: planned カテゴリは avg 計算から完全除外 (値も持たず別枠表示)。 37 公開非 planned リポの算術平均で 66%。 前週同方式 (2026-05-17、 non-planned 32 リポ) は 65% → +1pt",
+        "Excubitor を services.json から削除 (GitHub 上で archived 化済 + 機能は Concordia 観測性レイヤーに完全吸収済)。 local カテゴリは 6 リポに",
         "Tessera が network → planned (実装着手まで進捗評価対象外、 別枠表示)。 network カテゴリは Synergos + Codex の 2 リポに",
         "Concordia 84% → 92% (+8) Lictor sidecar 統合大波 (PR #17-#34): spawn orchestrator / machines API / transcript ingest / tool permission proxy / filesystem RPC / session fork / thinking indicator / session_task_records / runtime kill switches (Rules page) / conflicts same-branch fix",
         "Pictor 71% → 80% (+9) Phase 3 系統B 解体 (#53-#68): 外部 JSON pipeline config + Visus CUSTOM shader + 実 Vulkan GpuTimer + 4-pass 解体 + 3 Registry external API + PipelineCompiler + host_recorded pass",
