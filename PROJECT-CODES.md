@@ -70,6 +70,7 @@
 | Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 + クレバーマージ支援 |
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / ループバック sidecar) |
+| Vg | [Vestigium](https://github.com/LUDIARS/Vestigium) | LUDIARS サービス横断のログ収集ライブラリ (JSONL writer + 日次ロール + retention + standalone CLI、 monitor 側は Concordia 同梱) |
 
 ## Ars プラグイン
 
