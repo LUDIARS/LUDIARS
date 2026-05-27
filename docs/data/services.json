@@ -15,7 +15,7 @@
     { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
       "repos": ["Synergos", "Codex"] },
     { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma", "Tirocinium"] },
+      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma", "Tirocinium", "Lector"] },
     { "id": "hub",       "label": "Hub フレームワーク",     "accent": "#c8b9ff",
       "repos": ["Corpus"] },
     { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
@@ -284,6 +284,12 @@
       "category": "ui",
       "summary": "LUDIARS 全 Web フロントエンド共通デザインシステム。 CSS Variables + Tailwind + モバイル縦画面対応",
       "stack": ["CSS", "Tailwind", "TypeScript"]
+    },
+    "Lector": {
+      "icon": "📖",
+      "category": "asset",
+      "summary": "保存済 Web HTML → 構造化抽出の LUDIARS 共有パーサ。 Memoria の server/parsers/ を切出し、 Memoria + Tirocinium で共用。 Notion / chat 系も対応",
+      "stack": ["TypeScript", "Node.js", "cheerio"]
     }
   }
 }
