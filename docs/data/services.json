@@ -1,289 +1,615 @@
 {
   "_schema": "v1. categories[] defines display order + label. services{} is keyed by GitHub repo name (as it appears in LUDIARS org).",
-
   "categories": [
-    { "id": "infra",     "label": "メタ / インフラ",      "accent": "#9a8cff",
-      "repos": ["LUDIARS", "infra", "AIFormat", "All-In-OneTest"] },
-    { "id": "engine",    "label": "コアエンジン / SDK",    "accent": "#5eb2ff",
-      "repos": ["Ars", "Ergo", "Pictor"] },
-    { "id": "auth",      "label": "認証 / 通知",           "accent": "#7ddba2",
-      "repos": ["Cernere", "Nuntius"] },
-    { "id": "schedule",  "label": "スケジュール / タスク", "accent": "#efc56a",
-      "repos": ["Actio", "Schedula", "Calicula", "Aedilis", "Discutere"] },
-    { "id": "game",      "label": "ゲーム",                "accent": "#f39c9c",
-      "repos": ["AdventureCube", "Ludellus", "Ludellus-Server"] },
-    { "id": "network",   "label": "ネットワーク",          "accent": "#7fc7e8",
-      "repos": ["Synergos", "Codex"] },
-    { "id": "asset",     "label": "アセット / ツール",     "accent": "#e8a2ff",
-      "repos": ["Curare", "Clio", "Signum", "Imperativus", "Iter", "Custos", "Susurrus", "Bibliotheca", "Conciliator", "Praeforma", "Tirocinium"] },
-    { "id": "hub",       "label": "Hub フレームワーク",     "accent": "#c8b9ff",
-      "repos": ["Corpus"] },
-    { "id": "ui",        "label": "UI / デザインシステム",  "accent": "#c0e0a8",
-      "repos": ["Foundation"] },
-    { "id": "local",     "label": "ローカルログツール",    "accent": "#a4d8a0",
-      "repos": ["Memoria", "Legatus", "Concordia", "Lictor", "Quaestor", "Hora"] },
-    { "id": "planned",   "label": "未着手 / 計画中",       "accent": "#8a8a8a",
-      "repos": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"] }
+    {
+      "id": "infra",
+      "label": "メタ / インフラ",
+      "accent": "#9a8cff",
+      "repos": [
+        "LUDIARS",
+        "infra",
+        "AIFormat",
+        "All-In-OneTest"
+      ]
+    },
+    {
+      "id": "engine",
+      "label": "コアエンジン / SDK",
+      "accent": "#5eb2ff",
+      "repos": [
+        "Ars",
+        "Ergo",
+        "Pictor"
+      ]
+    },
+    {
+      "id": "auth",
+      "label": "認証 / 通知",
+      "accent": "#7ddba2",
+      "repos": [
+        "Cernere",
+        "Nuntius"
+      ]
+    },
+    {
+      "id": "schedule",
+      "label": "スケジュール / タスク",
+      "accent": "#efc56a",
+      "repos": [
+        "Actio",
+        "Schedula",
+        "Calicula",
+        "Aedilis",
+        "Discutere"
+      ]
+    },
+    {
+      "id": "game",
+      "label": "ゲーム",
+      "accent": "#f39c9c",
+      "repos": [
+        "AdventureCube",
+        "Ludellus",
+        "Ludellus-Server"
+      ]
+    },
+    {
+      "id": "network",
+      "label": "ネットワーク",
+      "accent": "#7fc7e8",
+      "repos": [
+        "Synergos",
+        "Codex"
+      ]
+    },
+    {
+      "id": "asset",
+      "label": "アセット / ツール",
+      "accent": "#e8a2ff",
+      "repos": [
+        "Curare",
+        "Clio",
+        "Signum",
+        "Imperativus",
+        "Iter",
+        "Custos",
+        "Susurrus",
+        "Bibliotheca",
+        "Conciliator",
+        "Praeforma",
+        "Tirocinium"
+      ]
+    },
+    {
+      "id": "hub",
+      "label": "Hub フレームワーク",
+      "accent": "#c8b9ff",
+      "repos": [
+        "Corpus"
+      ]
+    },
+    {
+      "id": "ui",
+      "label": "UI / デザインシステム",
+      "accent": "#c0e0a8",
+      "repos": [
+        "Foundation"
+      ]
+    },
+    {
+      "id": "local",
+      "label": "ローカルログツール",
+      "accent": "#a4d8a0",
+      "repos": [
+        "Memoria",
+        "Legatus",
+        "Concordia",
+        "Lictor",
+        "Quaestor",
+        "Hora"
+      ]
+    },
+    {
+      "id": "planned",
+      "label": "未着手 / 計画中",
+      "accent": "#8a8a8a",
+      "repos": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ]
+    }
   ],
-
   "services": {
     "LUDIARS": {
       "icon": "🏛",
       "category": "infra",
+      "purpose": "ワークフロー",
       "summary": "組織全体のメタリポジトリ。全サービスの統合イメージ・Docker Compose・初期化スクリプト・CI/CD を管理",
-      "stack": ["Docker", "Node.js", "GitHub Actions"]
+      "stack": [
+        "Docker",
+        "Node.js",
+        "GitHub Actions"
+      ]
     },
     "infra": {
       "icon": "🛢",
       "category": "infra",
+      "purpose": "ワークフロー",
       "summary": "Cernere/Schedula/Curare/Nuntius 共有の PostgreSQL・Redis・MinIO・MailHog を Docker Compose で統一管理",
-      "stack": ["Docker", "PostgreSQL 17", "Redis 7", "Drizzle"]
+      "stack": [
+        "Docker",
+        "PostgreSQL 17",
+        "Redis 7",
+        "Drizzle"
+      ]
     },
     "Codex": {
       "icon": "📜",
       "category": "network",
+      "purpose": "ライブラリ",
       "summary": "検証可能な署名済イベント台帳。ed25519 + blake3 で権利 / 所有 / 出席を記録、モバイル軽量クライアント前提",
-      "stack": ["Rust", "ed25519", "blake3"]
+      "stack": [
+        "Rust",
+        "ed25519",
+        "blake3"
+      ]
     },
     "Ars": {
       "icon": "🎨",
       "category": "engine",
+      "purpose": "新時代",
       "summary": "アクターモデル基盤のコンテンツ設計エディタ & ゲームエンジン。ノードベース編集 + 複数プラットフォーム向けコード生成",
-      "stack": ["Tauri 2", "React 19", "Rust", "TypeScript"]
+      "stack": [
+        "Tauri 2",
+        "React 19",
+        "Rust",
+        "TypeScript"
+      ]
     },
     "Ergo": {
       "icon": "⚙",
       "category": "engine",
+      "purpose": "ワークフロー",
       "summary": "C++17 モジュール群 + Web 開発者ツール。AdventureCube 等で共用される入力・音響・パーティクル・UI 基盤",
-      "stack": ["C++17", "Vulkan", "Hono", "TypeScript"]
+      "stack": [
+        "C++17",
+        "Vulkan",
+        "Hono",
+        "TypeScript"
+      ]
     },
     "Pictor": {
       "icon": "🖼",
       "category": "engine",
+      "purpose": "ライブラリ",
       "summary": "データ駆動型レンダリングパイプライン。ObjectDescriptor + 動的 pipeline + GPU Compute。Vulkan / モバイル対応",
-      "stack": ["C++20", "Vulkan", "CMake"]
+      "stack": [
+        "C++20",
+        "Vulkan",
+        "CMake"
+      ]
     },
     "AIFormat": {
       "icon": "📐",
       "category": "infra",
+      "purpose": "ワークフロー",
       "summary": "LUDIARS 全リポ対象の設計・品質・セキュリティレビュー標準フォーマット。CLAUDE.md コマンド群と仕様書記法を定義",
-      "stack": ["Markdown", "Convention"]
+      "stack": [
+        "Markdown",
+        "Convention"
+      ]
     },
     "All-In-OneTest": {
       "icon": "🧪",
       "category": "infra",
+      "purpose": "ワークフロー",
       "summary": "LUDIARS 統合 CI 用の private monorepo。各サービスを submodule で束ね self-hosted runner で end-to-end テストを回す",
-      "stack": ["GitHub Actions", "Docker Compose", "Submodule"]
+      "stack": [
+        "GitHub Actions",
+        "Docker Compose",
+        "Submodule"
+      ]
     },
     "Cernere": {
       "icon": "🔑",
       "category": "auth",
+      "purpose": "ワークフロー",
       "summary": "汎用認証 & リアルタイムデータリレー。OAuth / MFA / WebSocket セッション / 組織・プロジェクト管理を提供する LUDIARS 基盤",
-      "stack": ["TypeScript", "Hono", "uWebSockets", "Drizzle", "Redis"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "uWebSockets",
+        "Drizzle",
+        "Redis"
+      ]
     },
     "Nuntius": {
       "icon": "📯",
       "category": "auth",
+      "purpose": "ワークフロー",
       "summary": "統合通知・メッセージング基盤。REST/WS で通知要求を受け、Slack/Discord/LINE/Email/SMS に非同期配信",
-      "stack": ["TypeScript", "BullMQ", "Redis", "Drizzle"]
+      "stack": [
+        "TypeScript",
+        "BullMQ",
+        "Redis",
+        "Drizzle"
+      ]
     },
     "Actio": {
       "icon": "📅",
       "category": "schedule",
+      "purpose": "ワークフロー",
       "summary": "プラグインベースのスケジューリング基盤。予定 (Event) + タスク (Task) コアを中心に JIRA 型プラットフォームを構築",
-      "stack": ["TypeScript", "Hono", "React", "Drizzle"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React",
+        "Drizzle"
+      ]
     },
     "Calicula": {
       "icon": "📓",
       "category": "schedule",
+      "purpose": "ワークフロー",
       "summary": "カリキュラム予定管理の独立デスクトップアプリ。Tauri 2 + 内蔵 Web UI。Actio curriculum-scheduler へ JSON export",
-      "stack": ["Tauri 2", "SQLite", "Rust"]
+      "stack": [
+        "Tauri 2",
+        "SQLite",
+        "Rust"
+      ]
     },
     "Discutere": {
       "icon": "💬",
       "category": "schedule",
+      "purpose": "新時代",
       "summary": "Chat-to-Task 自動化。Slack / Discord メッセージを解析してタスク自動生成。チャンネルモードで柔軟処理",
-      "stack": ["TypeScript", "Hono", "React", "Anthropic Haiku"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React",
+        "Anthropic Haiku"
+      ]
     },
     "AdventureCube": {
       "icon": "🎮",
       "category": "game",
+      "purpose": "ゲーム開発",
       "summary": "Vulkan + Pictor で描画する BPM アクション 3D ゲーム。キューブプレイヤーでスキル・装備を駆使してステージクリア",
-      "stack": ["C++20", "Vulkan", "Pictor", "Ergo"]
+      "stack": [
+        "C++20",
+        "Vulkan",
+        "Pictor",
+        "Ergo"
+      ]
     },
     "Synergos": {
       "icon": "🔗",
       "category": "network",
+      "purpose": "新時代",
       "summary": "P2P コラボ基盤。Cloudflare Tunnel + QUIC で NAT 内からファイル共有。デーモン + GUI + CLI + Ars プラグインの 4 層",
-      "stack": ["Rust", "quinn (QUIC)", "egui"]
+      "stack": [
+        "Rust",
+        "quinn (QUIC)",
+        "egui"
+      ]
     },
     "Tessera": {
       "icon": "🀄",
       "category": "planned",
+      "purpose": "ライブラリ",
       "summary": "Synergos 下層流用のモバイルゲーム通信基盤。ed25519 署名入力による真性認証で低遅延リアルタイム同期。 設計段階のため 2026-05-24 から planned に移動 (実装着手まで進捗評価対象外)",
-      "stack": ["Rust", "Synergos-net"]
+      "stack": [
+        "Rust",
+        "Synergos-net"
+      ]
     },
     "Curare": {
       "icon": "💎",
       "category": "asset",
+      "purpose": "データ",
       "summary": "ゲーム開発アセット管理サーバ。バージョン管理 + ワークフロー + 依存 DAG + マジックリンクを統合",
-      "stack": ["TypeScript", "Hono", "Drizzle", "MinIO"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "Drizzle",
+        "MinIO"
+      ]
     },
     "Clio": {
       "icon": "🧭",
       "category": "asset",
+      "purpose": "新時代",
       "summary": "リソース抽象化・自動取得モジュール。個人嗜好とメタデータを組み合わせ最適オブジェクトを抽出 (設計段階)",
-      "stack": ["Python"]
+      "stack": [
+        "Python"
+      ]
     },
     "Signum": {
       "icon": "✒",
       "category": "asset",
+      "purpose": "ライブラリ",
       "summary": "画像アウトライン → SVG 生成 Web サービス。detail スライダで精度を連続切り替え",
-      "stack": ["TypeScript", "Hono", "React 19", "pngjs"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React 19",
+        "pngjs"
+      ]
     },
     "Imperativus": {
       "icon": "🎙",
       "category": "asset",
+      "purpose": "データ",
       "summary": "WebRTC 音声入力をコマンドルーティング。Claude Code CLI バックエンド、faster-whisper/Vosk 等 STT 対応",
-      "stack": ["Node.js", "Python gRPC", "mediasoup", "faster-whisper"]
+      "stack": [
+        "Node.js",
+        "Python gRPC",
+        "mediasoup",
+        "faster-whisper"
+      ]
     },
     "Iter": {
       "icon": "🗺",
       "category": "asset",
+      "purpose": "ワークフロー",
       "summary": "C++ コンパイルエラーのノードグラフ可視化エディタ。libclang + Cairo + Scintilla (設計段階)",
-      "stack": ["C++17", "libclang", "Cairo", "Scintilla"]
+      "stack": [
+        "C++17",
+        "libclang",
+        "Cairo",
+        "Scintilla"
+      ]
     },
     "Memoria": {
       "icon": "🔖",
       "category": "local",
+      "purpose": "データ",
       "summary": "Web ブクマ + 日記 + Dig + 辞書 + ドメイン辞書 + 多 LLM プロバイダのデスクトップアプリ。Electron + 内蔵 Node server。online は read-public + write-relay-only",
-      "stack": ["TypeScript", "Electron", "Hono", "Chrome Extension", "claude CLI"]
+      "stack": [
+        "TypeScript",
+        "Electron",
+        "Hono",
+        "Chrome Extension",
+        "claude CLI"
+      ]
     },
     "Legatus": {
       "icon": "📡",
       "category": "local",
+      "purpose": "ワークフロー",
       "summary": "個人 PC 常駐の LUDIARS サービス代理人。Tray app + loopback POST API + MCP server。OwnTracks (MQTT) → Memoria/Actio forwarder で DMZ Iv の代替",
-      "stack": ["TypeScript", "Electron", "Hono", "MCP", "MQTT"]
+      "stack": [
+        "TypeScript",
+        "Electron",
+        "Hono",
+        "MCP",
+        "MQTT"
+      ]
     },
     "Concordia": {
       "icon": "🤝",
       "category": "local",
+      "purpose": "ワークフロー",
       "summary": "複数 AI コーディングエージェント (Claude Code / Gemini CLI / Codex CLI) のセッション間協調・記録サービス。loopback 17330。lock せず軽い通知だけで干渉回避、個人データ非保管",
-      "stack": ["TypeScript", "Hono", "React 19", "better-sqlite3", "ws"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React 19",
+        "better-sqlite3",
+        "ws"
+      ]
     },
     "Lictor": {
       "icon": "🔗",
       "category": "local",
+      "purpose": "ワークフロー",
       "summary": "Claude Code / Codex CLI をラップする per-session sidecar (略称 Li)。端末タイトル / Concordia 双方向統合 / skill 注入 / pty 経由 slash・keys・answer 注入 / permission proxy / fs-RPC / transcript-tail",
-      "stack": ["TypeScript", "Hono", "node-pty", "Concordia"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "node-pty",
+        "Concordia"
+      ]
     },
     "Quaestor": {
       "icon": "💰",
       "category": "local",
+      "purpose": "データ",
       "summary": "個人会計の自動化。AR レシート OCR スキャナ + クレカ/銀行/Amazon 取込 + receipt × tx 照合。E:\\calc 後継、loopback only",
-      "stack": ["TypeScript", "Tauri 2", "Hono", "Rust"]
+      "stack": [
+        "TypeScript",
+        "Tauri 2",
+        "Hono",
+        "Rust"
+      ]
     },
     "Hora": {
       "icon": "🕰",
       "category": "local",
+      "purpose": "新時代",
       "summary": "Desktop Ojisan アプリ。pivot spec + relation model + dialogue pack。残 24 issue で本格実装フェーズ",
-      "stack": ["Tauri 2", "Rust", "React"]
+      "stack": [
+        "Tauri 2",
+        "Rust",
+        "React"
+      ]
     },
     "Custos": {
       "icon": "🛡",
       "category": "asset",
+      "purpose": "ワークフロー",
       "summary": "遠隔テストランナー。apps.json で対象を宣言、ホスト ffmpeg/nut-js を ergo_custos でバイパス、Phase 2 で WebRTC capture / Cernere 認証 / Android 対応",
-      "stack": ["Hono", "ws", "Electron", "tsx watch"]
+      "stack": [
+        "Hono",
+        "ws",
+        "Electron",
+        "tsx watch"
+      ]
     },
     "Bibliotheca": {
       "icon": "📚",
       "category": "asset",
+      "purpose": "ワークフロー",
       "summary": "本 / 機材 の貸出台帳。Cernere SSO + ISBN/QR スキャン + admin 専用返却、MasterSource 抽象でマスタ DB を差替可能",
-      "stack": ["TypeScript", "Hono", "React 19", "Drizzle"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React 19",
+        "Drizzle"
+      ]
     },
     "Conciliator": {
       "icon": "🤝",
       "category": "asset",
+      "purpose": "ワークフロー",
       "summary": "git が苦手なバイナリ / 非マージファイルの作業衝突を検知・予防・クレバーマージ支援。standalone / server / agent + Cernere identity + AI hook",
-      "stack": ["TypeScript", "Hono", "ws", "Cernere"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "ws",
+        "Cernere"
+      ]
     },
     "Praeforma": {
       "icon": "🧱",
       "category": "asset",
+      "purpose": "ワークフロー",
       "summary": "仕様書 ↔ 実装連携ツール。placeholder + 構造化 spec + asset 差し替えを 1 プロジェクトに束ねる (Unity / Web の 2 系統、設計段階)",
-      "stack": ["Unity", "WebGL", "Spec-as-Data"]
+      "stack": [
+        "Unity",
+        "WebGL",
+        "Spec-as-Data"
+      ]
     },
     "Susurrus": {
       "icon": "🗨",
       "category": "asset",
+      "purpose": "新時代",
       "summary": "Cernere 認証 + Synergos Core ベースのローカル先行チャット。md ファイル正本 + SQLite キャッシュ、active 時 WebRTC+QUIC realtime / 休眠時 async sync",
-      "stack": ["TypeScript", "Tauri 2", "Synergos", "WebRTC"]
+      "stack": [
+        "TypeScript",
+        "Tauri 2",
+        "Synergos",
+        "WebRTC"
+      ]
     },
     "Ludellus": {
       "icon": "🦄",
       "category": "game",
+      "purpose": "新時代",
       "summary": "知育系教材アプリ (旧 UniLand)。Claude Web モックを軽量に動かし入力動態を分析する Capacitor/PWA/Electron クライアント。マスコット「うに」",
-      "stack": ["TypeScript", "Capacitor", "PWA", "Electron"]
+      "stack": [
+        "TypeScript",
+        "Capacitor",
+        "PWA",
+        "Electron"
+      ]
     },
     "Ludellus-Server": {
       "icon": "🛰",
       "category": "game",
+      "purpose": "新時代",
       "summary": "Ludellus 中央 Web サーバ。子供プロファイル / スコア sync / 分岐ストア / Cernere PASETO + Memoria 通知",
-      "stack": ["TypeScript", "Hono", "Cernere", "PASETO"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "Cernere",
+        "PASETO"
+      ]
     },
     "Ars-Musa": {
       "icon": "🎭",
       "category": "planned",
+      "purpose": "ライブラリ",
       "summary": "Ars 向け音声・UI モジュール群 (Melpomene / Terpsichore / Thaleia)。LUDIARS 外で再構成予定のためダッシュボード上は計画扱い",
-      "stack": ["Tauri 2", "Rust", "axum"]
+      "stack": [
+        "Tauri 2",
+        "Rust",
+        "axum"
+      ]
     },
     "Educatus": {
       "icon": "🎓",
       "category": "planned",
+      "purpose": "新時代",
       "summary": "未着手 / 計画中のプレースホルダリポ",
       "stack": []
     },
     "Ludus": {
       "icon": "🎲",
       "category": "planned",
+      "purpose": "新時代",
       "summary": "未着手 / 計画中のプレースホルダリポ",
       "stack": []
     },
     "Voluptas": {
       "icon": "✨",
       "category": "planned",
+      "purpose": "新時代",
       "summary": "未着手 / 計画中のプレースホルダリポ",
       "stack": []
     },
     "Schedula": {
       "icon": "🗓",
       "category": "schedule",
+      "purpose": "ワークフロー",
       "summary": "予定 (Event) / カレンダー基盤。2026-05-20 Actio から再分離。Google Calendar / Aedilis と双方向連携",
-      "stack": ["TypeScript", "Hono", "Drizzle", "React"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "Drizzle",
+        "React"
+      ]
     },
     "Aedilis": {
       "icon": "🏟",
       "category": "schedule",
+      "purpose": "ワークフロー",
       "summary": "施設予約 + 予定登録/反映。Bibliotheca と同パターン (Hono + SQLite + Cernere PASETO)。Schedula / Google Calendar 連携",
-      "stack": ["TypeScript", "Hono", "better-sqlite3", "vitest"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "better-sqlite3",
+        "vitest"
+      ]
     },
     "Tirocinium": {
       "icon": "🎤",
       "category": "asset",
+      "purpose": "新時代",
       "summary": "面接練習アプリ。 ES/portfolio 学習 AI + 音声対話 (Imperativus 経由) + 複合 LLM (Sonnet/GPT/Opus) 評価",
-      "stack": ["TypeScript", "Hono", "Tauri", "LLM"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "Tauri",
+        "LLM"
+      ]
     },
     "Corpus": {
       "icon": "🧩",
       "category": "hub",
+      "purpose": "ワークフロー",
       "summary": "汎用 hub フレームワーク。 サービスにコネクタ接続して横断集約 + declarative renderer (descriptor × layouter 直交)",
-      "stack": ["TypeScript", "Hono", "better-sqlite3", "esbuild"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "better-sqlite3",
+        "esbuild"
+      ]
     },
     "Foundation": {
       "icon": "🧱",
       "category": "ui",
+      "purpose": "ライブラリ",
       "summary": "LUDIARS 全 Web フロントエンド共通デザインシステム。 CSS Variables + Tailwind + モバイル縦画面対応",
-      "stack": ["CSS", "Tailwind", "TypeScript"]
+      "stack": [
+        "CSS",
+        "Tailwind",
+        "TypeScript"
+      ]
     }
   }
 }

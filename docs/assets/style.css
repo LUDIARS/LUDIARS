@@ -316,10 +316,34 @@ footer {
     flex-direction: column;
     min-width: 0;
 }
+.service-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
 .service-name {
     font-weight: 600;
     font-size: 14px;
 }
+/* purpose label (用途別 5 分類: 新時代 / ワークフロー / データ / ゲーム開発 / ライブラリ).
+   REPO-CLASSIFICATION-BY-PURPOSE.md の分類軸を 1 行で見えるように小さなピル表示する。 */
+.service-purpose {
+    font-size: 10px;
+    line-height: 1;
+    padding: 3px 7px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    color: var(--fg-dim);
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.04);
+    flex-shrink: 0;
+}
+.service-purpose[data-purpose="新時代"]      { color: #ff9ad8; }
+.service-purpose[data-purpose="ワークフロー"] { color: #efc56a; }
+.service-purpose[data-purpose="データ"]       { color: #7fc7e8; }
+.service-purpose[data-purpose="ゲーム開発"]   { color: #f39c9c; }
+.service-purpose[data-purpose="ライブラリ"]   { color: #c0e0a8; }
 .service-summary {
     font-size: 11.5px;
     color: var(--fg-dim);
