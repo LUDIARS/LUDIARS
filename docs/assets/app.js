@@ -119,6 +119,15 @@ function renderCategories(services, snap) {
             row.querySelector(".service-summary").textContent = meta.summary ?? "";
             row.querySelector(".service-pct").textContent     = pct + "%";
 
+            // purpose label (5 種: 新時代 / ワークフロー / データ / ゲーム開発 / ライブラリ).
+            // REPO-CLASSIFICATION-BY-PURPOSE.md の分類を services.json に持つ。
+            const purposeEl = row.querySelector(".service-purpose");
+            if (meta.purpose && purposeEl) {
+                purposeEl.textContent = meta.purpose;
+                purposeEl.dataset.purpose = meta.purpose;
+                purposeEl.hidden = false;
+            }
+
             const fill = row.querySelector(".mini-fill");
             requestAnimationFrame(() => { fill.style.width = pct + "%"; });
 
