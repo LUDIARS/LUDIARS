@@ -77,7 +77,8 @@
         "Bibliotheca",
         "Conciliator",
         "Praeforma",
-        "Tirocinium"
+        "Tirocinium",
+        "Lector"
       ]
     },
     {
@@ -609,6 +610,17 @@
         "CSS",
         "Tailwind",
         "TypeScript"
+      ]
+    },
+    "Lector": {
+      "icon": "📖",
+      "category": "asset",
+      "purpose": "ライブラリ",
+      "summary": "保存済 Web HTML → 構造化抽出の LUDIARS 共有パーサ。 Memoria の server/parsers/ を切出し、 Memoria + Tirocinium で共用。 Notion / chat 系も対応",
+      "stack": [
+        "TypeScript",
+        "Node.js",
+        "cheerio"
       ]
     }
   }
