@@ -72,6 +72,7 @@
 | Tr | [Tirocinium](https://github.com/LUDIARS/Tirocinium) | 面接練習アプリ (ES/ポートフォリオ学習 AI + 音声対話 + 複合 LLM 評価) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / ループバック sidecar) |
 | Vg | [Vestigium](https://github.com/LUDIARS/Vestigium) | LUDIARS サービス横断のログ収集ライブラリ (JSONL writer + 日次ロール + retention + standalone CLI、 monitor 側は Concordia 同梱) |
+| Ci | [Canalis](https://github.com/LUDIARS/Canalis) | 共有データ取込パイプライン (crawl → clean → save を契約で接続、 LLM 依存ゼロ) |
 
 ## Ars プラグイン
 
