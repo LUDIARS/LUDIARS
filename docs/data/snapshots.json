@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-05-24",
+  "latest": "2026-06-10",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -341,6 +341,60 @@
         "Bibliotheca 45% → 60% (+15) Corpus declarative panel 全面移行 + 返却ランデブー (ゲスト QR + admin スキャン) + secure-headers",
         "Memoria 80% → 86% (+6) v1.0.1 GitHub Release auto-update + Hub-shell Phase 0 + Corpus hub manifest + packet-monitor tshark allowlist + タスク 「目標」 種別",
         "新規サービス: Lictor 75% (CC sidecar、 services.json 新規登録) / Corpus 75% (hub framework v0.1 → v1.0 + declarative renderer) / Tirocinium 70% (25 PR で server + Tauri + 音声 + Memoria RAG + LLM ft-loop) / Aedilis 40% (v0.2 施設予約 + Corpus pilot) / Schedula 30% (Actio split + P4 設計)"
+      ]
+    },
+    {
+      "date": "2026-06-10",
+      "weighted_completion": 68,
+      "_calc": "公開・非 planned 37 リポの算術平均 (Foundation + planned 5 除外)。 前回 2026-05-24 同方式 37 リポ 66% → +2pt。 17 日間隔 (週次 routine 1 回スキップ)。 services.json 未登録の活動中リポ (Excubitor 再独立 ~65% / Vestigium ~50% / Canalis ~35% / Famulus ~15% / Lector ~30%) は avg 対象外。",
+      "md": "snapshots/2026-06-10.md",
+      "repos": {
+        "LUDIARS": 80,
+        "infra": 91,
+        "AIFormat": 85,
+        "All-In-OneTest": 70,
+        "Ars": 64,
+        "Ergo": 89,
+        "Pictor": 82,
+        "Cernere": 89,
+        "Nuntius": 78,
+        "Actio": 89,
+        "Schedula": 30,
+        "Calicula": 60,
+        "Aedilis": 43,
+        "Discutere": 87,
+        "AdventureCube": 72,
+        "Ludellus": 40,
+        "Ludellus-Server": 35,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Imperativus": 78,
+        "Iter": 65,
+        "Custos": 55,
+        "Susurrus": 77,
+        "Bibliotheca": 60,
+        "Conciliator": 75,
+        "Praeforma": 60,
+        "Tirocinium": 80,
+        "Corpus": 80,
+        "Memoria": 90,
+        "Legatus": 45,
+        "Concordia": 95,
+        "Lictor": 83,
+        "Quaestor": 63,
+        "Hora": 29
+      },
+      "planned": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"],
+      "highlights": [
+        "全体 66% → 68% (+2pt、 公開・非 planned 37 リポ算術平均)。 AI 協調・議論・データ取込レーンに活動集中 (Concordia 100 / Discutere 93 / Lictor 46 / Memoria 30 commit)",
+        "Discutere 75% → 87% (+12) chat-to-task → 自走議論基盤へ本質拡張 (worker-pool debate / facilitator 止揚 / 外部クロール Reddit・Fandom・niconico・OpenCritic / KG 二層 / ローカル LLM / web-chat UI / persona RAG)",
+        "Tirocinium 70% → 80% (+10) 弁証法面接エンジン + マイク音声 + STT 抽象 + 企業/Notion クロール + 本人特化学習 + Discord bridge",
+        "Lictor 75% → 83% (+8) `lictor local` ローカル LLM 拡張 + Famulus 載せ替え + テキスト質問プロトコル + transcript relay 成熟",
+        "Concordia 92% → 95% (+3) Slack/Discord 両対応 + 委託基盤 (model catalog + Famulus model=auto) + PR Queue + error 自動修正 + リアクションワークフロー / Memoria 86% → 90% (+4) RSS ニュース + 天気アンサンブル + Discord Bot + gamma ローカル LLM",
+        "⚠ Excubitor が services.json 不在のまま再独立 (~65%、 21 PR で監視・運用コア化)。 要再登録。 新規未登録リポ Canalis (~35% 取込/FT) / Famulus (~15% ローカル LLM スポナー) / Vestigium (~50% ログ lib) も登録判断要"
       ]
     }
   ]
