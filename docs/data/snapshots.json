@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-06-10",
+  "latest": "2026-06-14",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -330,7 +330,13 @@
         "Quaestor": 58,
         "Hora": 28
       },
-      "planned": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"],
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
       "highlights": [
         "進捗計算ルール再変更: planned カテゴリは avg 計算から完全除外 (値も持たず別枠表示)。 37 公開非 planned リポの算術平均で 66%。 前週同方式 (2026-05-17、 non-planned 32 リポ) は 65% → +1pt",
         "Excubitor を services.json から削除 (GitHub 上で archived 化済 + 機能は Concordia 観測性レイヤーに完全吸収済)。 local カテゴリは 6 リポに",
@@ -387,7 +393,13 @@
         "Quaestor": 63,
         "Hora": 29
       },
-      "planned": ["Ars-Musa", "Educatus", "Ludus", "Voluptas", "Tessera"],
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
       "highlights": [
         "全体 66% → 68% (+2pt、 公開・非 planned 37 リポ算術平均)。 AI 協調・議論・データ取込レーンに活動集中 (Concordia 100 / Discutere 93 / Lictor 46 / Memoria 30 commit)",
         "Discutere 75% → 87% (+12) chat-to-task → 自走議論基盤へ本質拡張 (worker-pool debate / facilitator 止揚 / 外部クロール Reddit・Fandom・niconico・OpenCritic / KG 二層 / ローカル LLM / web-chat UI / persona RAG)",
@@ -395,6 +407,58 @@
         "Lictor 75% → 83% (+8) `lictor local` ローカル LLM 拡張 + Famulus 載せ替え + テキスト質問プロトコル + transcript relay 成熟",
         "Concordia 92% → 95% (+3) Slack/Discord 両対応 + 委託基盤 (model catalog + Famulus model=auto) + PR Queue + error 自動修正 + リアクションワークフロー / Memoria 86% → 90% (+4) RSS ニュース + 天気アンサンブル + Discord Bot + gamma ローカル LLM",
         "⚠ Excubitor が services.json 不在のまま再独立 (~65%、 21 PR で監視・運用コア化)。 要再登録。 新規未登録リポ Canalis (~35% 取込/FT) / Famulus (~15% ローカル LLM スポナー) / Vestigium (~50% ログ lib) も登録判断要"
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "weighted_completion": 68,
+      "md": "snapshots/2026-06-14.md",
+      "repos": {
+        "LUDIARS": 80,
+        "infra": 91,
+        "AIFormat": 85,
+        "All-In-OneTest": 70,
+        "Ars": 64,
+        "Ergo": 90,
+        "Pictor": 84,
+        "Cernere": 90,
+        "Nuntius": 78,
+        "Actio": 89,
+        "Schedula": 30,
+        "Calicula": 60,
+        "Aedilis": 50,
+        "Discutere": 90,
+        "AdventureCube": 72,
+        "Ludellus": 40,
+        "Ludellus-Server": 35,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Imperativus": 79,
+        "Iter": 65,
+        "Custos": 58,
+        "Susurrus": 77,
+        "Bibliotheca": 60,
+        "Conciliator": 75,
+        "Praeforma": 60,
+        "Tirocinium": 83,
+        "Corpus": 80,
+        "Memoria": 91,
+        "Legatus": 47,
+        "Concordia": 96,
+        "Lictor": 84,
+        "Quaestor": 66,
+        "Hora": 29
+      },
+      "highlights": [
+        "全体 68% 横ばい (整数、 内訳 67.5 → 68.3 +0.8pt)。 短い 4 日窓、 新機能よりハードニング・配線・標準化が主体。 公開・非 planned 37 リポ算術平均",
+        "Aedilis 43% → 50% (+7) 出席チェックイン内包実装 + PWA Foundation UI + WebAuthn RP ID 配線。 新リポ Ostiarius (LAN ゲートウェイ) + Cernere passkey export + Legatus relay + Memoria 受信で出席縦切りが配線",
+        "Discutere 87% → 90% (+3) T1-T7 の 4 フロー議論エンジン完成 + tier ルーティング (llm-gateway) + Kuzu 二層 dual-write + Gemma QLoRA FT 仕様",
+        "NEW Lapilli (~40%、 未登録) 共有ツール monorepo: @ludiars/encrypted-config + @ludiars/llm-gateway を Tirocinium/Discutere が採用 / NEW Ostiarius (~20%、 未登録) 会場 LAN 出席ゲートウェイ",
+        "セキュリティ一斉是正: infra/AIFormat/Custos/Imperativus/Ergo/Cernere/Concordia/Pictor が 127.0.0.1 既定 bind + シークレット暗号化 (CWE-668/312/78/306)。 Concordia は spawn RCE 是正 + テスト基盤全面再編 (95→96)",
+        "⚠ services.json 未登録の活動中リポ: Excubitor ~68% (要再登録) / Lapilli ~40% / Canalis ~45% / Ostiarius ~20% / Vestigium ~50% / Famulus ~18% / Lector ~30% — 登録判断要"
       ]
     }
   ]
