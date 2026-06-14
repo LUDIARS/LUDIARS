@@ -27,6 +27,7 @@
 |------|---------|------|
 | Cr | [Cernere](https://github.com/LUDIARS/Cernere) | 認証 / WS リレー基盤 |
 | Nt | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知配信基盤 |
+| Os | [Ostiarius](https://github.com/LUDIARS/Ostiarius) | 会場 LAN チェックインゲートウェイ (passkey assertion オフライン検証 + attestation 署名) |
 
 ## スケジュール / タスク
 
