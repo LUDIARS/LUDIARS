@@ -10,6 +10,7 @@
 | [Cernere](https://github.com/LUDIARS/Cernere) | 認証基盤 (JWT + WS セッション + OAuth) | TypeScript + uWS / PostgreSQL / Redis |
 | [Infra](https://github.com/LUDIARS/Infra) | 共有インフラ (PostgreSQL / Redis / MinIO) | Docker Compose |
 | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知・メッセージング基盤 (SQS/SNS 的、マルチチャネル配信) | TypeScript + Hono / BullMQ |
+| [Ostiarius](https://github.com/LUDIARS/Ostiarius) | 会場 LAN チェックインゲートウェイ (passkey assertion をオフライン検証し attestation を署名、Aedilis 出席チェックインの会場側、port 17590、private) | TypeScript + Hono |
 
 ## アプリケーションサービス
 
