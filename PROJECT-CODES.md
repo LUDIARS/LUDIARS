@@ -24,6 +24,7 @@
 | Vg | [Vestigium](https://github.com/LUDIARS/Vestigium) | LUDIARS 横断ログ収集ライブラリ (JSONL writer + 日次ロール + retention) |
 | Ci | [Canalis](https://github.com/LUDIARS/Canalis) | 共有データ取込パイプライン (crawl → clean → save、LLM 依存ゼロ) |
 | Lc | [Lector](https://github.com/LUDIARS/Lector) | 共有パーサパッケージ |
+| Fm | [Fundamentum](https://github.com/LUDIARS/Fundamentum) | 共通データ基盤 (master=content-addressed 不変 / user=可変 overlay の 2 層ストア) |
 
 ## 認証 / 通知
 
