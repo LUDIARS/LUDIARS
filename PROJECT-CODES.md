@@ -25,6 +25,7 @@
 | Ci | [Canalis](https://github.com/LUDIARS/Canalis) | 共有データ取込パイプライン (crawl → clean → save、LLM 依存ゼロ) |
 | Lc | [Lector](https://github.com/LUDIARS/Lector) | 共有パーサパッケージ |
 | Fm | [Fundamentum](https://github.com/LUDIARS/Fundamentum) | 共通データ基盤 (master=content-addressed 不変 / user=可変 overlay の 2 層ストア) |
+| Uf | [UnityFoundation](https://github.com/LUDIARS/UnityFoundation) | Unity ベースシステム (Foundation 2.0 取込) + ゲーム内バグ報告 Melpomene ランタイム |
 
 ## 認証 / 通知
 
