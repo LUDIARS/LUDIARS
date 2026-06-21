@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-06-14",
+  "latest": "2026-06-21",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -459,6 +459,66 @@
         "NEW Lapilli (~40%、 未登録) 共有ツール monorepo: @ludiars/encrypted-config + @ludiars/llm-gateway を Tirocinium/Discutere が採用 / NEW Ostiarius (~20%、 未登録) 会場 LAN 出席ゲートウェイ",
         "セキュリティ一斉是正: infra/AIFormat/Custos/Imperativus/Ergo/Cernere/Concordia/Pictor が 127.0.0.1 既定 bind + シークレット暗号化 (CWE-668/312/78/306)。 Concordia は spawn RCE 是正 + テスト基盤全面再編 (95→96)",
         "⚠ services.json 未登録の活動中リポ: Excubitor ~68% (要再登録) / Lapilli ~40% / Canalis ~45% / Ostiarius ~20% / Vestigium ~50% / Famulus ~18% / Lector ~30% — 登録判断要"
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "weighted_completion": 69,
+      "_calc": "公開・非 planned 37 リポの算術平均 (Foundation + planned 5 除外、 Lector は登録保留で avg 対象外)。 前回 2026-06-14 同方式 37 リポ 68% → +1pt (内訳 68.3 → 69.3)。 7 日窓。 services.json 完全未登録の活動中リポ (Anatomia ~78% / Fundamentum ~50% / Excubitor ~70% / Canalis ~45% / Lapilli ~40% / Ostiarius ~25% / Vestigium ~50% / Famulus ~18%) と半登録の UnityFoundation ~40% (categories[] のみ、 services{} 欠落) は avg 対象外。",
+      "md": "snapshots/2026-06-21.md",
+      "repos": {
+        "LUDIARS": 81,
+        "infra": 91,
+        "AIFormat": 87,
+        "All-In-OneTest": 71,
+        "Ars": 64,
+        "Ergo": 90,
+        "Pictor": 84,
+        "Cernere": 90,
+        "Nuntius": 78,
+        "Actio": 89,
+        "Schedula": 30,
+        "Calicula": 60,
+        "Aedilis": 50,
+        "Discutere": 92,
+        "AdventureCube": 72,
+        "Ludellus": 50,
+        "Ludellus-Server": 44,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Imperativus": 79,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 60,
+        "Conciliator": 75,
+        "Praeforma": 60,
+        "Tirocinium": 86,
+        "Corpus": 80,
+        "Memoria": 92,
+        "Legatus": 47,
+        "Concordia": 97,
+        "Lictor": 85,
+        "Quaestor": 72,
+        "Hora": 29
+      },
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
+      "highlights": [
+        "全体 68% → 69% (+1pt、 内訳 68.3 → 69.3)。 7 日窓。 活動は (1) org 横断のコスメティック・配線スイープ (全 53 サービス favicon + AIFormat 決定的チェックの CI ゲートを全リポへ配布) と (2) 少数リポへの実質的な機能実装に二分。 公開・非 planned 37 リポ算術平均",
+        "Quaestor 66% → 72% (+6) 事業計画レビュー (定量+定性) + 補助金マッチング (jGrants/ミラサポ) + 積立ポートフォリオ/配当/資産配分アドバイザ。 個人会計から経営・資産形成レーンへ拡張",
+        "Ludellus 40% → 50% (+10) / Ludellus-Server 35% → 44% (+9) ネイティブ MMO ワールドクライアント (Ergo+Pictor 実機描画) + サーバ権威ゲートウェイ (World/Zone/Channel/AOI) + BehaviorSpec 駆動チューニングで「遊べる縦切り」へ前進",
+        "Tirocinium 83% → 86% (+3) 企業 DB ~990 社 enrich + 求人ニュースクロール (毎朝自動) + 卒業生「裏口」面 / AIFormat 85% → 87% (+2) 「書く前に揃えるハーネス」転換 (HARNESS.md + CI ゲート + §7.1 無言フォールバック禁止) / Discutere 90% → 92% (+2) コスト計装 + 情報ゲート / Concordia 96% → 97% (+1) reaper + MorningScheduler + 返信 spawn 判定",
+        "⚠ NEW・大型の未登録リポ: Anatomia ~78% (建築規約オラクル、 35 PR で warm supply/verify + Redis 共有キャッシュ + 構造レビュー生成、 447+ テスト、 要登録最優先) / Fundamentum ~50% (共通データ基盤、 Anatomia の土台)。 UnityFoundation ~40% は categories[] のみで services{} 本体欠落 (半登録)。 Excubitor ~70% (メモリ監視、 要再登録) も継続",
+        "⚠ services.json 要更新: Anatomia / Fundamentum 新規登録 + UnityFoundation の services{} 補完 + Excubitor 再登録 + Canalis/Lapilli/Ostiarius/Vestigium/Famulus の登録判断"
       ]
     }
   ]
