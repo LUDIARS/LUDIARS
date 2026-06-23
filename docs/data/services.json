@@ -71,6 +71,7 @@
         "Curare",
         "Clio",
         "Signum",
+        "Figmentum",
         "Imperativus",
         "Iter",
         "Custos",
@@ -587,6 +588,18 @@
         "TypeScript",
         "Hono",
         "Tauri",
+        "LLM"
+      ]
+    },
+    "Figmentum": {
+      "icon": "🧍",
+      "category": "asset",
+      "purpose": "新時代",
+      "summary": "LLM 支援 3D モデル生成。形状を CPU 評価可能な幾何計算式 (手続き SDF / 骨格) へ落とす。骨格の対話的進化で体型を作る",
+      "stack": [
+        "C++20",
+        "CMake",
+        "SDF",
         "LLM"
       ]
     },
