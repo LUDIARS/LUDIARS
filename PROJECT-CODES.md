@@ -75,6 +75,7 @@
 | Fg | [Figmentum](https://github.com/LUDIARS/Figmentum) | LLM 支援 3D モデル生成 (手続き SDF / 骨格 → CPU 生成 + LOD + 体型対話進化) |
 | Iv | [Imperativus](https://github.com/LUDIARS/Imperativus) | 音声コマンドルータ / GPS |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (設計段階) |
+| An | [Anatomia](https://github.com/LUDIARS/Anatomia) | コード解析 × 決定的キャッシュで AI のクリーンなコード生成を支える建築規約オラクル |
 | Mm | [Memoria](https://github.com/LUDIARS/Memoria) | Web ブックマーキング + RAG + タスク |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
 | Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
