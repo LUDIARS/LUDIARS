@@ -9,7 +9,8 @@
         "LUDIARS",
         "infra",
         "AIFormat",
-        "All-In-OneTest"
+        "All-In-OneTest",
+        "Foedus"
       ]
     },
     {
@@ -214,6 +215,17 @@
         "GitHub Actions",
         "Docker Compose",
         "Submodule"
+      ]
+    },
+    "Foedus": {
+      "icon": "🤝",
+      "category": "infra",
+      "purpose": "ワークフロー",
+      "summary": "Cernere↔Hub 連結契約の横断静的チェッカー (層B)。各サービスの corpus manifest と Cernere registry/Hub 設定を突合し違反を検出、事業ライン別に投影。loopback 読み取り専用 Web ビューア (foedus serve, 17340)",
+      "stack": [
+        "TypeScript",
+        "Node.js",
+        "esbuild"
       ]
     },
     "Cernere": {
