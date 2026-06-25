@@ -85,6 +85,7 @@
 | Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 + クレバーマージ支援 |
 | Fd | [Foedus](https://github.com/LUDIARS/Foedus) | Cernere↔Hub 連結契約の横断静的チェッカー (manifest と Cernere registry を突合し連結契約 / データ境界違反を検出) |
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
+| Th | [Thaleia](https://github.com/LUDIARS/Thaleia) | 企画↔実装トレーサビリティ (Praeforma の仕様 × Anatomia の解析を突合する MUSA タレイア) |
 | Tr | [Tirocinium](https://github.com/LUDIARS/Tirocinium) | 面接練習アプリ (ES/ポートフォリオ学習 AI + 音声対話 + 複合 LLM 評価) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
