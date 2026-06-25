@@ -55,6 +55,7 @@
 | KS | [KuzuSurvivors](https://github.com/LUDIARS/KuzuSurvivors) | ヴァンサバ風ゲーム (Pictor/Ergo 試験アプリ) |
 | Ul | [UniLand](https://github.com/LUDIARS/UniLand) | Web ゲーム (Uni キャラ描画) |
 | Lu | [Ludus](https://github.com/LUDIARS/Ludus) | ゲームコンテンツ + game-lexicon / game-template |
+| SUPERFAT | [SUPERFAT](https://github.com/LUDIARS/SUPERFAT) | Plague.inc 系「逆侵略」SLG (Pictor native C++、コードは略さず SUPERFAT) |
 
 ## ネットワーク
 
