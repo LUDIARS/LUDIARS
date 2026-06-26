@@ -56,6 +56,7 @@
 | Ul | [UniLand](https://github.com/LUDIARS/UniLand) | Web ゲーム (Uni キャラ描画) |
 | Lu | [Ludus](https://github.com/LUDIARS/Ludus) | ゲームコンテンツ + game-lexicon / game-template |
 | SUPERFAT | [SUPERFAT](https://github.com/LUDIARS/SUPERFAT) | Plague.inc 系「逆侵略」SLG (Pictor native C++、コードは略さず SUPERFAT) |
+| Pa | [Pagus](https://github.com/LUDIARS/Pagus) | AI 村: LLM 駆動の創発シミュ (村人が自律行動 → 事件 → 裁判 → 教育/改変。Web/TS + PixiJS、研究/ゼミ用) |
 
 ## ネットワーク
 
