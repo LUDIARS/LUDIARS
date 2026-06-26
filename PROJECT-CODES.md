@@ -87,6 +87,7 @@
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
 | Th | [Thaleia](https://github.com/LUDIARS/Thaleia) | 企画↔実装トレーサビリティ (Praeforma の仕様 × Anatomia の解析を突合する MUSA タレイア) |
 | Tr | [Tirocinium](https://github.com/LUDIARS/Tirocinium) | 面接練習アプリ (ES/ポートフォリオ学習 AI + 音声対話 + 複合 LLM 評価) |
+| Pe | [Peregrinatio](https://github.com/LUDIARS/Peregrinatio) | 旅のしおり PWA (地図で目的地/周辺施設 + 施設名/Kindle連番画像からクロール/LLM解析でサマる + ピン/経路探索/PDF出力) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
 | Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy) |
