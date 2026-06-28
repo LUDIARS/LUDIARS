@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-06-21",
+  "latest": "2026-06-28",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -519,6 +519,69 @@
         "Tirocinium 83% → 86% (+3) 企業 DB ~990 社 enrich + 求人ニュースクロール (毎朝自動) + 卒業生「裏口」面 / AIFormat 85% → 87% (+2) 「書く前に揃えるハーネス」転換 (HARNESS.md + CI ゲート + §7.1 無言フォールバック禁止) / Discutere 90% → 92% (+2) コスト計装 + 情報ゲート / Concordia 96% → 97% (+1) reaper + MorningScheduler + 返信 spawn 判定",
         "⚠ NEW・大型の未登録リポ: Anatomia ~78% (建築規約オラクル、 35 PR で warm supply/verify + Redis 共有キャッシュ + 構造レビュー生成、 447+ テスト、 要登録最優先) / Fundamentum ~50% (共通データ基盤、 Anatomia の土台)。 UnityFoundation ~40% は categories[] のみで services{} 本体欠落 (半登録)。 Excubitor ~70% (メモリ監視、 要再登録) も継続",
         "⚠ services.json 要更新: Anatomia / Fundamentum 新規登録 + UnityFoundation の services{} 補完 + Excubitor 再登録 + Canalis/Lapilli/Ostiarius/Vestigium/Famulus の登録判断"
+      ]
+    },
+    {
+      "date": "2026-06-28",
+      "weighted_completion": 68,
+      "_calc": "公開・非 planned リポの算術平均。 今週 services.json に Foedus / Figmentum / Lector が新規登録され avg 集合が 37 → 40 リポに拡大 (Foundation + planned 5 は引き続き除外)。 40 リポ算術平均は 68% だが、 新規 3 リポ (Foedus 44 / Figmentum 42 / Lector 30) が低完成度で集合に入ったため headline は前回 69 → 68 に見かけ上 -1 (回帰ではなく集合拡大効果)。 前回と同一の 37 リポ集合で apples-to-apples 比較すると 69.3 → 70.5 で +1pt (69 → 70)。 services.json 完全未登録の活動中リポ (Anatomia ~82% / Excubitor ~78% / Pagus ~60% / Peregrinatio ~60% / Vestigium ~55% / Fundamentum ~50% / Thaleia ~48% / Canalis ~45% / Concordia-RWF ~45% / SUPERFAT ~42% / Lapilli ~40% / Ostiarius ~25% / Famulus ~20%) と半登録の UnityFoundation ~52% (categories[] のみ、 services{} 欠落) は avg 対象外。 7 日窓。",
+      "md": "snapshots/2026-06-28.md",
+      "repos": {
+        "LUDIARS": 81,
+        "infra": 91,
+        "AIFormat": 87,
+        "All-In-OneTest": 71,
+        "Foedus": 44,
+        "Ars": 64,
+        "Ergo": 91,
+        "Pictor": 87,
+        "Cernere": 90,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 42,
+        "Calicula": 60,
+        "Aedilis": 50,
+        "Discutere": 94,
+        "AdventureCube": 73,
+        "Ludellus": 56,
+        "Ludellus-Server": 46,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 62,
+        "Figmentum": 42,
+        "Imperativus": 79,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 60,
+        "Conciliator": 75,
+        "Praeforma": 66,
+        "Tirocinium": 88,
+        "Lector": 30,
+        "Corpus": 81,
+        "Memoria": 93,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 88,
+        "Quaestor": 72,
+        "Hora": 29
+      },
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
+      "highlights": [
+        "公開ダッシュボード集合に Foedus (連結契約チェッカー) / Figmentum (3D モデル生成) / Lector (HTML パーサ) を新規登録 → avg 集合 37 → 40 リポ。 40 リポ算術平均 68% (新規 3 リポの低完成度で headline は 69 → 68 だが回帰ではない)。 前回と同一 37 リポ集合では 69 → 70 (+1pt、 内訳 69.3 → 70.5)",
+        "Schedula 30% → 42% (+12) 調整さん風の無認証日程調整ツール (public-poll) を 1 PR で一式実装 (publicId+accessToken 二重保護 / Discord 確定通知 / DB-backed リマインドスイーパ / 締切自動確定)。 scaffold から MVP 域へ",
+        "Lictor 85% → 88% (+3) 地の文中継不達の真因 (pin が実 transcript ファイル名と不一致) を構造解消 — SessionStart hook の transcript_path を権威ソース化し crosstalk 排除 / Pictor 84% → 87% (+3) Iter 関連グラフの native renderer 5 段 (instanced+DoD / SpatialGrid cull / Sugiyama layout / LABEL LOD / snippet LRU) + PerfQueryAPI + マルチアーキ (UMA/DX12)",
+        "Ludellus 50% → 56% (+6) Cernere 跨セッション顔識別をフルスタック実装 (native brain + WS adapter + YuNet/SFace ONNX + roster 限定 1:N) / Praeforma 60% → 66% (+6) LLM 補助の要件定義モード (MUSA/Thaleia 経由 Anatomia グラフ) + Cernere 不要のローカルレビューモード",
+        "Discutere 92% → 94% (+2、 28 PR) 仕様書学習フロー + ディスカッションペーパー md 正本化/Web 編集 + 議論前情報レビューゲート + loopback bind 硬化 / Tirocinium 86% → 88% (+2) 企業クロールのキュー化 + CLI 子クローラ連鎖 enrich / Actio 89% → 91% (+2) Memoria 個人タスクを Actio コアへ移植 Phase A / Concordia 97% → 98% (+1) セッション毎ゴール体系 + ハーネス強制ゲート + RWF プラグイン化 + 子会社 Delegation / Memoria 92% → 93% (+1) プラグイン接続機構 + ユーザーアプリタブ",
+        "⚠ services.json 完全未登録の大型・実稼働リポ: Anatomia ~82% (建築規約オラクル、 35 PR で構造/embedding/context-bundle キャッシュ完遂、 要登録最優先) / Excubitor ~78% (監視・運用コア、 Launch/Monitor 統合 + フェデレーション暗号化、 要再登録) / Pagus ~60% 🆕 (AI 村シミュゲーム、 33 PR で実プレイ可能) / Peregrinatio ~60% 🆕 (旅のしおり PWA、 20 PR) / Thaleia ~48% 🆕 (MUSA タレイア=企画↔実装トレーサビリティ) / SUPERFAT ~42% 🆕 (native C++ 逆侵略 SLG) / Concordia-RWF ~45% 🆕 (RWF プラグイン分離)"
       ]
     }
   ]
