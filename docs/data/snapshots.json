@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-06-28",
+  "latest": "2026-07-05",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -582,6 +582,68 @@
         "Ludellus 50% → 56% (+6) Cernere 跨セッション顔識別をフルスタック実装 (native brain + WS adapter + YuNet/SFace ONNX + roster 限定 1:N) / Praeforma 60% → 66% (+6) LLM 補助の要件定義モード (MUSA/Thaleia 経由 Anatomia グラフ) + Cernere 不要のローカルレビューモード",
         "Discutere 92% → 94% (+2、 28 PR) 仕様書学習フロー + ディスカッションペーパー md 正本化/Web 編集 + 議論前情報レビューゲート + loopback bind 硬化 / Tirocinium 86% → 88% (+2) 企業クロールのキュー化 + CLI 子クローラ連鎖 enrich / Actio 89% → 91% (+2) Memoria 個人タスクを Actio コアへ移植 Phase A / Concordia 97% → 98% (+1) セッション毎ゴール体系 + ハーネス強制ゲート + RWF プラグイン化 + 子会社 Delegation / Memoria 92% → 93% (+1) プラグイン接続機構 + ユーザーアプリタブ",
         "⚠ services.json 完全未登録の大型・実稼働リポ: Anatomia ~82% (建築規約オラクル、 35 PR で構造/embedding/context-bundle キャッシュ完遂、 要登録最優先) / Excubitor ~78% (監視・運用コア、 Launch/Monitor 統合 + フェデレーション暗号化、 要再登録) / Pagus ~60% 🆕 (AI 村シミュゲーム、 33 PR で実プレイ可能) / Peregrinatio ~60% 🆕 (旅のしおり PWA、 20 PR) / Thaleia ~48% 🆕 (MUSA タレイア=企画↔実装トレーサビリティ) / SUPERFAT ~42% 🆕 (native C++ 逆侵略 SLG) / Concordia-RWF ~45% 🆕 (RWF プラグイン分離)"
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "weighted_completion": 68,
+      "md": "snapshots/2026-07-05.md",
+      "repos": {
+        "LUDIARS": 81,
+        "infra": 91,
+        "AIFormat": 87,
+        "All-In-OneTest": 71,
+        "Foedus": 44,
+        "Ars": 64,
+        "Ergo": 92,
+        "Pictor": 88,
+        "Cernere": 92,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 42,
+        "Calicula": 60,
+        "Aedilis": 50,
+        "Discutere": 95,
+        "AdventureCube": 73,
+        "Ludellus": 56,
+        "Ludellus-Server": 49,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 52,
+        "Clio": 28,
+        "Signum": 63,
+        "Figmentum": 42,
+        "Imperativus": 79,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 60,
+        "Conciliator": 75,
+        "Praeforma": 67,
+        "Tirocinium": 88,
+        "Lector": 30,
+        "Corpus": 81,
+        "Memoria": 94,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 90,
+        "Quaestor": 74,
+        "Hora": 29
+      },
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
+      "highlights": [
+        "登録済 40 リポの集合は変動なし。算術平均 68% で前回と同値 (24/40 リポが harness CI ゲート波及や favicon/vite 設定など事務的更新のみで、±5% 以上動いた登録リポは今回ゼロ)",
+        "Cernere 90% → 92% (+2) 認証強度の一括底上げ (fail-fast secret / per-IP throttle / token 短命化 / refresh reuse 検出 / WS header cred / alg pin の7点セット) / Lictor 88% → 90% (+2) stall 復帰 watchdog + `/v1/repin` + crosstalk 残存窓の解消",
+        "Quaestor 72% → 74% (+2) 未知 payee の科目学習に成長型ブラックボックス (Lapilli の @ludiars/blackbox) を採用 / Ludellus-Server 46% → 49% (+3) spec only だった tuningSchema の実装追従 (学習POI→Memoria通知配線 + number_catch既定BehaviorSpec配布)",
+        "Ergo 91→92 (+1 shuriken_migrator色フェード修正) / Pictor 87→88 (+1 レンダリング経路修復) / Discutere 94→95 (+1 弁証法エンジン既定化+Electron配布) / Praeforma 66→67 (+1 Thaleia deeplink) / Memoria 93→94 (+1 プラグイン本結線)",
+        "⚠ services.json 未登録リポの大幅前進が今週の主戦場: Pagus ~60%→~68% (+8、v1.4シリーズ13+PR) / Peregrinatio ~60%→~65% (+5、GTFS時刻表統合) / Lapilli ~40%→~46% (+6、@ludiars/blackbox新設をQuaestor/Famulus/Pagusが同時採用) / Famulus ~20%→~25% (+5) / Thaleia ~48%→~52% (+4) / Anatomia ~82%→~84% (+2) / Excubitor ~78%→~80% (+2)",
+        "新規リポ発見 (未登録): Augur 🆕 ~25% (テスト計画/修正方針サービス、Phase0-2実装済) / MemoriaPlugin 🆕 ~35% (Memoriaプラグインframework host) / roadmap-* 7リポ 🆕 (非公開の事業ライン別計画ドキュメント、実装コードなし・services.json対象外)"
       ]
     }
   ]
