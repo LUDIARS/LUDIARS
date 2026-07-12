@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-07-05",
+  "latest": "2026-07-12",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -644,6 +644,69 @@
         "Ergo 91→92 (+1 shuriken_migrator色フェード修正) / Pictor 87→88 (+1 レンダリング経路修復) / Discutere 94→95 (+1 弁証法エンジン既定化+Electron配布) / Praeforma 66→67 (+1 Thaleia deeplink) / Memoria 93→94 (+1 プラグイン本結線)",
         "⚠ services.json 未登録リポの大幅前進が今週の主戦場: Pagus ~60%→~68% (+8、v1.4シリーズ13+PR) / Peregrinatio ~60%→~65% (+5、GTFS時刻表統合) / Lapilli ~40%→~46% (+6、@ludiars/blackbox新設をQuaestor/Famulus/Pagusが同時採用) / Famulus ~20%→~25% (+5) / Thaleia ~48%→~52% (+4) / Anatomia ~82%→~84% (+2) / Excubitor ~78%→~80% (+2)",
         "新規リポ発見 (未登録): Augur 🆕 ~25% (テスト計画/修正方針サービス、Phase0-2実装済) / MemoriaPlugin 🆕 ~35% (Memoriaプラグインframework host) / roadmap-* 7リポ 🆕 (非公開の事業ライン別計画ドキュメント、実装コードなし・services.json対象外)"
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "weighted_completion": 70,
+      "_calc": "公開・非 planned 40 リポの算術平均 (Foundation + planned 5 除外)。前回 2026-07-05 同集合 68% → +2pt (内訳 2790/40=69.75→70)。7日窓。前週まで2週連続で±5%以上の登録済リポ動きがゼロだった反動で、Figmentum(+7)/Schedula(+6)/Ludellus(+6)/Foedus(+5)/Ludellus-Server(+5)など複数リポに実質前進が戻った。services.json完全未登録の活動中リポ (Anatomia ~87% / Excubitor ~82% / Pagus ~71% / Peregrinatio ~69% / Lapilli ~50% / Vestigium ~60% / Fundamentum ~50% / Thaleia ~52% / Concordia-RWF ~45% / Canalis ~45% / SUPERFAT ~42% / Ostiarius ~33% / Famulus ~25% / Augur ~35% / MemoriaPlugin ~45%) と半登録の UnityFoundation ~52% (categories[] のみ) は avg 対象外。新規発見の Calliope (~58%) / Cocoiru (~35%) も対象外 (private, 未登録)。",
+      "md": "snapshots/2026-07-12.md",
+      "repos": {
+        "LUDIARS": 81,
+        "infra": 91,
+        "AIFormat": 89,
+        "All-In-OneTest": 71,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Calicula": 60,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "AdventureCube": 73,
+        "Ludellus": 62,
+        "Ludellus-Server": 54,
+        "Synergos": 72,
+        "Codex": 65,
+        "Curare": 53,
+        "Clio": 28,
+        "Signum": 64,
+        "Figmentum": 49,
+        "Imperativus": 79,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75,
+        "Hora": 29
+      },
+      "planned": [
+        "Ars-Musa",
+        "Educatus",
+        "Ludus",
+        "Voluptas",
+        "Tessera"
+      ],
+      "highlights": [
+        "全体 68% → 70% (+2pt、算術平均)。前週まで2週連続で登録済リポの実質動きがゼロだったが、今週は Figmentum 42→49 (+7) / Schedula 42→48 (+6) / Ludellus 56→62 (+6) / Foedus 44→49 (+5) / Ludellus-Server 49→54 (+5) など複数リポに前進が戻った",
+        "新規リポ2件を発見・共に急成長 (いずれもprivate、2026-07-09作成): Calliope 🆕 NEW→~58% (MUSA統括PM秘書オーケストレータ、創設3日でP0-P5フル実装) / Cocoiru 🆕 NEW→~35% (在席共有+デスクトップ出席エージェント、Schedula系列)",
+        "未登録リポでも大型前進: Augur ~25%→~35% (+10、二重実装一本化+fleet-wide log injection) / MemoriaPlugin ~35%→~45% (+10、furusato-nozeiプラグインで実証) / Ostiarius ~25%→~33% (+8、モバイル代替チェックイン+自動チェックイン)",
+        "Anatomia ~84%→~87% (+3、5ゲート完全配線+DomainReviewReport統合) / Peregrinatio ~65%→~69% (+4) / Lapilli ~46%→~50% (+4、sentiment-core/log-weaver追加) / Excubitor ~80%→~82% (+2) / Pagus ~68%→~71% (+3)",
+        "Corpus 81%→84% (+3、Cernere組み込みログイン統合+passkey対応) / Lictor 90%→92% (+2、Codex App Server堅牢化+local LLM汎用化) / AIFormat 87%→89% (+2、CIゲート強化+spec知識分類追加) / Pictor 88%→90% (+2、パイプライン編集API+ギャップ自動修正)",
+        "⚠ planned枠のVoluptasで実質実装コミットを検知 (Ludellusプレイログ設計+Discutere感情/タイムライン統合) — planned分類の見直しが必要かもしれない"
       ]
     }
   ]
