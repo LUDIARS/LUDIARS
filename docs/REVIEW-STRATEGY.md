@@ -34,7 +34,7 @@ Augur は**テストを実行しない** (仕様の中核設計判断。safety t
 |---|------|------|
 | D1 | CI は「床を敷く」方式 | 全リポに CI 床 (compile + typecheck + harness) を保証。**既存テストは削らない**。配線漏れ (Pagus 全 workspace / Cernere frontend) を修復 |
 | D2 | PR 時レビューを新設 (スイッチ付き) | 相互レビュー: Claude 実装 PR → Codex レビュー、Codex 実装 PR → Claude レビュー。リポ単位の ON/OFF は service-map、PR 単位の除外はラベル |
-| D3 | デイリーレビューは突合形式に刷新 | claude.ai ルーティンから外し、**Codex × Claude Opus の独立差分レビュー + 突合**。対象は service-map の Tier 1 のみ |
+| D3 | デイリーレビューは突合形式に刷新 | claude.ai ルーティンから外し、Morning Tasks と同じ **Concordia Timer Delegation** で **Codex × Claude Opus の独立差分レビュー + 突合**を実行。対象は service-map の Tier 1 のみ |
 | D4 | 対象管理はサービスマップ正本 | どのリポがどのレビュー対象かは `service-map.json` が唯一の正本。Tier は 30 日コミット数の実測で月次見直し |
 
 ### 役割分担の原則
@@ -77,15 +77,16 @@ Augur は**テストを実行しない** (仕様の中核設計判断。safety t
 ## 5. デイリー突合レビュー (D3)
 
 - **対象**: `service-map.json` で `daily_review: true` (= Tier 1、現在 15 リポ)。
-- **入力**: リポごとに「前回レビュー時の HEAD → 現 HEAD」の累積 diff + 変更ファイルの周辺コンテキスト。前回 HEAD は `Castra:Review/<repo>/latest.json` の `head` フィールドに記録 (フィールド追加)。
+- **起動**: Concordia の Timer Delegation `daily-review-reconciliation` が毎朝 05:10 JST にローカル起動する。
+- **入力**: リポごとに「前回レビュー時の HEAD → 現 HEAD」の累積 diff + 変更ファイルの周辺コンテキスト。前回 HEAD は `E:\Document\Ars\reviews\<repo>\latest.json` の `head` フィールドに記録 (フィールド追加)。
 - **手順**:
   1. Codex と Claude Opus が**独立に**同一入力をレビュー (相互の所見は見せない)。固定フォーマット: `{file, line, severity, category, claim, evidence}`。
   2. **突合**: 両者の所見を機械マージ。file±5 行 & 同 category で一致判定。
      - 両者一致 → 高確度指摘。High 以上は **GitHub Issue を自動作成** (レビュー文書止まりにしない)。
      - 片方のみ → 要判断フラグ。翌日のレビューで再検証 or 人間判断へ。
-  3. 出力は従来どおり `Castra:Review/<repo>/<YYYY-MM-DD>/` へ累積 + `latest.json` 更新。
+  3. 出力は `E:\Document\Ars\reviews\<repo>\<YYYY-MM-DD>\` へ累積 + `latest.json` 更新。`reviews/` は Castra の ignore 対象であり、Castra へ commit / push しない。
 - **消化トラッキング**: 突合レビューの冒頭タスクは新規指摘の前に「**open な指摘 Issue の再確認**」。未対応 High には放置日数を付けてレポート先頭でエスカレーション。
-- **watchdog**: Tier 1 リポの `Review/<repo>/` に `watchdog_days` (既定 3) 日以上新しい日付が無ければ Excubitor がアラート。**旧ルーティンの無言停止 (7/9-7/11) の再発防止としてレビュー本体とセットで必須**。
+- **watchdog**: Tier 1 リポの `reviews/<repo>/` に `watchdog_days` (既定 3) 日以上新しい日付が無ければ Excubitor がアラート。**旧ルーティンの無言停止 (7/9-7/11) の再発防止としてレビュー本体とセットで必須**。
 - **変更が無い日**: 前回 HEAD == 現 HEAD のリポはスキップし、レポートに「変更なし」とだけ記録 (実行した事実は残す)。
 
 ## 6. service-map.json スキーマ
@@ -116,10 +117,9 @@ Tier の昇降格は月次: `activity_30d` を再計測し、15 以上を Tier 1
 
 | # | 項目 | 候補 |
 |---|------|------|
-| O1 | デイリー突合の実行主体 | ローカル cron (タスクスケジューラ) / Concordia 配下のスケジュール実行。claude.ai リモートルーティンは使わない (D3) |
 | O2 | 旧ルーティン停止 | `ludiars-review-daily` (trig_01QHgXWxTbLSsMWXoTHKAUq4) の無効化。新運用の初回成功を確認してから |
 | O3 | PR レビュー workflow の実装 | 共有 workflow (AIFormat) として 1 本書き、各リポは `uses` 1 行で参照 (harness.yml と同型) |
-| O4 | Excubitor watchdog の実装 | Review/ の日付監視 + アラート経路 (Nuntius 経由 or Concordia chat) |
+| O4 | Excubitor watchdog の実装 | reviews/ の日付監視 + アラート経路 (Nuntius 経由 or Concordia chat) |
 | O5 | CI 床の一括展開 | harness-check 同様に共有 workflow 化し、Tier 3 リポへ順次 PR |
 | O6 | Augur Phase 3 (CLI) | `augur plan` で git diff から計画出力 → PR フロー接続。テスト資産を育てる経路の本命 |
 
@@ -127,7 +127,7 @@ Tier の昇降格は月次: `activity_30d` を再計測し、15 以上を Tier 1
 
 1. 本 PR (service-map.json / ServiceMap.md / 本書) をマージ — 対象管理の正本を確立
 2. PR レビュー共有 workflow を AIFormat に実装 (O3) → Tier 1 リポから順次有効化
-3. デイリー突合レビューの実行基盤を用意 (O1) → Tier 1 で 1 週間試運転
+3. Concordia Timer Delegation のデイリー突合レビューを Tier 1 で 1 週間試運転
 4. Excubitor watchdog 配線 (O4)
 5. 新運用の安定を確認後、旧 `ludiars-review-daily` ルーティンを停止 (O2)
 6. CI 床を Tier 3 リポへ展開 (O5)、Pagus / Cernere の配線漏れ修復

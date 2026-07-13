@@ -111,7 +111,7 @@ diff が 3,000 行を超える日は全体を浅く舐めず、**リスク順 (�
 3. **両者一致**: 高確度。severity は高い方を採用。High 以上は GitHub Issue 自動作成。
 4. **片方のみ**: 要判断フラグ。機械的に捨てない (§6-1)。翌日レビューの入力に「未確定所見」として再掲し、2 日連続で片方のみなら人間判断へ回す。
 5. **定義側 vs 使用側**: 同一欠陥を別ファイルから指摘して不一致になるケースがあるため、category が同じで claim の対象シンボルが一致する場合は line 不一致でも「準一致」として人間確認リストへ。
-6. 結果は `Castra:Review/<repo>/<YYYY-MM-DD>/` へ保存し `latest.json` の `head` を更新。
+6. 結果はローカルの `E:\Document\Ars\reviews\<repo>\<YYYY-MM-DD>\` へ保存し `latest.json` の `head` を更新する。`reviews/` は Castra の ignore 対象であり、Castra へ commit / push しない。
 
 ## 6. Fable 視点で気をつけること
 
@@ -133,4 +133,5 @@ diff が 3,000 行を超える日は全体を浅く舐めず、**リスク順 (�
 - カテゴリ: **パートタイマー** (時限起動)
 - 起動: 毎朝 05:10 JST (旧ルーティン 05:07 と重複しないよう新規時刻。旧ルーティン停止後も時刻は維持)
 - 対象: `service-map.json` の `daily_review: true` リポ (現在 Tier 1 の 15 リポ)
-- 実行フロー: 対象列挙 → リポごとに (入力構築 → Codex / Opus 並列レビュー → 突合 → Castra 保存 → High 一致の Issue 化) → 最終レポートを Concordia chat へ
+- 実行フロー: 対象列挙 → リポごとに (入力構築 → Codex / Opus 並列レビュー → 突合 → `E:\Document\Ars\reviews\` へローカル保存 → High 一致の Issue 化) → 最終レポートを Concordia chat へ
+- Git 契約: Castra で `git add` / `git commit` / `git push` を行わず、既存の追跡済み `Review/` も変更しない

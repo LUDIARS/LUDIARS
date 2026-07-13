@@ -14,7 +14,7 @@
       "style": "diff-reconciliation",
       "reviewers": ["codex", "claude-opus"],
       "input": "前回レビュー HEAD から現 HEAD までの累積 diff (マージ済み PR をまとめて全体視点で見る)",
-      "output": "Castra:Review/<repo>/<YYYY-MM-DD>/",
+      "output": "E:\\Document\\Ars\\reviews\\<repo>\\<YYYY-MM-DD>\\ (local-only; Castra git ignored)",
       "watchdog_days": 3
     }
   },
@@ -99,7 +99,7 @@
     { "name": "PrivateGame", "code": "KS", "org": "PrivateProject", "category": "game", "role": "ヴァンサバ風サバイバー (Pictor / Ergo dogfood、org 外)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": null },
     { "name": "Project-September", "code": null, "org": "Project-September", "category": "game", "role": "Unity Fusion 公開ゲーム (anti-pattern 検証台、org 外)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": null },
 
-    { "name": "Castra", "code": null, "category": "records", "role": "記録リポ (Review 集約 / セッションログ / backups)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 104 },
+    { "name": "Castra", "code": null, "category": "records", "role": "記録リポ (過去 Review 履歴 / セッションログ / backups。reviews/ はローカル専用)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 104 },
     { "name": "roadmap-*", "code": null, "category": "records", "role": "ロードマップ文書リポ群 (school-hub / personal-ai / musa / PrivateGame / back-office / dx-workflow / ludellus)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 7 }
   ]
 }
