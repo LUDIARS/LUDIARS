@@ -37,6 +37,7 @@ async function main() {
                  ?? snapshots.snapshots[0];
 
     renderHero(latest, services);
+    renderRoadmaps(services, latest);
     renderCategories(services, latest);
     renderTimeline(snapshots);
 }
@@ -93,23 +94,31 @@ function renderCategories(services, snap) {
         catNode.style.setProperty("--cat-accent", cat.accent);
         catNode.querySelector(".category-title").textContent = cat.label;
 
-        const repoList = cat.repos.filter(r => r in snap.repos);
-        const avg = repoList.length
-            ? Math.round(repoList.reduce((s, r) => s + snap.repos[r], 0) / repoList.length)
+        const repoList = [...cat.repos];
+        const measuredRepos = repoList.filter(r => typeof snap.repos[r] === "number");
+        const avg = measuredRepos.length
+            ? Math.round(measuredRepos.reduce((s, r) => s + snap.repos[r], 0) / measuredRepos.length)
             : 0;
         catNode.querySelector(".category-count").textContent =
-            `${repoList.length} service${repoList.length === 1 ? "" : "s"}  ·  avg ${avg}%`;
+            `${repoList.length} service${repoList.length === 1 ? "" : "s"}  ·  ${measuredRepos.length} measured  ·  avg ${avg}%`;
 
         const list = catNode.querySelector(".service-list");
-        // sort by completion desc so "most-done" repos bubble up
-        repoList.sort((a, b) => snap.repos[b] - snap.repos[a]);
+        // Sort measured services first, then keep unmeasured services discoverable.
+        repoList.sort((a, b) => {
+            const aPct = snap.repos[a];
+            const bPct = snap.repos[b];
+            if (typeof aPct === "number" && typeof bPct === "number") return bPct - aPct;
+            if (typeof aPct === "number") return -1;
+            if (typeof bPct === "number") return 1;
+            return a.localeCompare(b);
+        });
 
         for (const repo of repoList) {
-            const pct = snap.repos[repo];
+            const pct = typeof snap.repos[repo] === "number" ? snap.repos[repo] : null;
             const meta = services.services[repo] ?? {};
             const row = svcTpl.content.firstElementChild.cloneNode(true);
-            const tier = tierOf(pct);
-            row.classList.add("tier-" + tier.key);
+            if (pct == null) row.classList.add("tier-untracked");
+            else row.classList.add("tier-" + tierOf(pct).key);
 
             const link = row.querySelector(".service-link");
             link.href = `https://github.com/LUDIARS/${encodeURIComponent(repo)}`;
@@ -117,7 +126,7 @@ function renderCategories(services, snap) {
             row.querySelector(".service-icon").textContent    = meta.icon ?? "📦";
             row.querySelector(".service-name").textContent    = repo;
             row.querySelector(".service-summary").textContent = meta.summary ?? "";
-            row.querySelector(".service-pct").textContent     = pct + "%";
+            row.querySelector(".service-pct").textContent     = pct == null ? "未計測" : pct + "%";
 
             // purpose label (5 種: 新時代 / ワークフロー / データ / ゲーム開発 / ライブラリ).
             // REPO-CLASSIFICATION-BY-PURPOSE.md の分類を services.json に持つ。
@@ -128,12 +137,64 @@ function renderCategories(services, snap) {
                 purposeEl.hidden = false;
             }
 
+            const status = meta.status ?? (cat.id === "planned" ? "Planned" : null);
+            const statusEl = row.querySelector(".service-status");
+            if (status && statusEl) {
+                statusEl.textContent = status;
+                statusEl.hidden = false;
+            }
+
             const fill = row.querySelector(".mini-fill");
-            requestAnimationFrame(() => { fill.style.width = pct + "%"; });
+            requestAnimationFrame(() => { fill.style.width = pct == null ? "0%" : pct + "%"; });
 
             list.appendChild(row);
         }
         root.appendChild(catNode);
+    }
+}
+
+function renderRoadmaps(services, snap) {
+    const root = document.getElementById("roadmaps-root");
+    root.innerHTML = "";
+
+    for (const roadmap of (services.roadmaps ?? []).filter(r => r.visibility === "public")) {
+        const card = document.createElement("article");
+        card.className = "roadmap-card";
+        card.style.setProperty("--roadmap-accent", roadmap.accent ?? "var(--accent)");
+
+        const head = document.createElement("header");
+        head.className = "roadmap-head";
+        const title = document.createElement("h3");
+        title.textContent = roadmap.title;
+        const summary = document.createElement("p");
+        summary.textContent = roadmap.summary;
+        head.append(title, summary);
+
+        const list = document.createElement("ul");
+        list.className = "roadmap-service-list";
+        for (const member of roadmap.members) {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `https://github.com/LUDIARS/${encodeURIComponent(member.repo)}`;
+            link.target = "_blank";
+            link.rel = "noopener";
+            link.textContent = member.repo;
+
+            const current = document.createElement("span");
+            current.className = "roadmap-current";
+            const pct = snap.repos[member.repo];
+            current.textContent = typeof pct === "number" ? `現状 ${pct}%` : "未計測";
+
+            const target = document.createElement("span");
+            target.className = "roadmap-target";
+            target.textContent = `中期目標 ${member.mediumTermTarget}%`;
+
+            item.append(link, current, target);
+            list.appendChild(item);
+        }
+
+        card.append(head, list);
+        root.appendChild(card);
     }
 }
 
