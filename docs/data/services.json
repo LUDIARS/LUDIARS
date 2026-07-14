@@ -10,7 +10,11 @@
         "infra",
         "AIFormat",
         "All-In-OneTest",
-        "Foedus"
+        "Foedus",
+        "Lapilli",
+        "Excubitor",
+        "Augur",
+        "Vestigium"
       ]
     },
     {
@@ -21,7 +25,8 @@
         "Ars",
         "Ergo",
         "Pictor",
-        "UnityFoundation"
+        "UnityFoundation",
+        "ErgoDLLs"
       ]
     },
     {
@@ -42,7 +47,8 @@
         "Schedula",
         "Calicula",
         "Aedilis",
-        "Discutere"
+        "Discutere",
+        "Actio-PublicModules"
       ]
     },
     {
@@ -81,7 +87,10 @@
         "Conciliator",
         "Praeforma",
         "Tirocinium",
-        "Lector"
+        "Lector",
+        "Anatomia",
+        "Thaleia",
+        "Canalis"
       ]
     },
     {
@@ -97,7 +106,8 @@
       "label": "UI / デザインシステム",
       "accent": "#c0e0a8",
       "repos": [
-        "Foundation"
+        "Foundation",
+        "Fundamentum"
       ]
     },
     {
@@ -110,7 +120,9 @@
         "Concordia",
         "Lictor",
         "Quaestor",
-        "Hora"
+        "Peregrinatio",
+        "MemoriaPlugin",
+        "Famulus"
       ]
     },
     {
@@ -122,7 +134,8 @@
         "Educatus",
         "Ludus",
         "Voluptas",
-        "Tessera"
+        "Tessera",
+        "Hora"
       ]
     }
   ],
@@ -443,8 +456,9 @@
     },
     "Hora": {
       "icon": "🕰",
-      "category": "local",
+      "category": "planned",
       "purpose": "新時代",
+      "status": "Planned",
       "summary": "Desktop Ojisan アプリ。pivot spec + relation model + dialogue pack。残 24 issue で本格実装フェーズ",
       "stack": [
         "Tauri 2",
@@ -648,6 +662,152 @@
         "Node.js",
         "cheerio"
       ]
+    },
+    "Peregrinatio": {
+      "icon": "🗺️",
+      "category": "local",
+      "purpose": "新時代",
+      "summary": "旅程・目的地・周辺施設をまとめ、経路探索とPDF出力を行う旅のしおりPWA。",
+      "stack": ["PWA", "Google Maps", "LLM"]
+    },
+    "MemoriaPlugin": {
+      "icon": "🧩",
+      "category": "local",
+      "purpose": "ライブラリ",
+      "summary": "Memoriaホストへ機能を追加するインプロセス・プラグインフレームワーク。",
+      "stack": ["TypeScript", "Memoria"]
+    },
+    "Lapilli": {
+      "icon": "🧰",
+      "category": "infra",
+      "purpose": "ライブラリ",
+      "summary": "LUDIARSの小型共有ツール集。",
+      "stack": []
+    },
+    "Excubitor": {
+      "icon": "🛡️",
+      "category": "infra",
+      "purpose": "ワークフロー",
+      "summary": "サービス死活監視・ログ集約・エラー分析・リモート設定・自動修復の基盤。",
+      "stack": ["TypeScript", "SQLite", "Claude Code CLI"]
+    },
+    "Augur": {
+      "icon": "🔭",
+      "category": "infra",
+      "purpose": "ワークフロー",
+      "summary": "目的駆動のテスト計画と修正方針を立案するサービス。",
+      "stack": ["TypeScript", "Test planning"]
+    },
+    "Famulus": {
+      "icon": "🤖",
+      "category": "local",
+      "purpose": "新時代",
+      "summary": "ローカルLLMの起動とブラックボックス・モデル切替を担うスパナー。",
+      "stack": ["TypeScript", "LLM"]
+    },
+    "Anatomia": {
+      "icon": "🧬",
+      "category": "asset",
+      "purpose": "ワークフロー",
+      "summary": "コード解析・動作構造・決定的キャッシュにより、仕様と実装の一貫性を支えるオラクル。",
+      "stack": ["TypeScript", "Kuzu", "Content-addressed DAG"]
+    },
+    "Fundamentum": {
+      "icon": "🗃️",
+      "category": "ui",
+      "purpose": "データ",
+      "summary": "masterの不変ストアとuserの可変オーバーレイからなる共通データ基盤。",
+      "stack": ["TypeScript", "Content-addressed store"]
+    },
+    "Vestigium": {
+      "icon": "📜",
+      "category": "infra",
+      "purpose": "ライブラリ",
+      "summary": "サービス横断のJSONLログ収集・日次ローテーション・保持を行うライブラリとCLI。",
+      "stack": ["TypeScript", "JSONL", "CLI"]
+    },
+    "Thaleia": {
+      "icon": "🔗",
+      "category": "asset",
+      "purpose": "ワークフロー",
+      "summary": "Praeformaの仕様とAnatomiaの解析結果を突合する企画↔実装トレーサビリティサービス。",
+      "stack": ["TypeScript", "Hono", "MUSA"]
+    },
+    "Canalis": {
+      "icon": "🌊",
+      "category": "asset",
+      "purpose": "データ",
+      "summary": "crawl→clean→saveを契約で接続する共有データ取込パイプライン。",
+      "stack": ["TypeScript", "Data pipeline"]
+    },
+    "Actio-PublicModules": {
+      "icon": "📚",
+      "category": "schedule",
+      "purpose": "ライブラリ",
+      "summary": "Schedula向けの公開モジュール集。モジュールごとにブランチで管理する。",
+      "stack": ["TypeScript", "npm", "Schedula"]
+    },
+    "UnityFoundation": {
+      "icon": "🎮",
+      "category": "engine",
+      "purpose": "ゲーム開発",
+      "summary": "Unityベースシステムとゲーム内バグ報告Melpomeneランタイムを提供する共通基盤。",
+      "stack": ["Unity", "C#", "Melpomene"]
+    },
+    "ErgoDLLs": {
+      "icon": "🧱",
+      "category": "engine",
+      "purpose": "ライブラリ",
+      "summary": "Ergo関連のランタイムDLLを配布・管理する共有コンポーネント。",
+      "stack": ["C++", "DLL"]
     }
-  }
+  },
+  "roadmaps": [
+    {
+      "id": "personal-ai",
+      "title": "PERSONAL-AI",
+      "visibility": "public",
+      "accent": "#7ddba2",
+      "summary": "個人の意思決定・記録・対話を支えるAIエコシステム。",
+      "members": [
+        { "repo": "Concordia", "mediumTermTarget": 80 },
+        { "repo": "Lictor", "mediumTermTarget": 75 },
+        { "repo": "Memoria", "mediumTermTarget": 85 },
+        { "repo": "Quaestor", "mediumTermTarget": 70 },
+        { "repo": "Famulus", "mediumTermTarget": 65 },
+        { "repo": "Legatus", "mediumTermTarget": 70 },
+        { "repo": "Cernere", "mediumTermTarget": 85 },
+        { "repo": "Hora", "mediumTermTarget": 55 },
+        { "repo": "Susurrus", "mediumTermTarget": 55 },
+        { "repo": "Imperativus", "mediumTermTarget": 65 },
+        { "repo": "Nuntius", "mediumTermTarget": 80 }
+      ]
+    },
+    {
+      "id": "musa",
+      "title": "MUSA",
+      "visibility": "public",
+      "accent": "#e8a2ff",
+      "summary": "ゲーム開発支援ツール群と「9人の女神」計画。",
+      "members": [
+        { "repo": "Ars", "mediumTermTarget": 70 },
+        { "repo": "Anatomia", "mediumTermTarget": 75 },
+        { "repo": "Thaleia", "mediumTermTarget": 80 },
+        { "repo": "Praeforma", "mediumTermTarget": 50 },
+        { "repo": "Curare", "mediumTermTarget": 70 },
+        { "repo": "Clio", "mediumTermTarget": 55 },
+        { "repo": "Actio", "mediumTermTarget": 75 },
+        { "repo": "UnityFoundation", "mediumTermTarget": 70 },
+        { "repo": "Concordia", "mediumTermTarget": 80 },
+        { "repo": "AIFormat", "mediumTermTarget": 80 },
+        { "repo": "Pictor", "mediumTermTarget": 75 },
+        { "repo": "Foundation", "mediumTermTarget": 75 },
+        { "repo": "Discutere", "mediumTermTarget": 70 },
+        { "repo": "Ergo", "mediumTermTarget": 70 },
+        { "repo": "Custos", "mediumTermTarget": 65 },
+        { "repo": "Memoria", "mediumTermTarget": 85 },
+        { "repo": "Nuntius", "mediumTermTarget": 80 }
+      ]
+    }
+  ]
 }
