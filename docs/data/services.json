@@ -808,6 +808,56 @@
         { "repo": "Memoria", "mediumTermTarget": 85 },
         { "repo": "Nuntius", "mediumTermTarget": 80 }
       ]
+    },
+    {
+      "id": "ai-workflow",
+      "title": "AI-WORKFLOW",
+      "visibility": "public",
+      "accent": "#7fc7e8",
+      "summary": "BACK-OFFICEとDX-WORKFLOWを統合した、Qs・Cc・Ex・Praeformaなどの共通AI基盤フレームワーク。",
+      "members": [
+        {
+          "repo": "Quaestor",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Concordia",
+          "mediumTermTarget": 85
+        },
+        {
+          "repo": "Excubitor",
+          "mediumTermTarget": 85
+        },
+        {
+          "repo": "Praeforma",
+          "mediumTermTarget": 75
+        }
+      ]
+    },
+    {
+      "id": "ars",
+      "title": "ARS",
+      "visibility": "public",
+      "accent": "#f39c9c",
+      "summary": "ARS構想にもとづくゲーム開発プラットフォーム。Ludus、Ars、Ergo、Pictorを中心に、企画から実行までをつなぐ。",
+      "members": [
+        {
+          "repo": "Ludus",
+          "mediumTermTarget": 55
+        },
+        {
+          "repo": "Ars",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Ergo",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Pictor",
+          "mediumTermTarget": 80
+        }
+      ]
     }
   ]
 }
