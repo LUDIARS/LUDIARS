@@ -8,8 +8,8 @@
  *   node setup.mjs --stop       # 全サービス停止
  */
 import { createInterface } from "node:readline/promises";
-import { execSync, spawn } from "node:child_process";
-import { existsSync, writeFileSync, readFileSync, mkdirSync } from "node:fs";
+import { execSync } from "node:child_process";
+import { existsSync, writeFileSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -100,10 +100,6 @@ function servicePath(svc) {
 function run(cmd, opts = {}) {
   console.log(`  $ ${cmd}`);
   execSync(cmd, { stdio: "inherit", ...opts });
-}
-
-function runQuiet(cmd, opts = {}) {
-  return execSync(cmd, { encoding: "utf-8", ...opts }).trim();
 }
 
 function cloneIfNeeded(svc) {
