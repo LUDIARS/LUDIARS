@@ -10,14 +10,24 @@ Codex と Claude Opus に送るレビュープロンプトの正本 + Fable 視�
 
 両レビュアーに**同一の入力**を渡す。相互の所見・存在は知らせない (独立性の担保)。
 
+**今回 HEAD は必ず `git fetch origin` 後の `git rev-parse origin/<default-branch>` を用いる。
+作業ツリーへの checkout/pull/merge は行わない。ローカルの現在チェックアウト
+(`git rev-parse HEAD` や作業ツリーの実体) は他セッションの WIP ブランチや古い checkout を
+指していることがあり、今回 HEAD としては絶対に使わない**
+(2026-07-18: Tier1 7リポでローカル checkout を今回 HEAD と誤認し逆向き diff を生成した事故の再発防止。Memoria #555)。
+
+さらに、今回 HEAD (== `origin/<default-branch>` の sha) が前回 HEAD の**祖先**になっている場合
+(`git merge-base --is-ancestor <今回HEAD> <前回HEAD>` が真、= 範囲逆転) は、diff を作らずその
+リポを skip/no_change (`range_reversed`) として記録し、レビュアーには一切渡さない (early-exit)。
+
 ```
 [メタ]
 - repo: <name> / 役割: <service-map.json の role>
-- 前回レビュー: <YYYY-MM-DD> HEAD <sha> → 今回 HEAD <sha>
+- 前回レビュー: <YYYY-MM-DD> HEAD <sha> → 今回 HEAD <sha> (origin/<default-branch> 由来)
 - 期間中のコミットログ (--oneline)
 
 [差分]
-- 累積 diff (前回 HEAD → 現 HEAD、unified=5)
+- 累積 diff (前回 HEAD → 今回 HEAD、unified=5)
 - 変更ファイルの現在全文 (1 ファイル 400 行超は変更 hunk ±60 行に切詰め、切詰めた事実を明記)
 
 [継続文脈]
