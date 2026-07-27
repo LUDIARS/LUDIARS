@@ -63,10 +63,15 @@ Augur は**テストを実行しない** (仕様の中核設計判断。safety t
 
 ## 4. PR 時レビュー (D2)
 
-- **トリガ**: PR opened / synchronize (GitHub Actions)。
+- **トリガ**: Revisor へのローカル PR 登録 / head SHA 更新。
 - **対象判定**: `service-map.json` の `pr_review` が true のリポのみ。
-- **実装者判定**: PR の署名から機械判定 — `Co-Authored-By: Claude` / 「🤖 Generated with Claude Code」→ claude、codex 署名 → codex、無署名 (人間) → unknown。
+- **実装者判定**: ローカル PR の author/provider メタデータから判定する。
 - **レビュアー振り分け** (`defaults.pr_review.cross_model`): claude → codex、codex → claude、human/unknown → codex。
+- **ブランチ境界**: feature branch は GitHub へ push しない。登録テスト、
+  Anatomia 差分・スコア、流出検査を Revisor で確認し、`Open / Test OK` のみ
+  Revisor が local main へ squash merge する。
+- **公開境界**: main push 時の managed pre-push hook が outgoing diff を再検査する。
+  問題があれば push を止めて `amend_required` とし、amend 後の次回 push で再検査する。
 - **スキップ**:
   - ラベル `skip-review` (PR 単位の手動スイッチ)
   - タイトルパターン: `chore(review):` / `docs(review):` / `chore(pages):` (自動生成・スナップショット系)
@@ -77,17 +82,28 @@ Augur は**テストを実行しない** (仕様の中核設計判断。safety t
 ## 5. デイリー突合レビュー (D3)
 
 - **対象**: `service-map.json` で `daily_review: true` (= Tier 1、現在 15 リポ)。
-- **起動**: Concordia の Timer Delegation `daily-review-reconciliation` が毎朝 05:10 JST にローカル起動する。
-- **入力**: リポごとに「前回レビュー時の HEAD → 現 HEAD」の累積 diff + 変更ファイルの周辺コンテキスト。前回 HEAD は `E:\Document\Ars\reviews\<repo>\latest.json` の `head` フィールドに記録 (フィールド追加)。
+- **起動**: Concordia の Timer Delegation `ludiars-review-daily-dual` が毎朝 05:10 JST にローカル起動する。
+- **正本**: 現 HEAD は GitHub / origin ではなくローカル `refs/heads/<default-branch>`。
+  固定 SHA から detached の一時 review worktree を作り、現在 checkout 中の作業ツリーは使わない。
+- **日付境界**: `E:\Document\Ars\Review\<repo>\latest.json` の `reviewed_at`
+  (無ければ24時間前) 以降に local main へ入った commit があるリポだけを対象にする。
+- **入力**: リポごとに「前回レビュー時の HEAD → local main」の累積 diff +
+  変更ファイルの周辺コンテキスト。前回 HEAD と日時は `latest.json` の `head` /
+  `reviewed_at` に記録する。
 - **手順**:
   1. Codex と Claude Opus が**独立に**同一入力をレビュー (相互の所見は見せない)。固定フォーマット: `{file, line, severity, category, claim, evidence}`。
   2. **突合**: 両者の所見を機械マージ。file±5 行 & 同 category で一致判定。
-     - 両者一致 → 高確度指摘。High 以上は **GitHub Issue を自動作成** (レビュー文書止まりにしない)。
+     - 両者一致 → 高確度指摘。High 以上は `Review/<repo>/findings.json` の
+       ローカル未解決項目にする。
      - 片方のみ → 要判断フラグ。翌日のレビューで再検証 or 人間判断へ。
-  3. 出力は `E:\Document\Ars\reviews\<repo>\<YYYY-MM-DD>\` へ累積 + `latest.json` 更新。`reviews/` は Castra の ignore 対象であり、Castra へ commit / push しない。
-- **消化トラッキング**: 突合レビューの冒頭タスクは新規指摘の前に「**open な指摘 Issue の再確認**」。未対応 High には放置日数を付けてレポート先頭でエスカレーション。
-- **watchdog**: Tier 1 リポの `reviews/<repo>/` に `watchdog_days` (既定 3) 日以上新しい日付が無ければ Excubitor がアラート。**旧ルーティンの無言停止 (7/9-7/11) の再発防止としてレビュー本体とセットで必須**。
-- **変更が無い日**: 前回 HEAD == 現 HEAD のリポはスキップし、レポートに「変更なし」とだけ記録 (実行した事実は残す)。
+  3. 出力は `E:\Document\Ars\Review\<repo>\<YYYY-MM-DD>\` へ累積 +
+     `latest.json` 更新。一時 worktree は全経路で削除する。
+- **GitHub 非依存**: review 中は `git fetch` / `git pull` / `origin/*` / `gh` /
+  GitHub API / Issue API を使用しない。
+- **消化トラッキング**: 突合レビューの冒頭タスクは新規指摘の前にローカル未解決
+  findings を再確認する。未対応 High には放置日数を付けてレポート先頭でエスカレーション。
+- **watchdog**: Tier 1 リポの `Review/<repo>/` に `watchdog_days` (既定 3) 日以上新しい日付が無ければ Excubitor がアラート。**旧ルーティンの無言停止 (7/9-7/11) の再発防止としてレビュー本体とセットで必須**。
+- **変更が無い日**: `reviewed_at` 以降の local main commit が無いリポはスキップし、レポートに「変更なし」とだけ記録 (実行した事実は残す)。
 
 ## 6. service-map.json スキーマ
 
