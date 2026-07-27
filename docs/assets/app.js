@@ -47,8 +47,12 @@ async function main() {
 }
 
 function renderHero(snap, services) {
+    const visibleRepos = registeredRepoNames(services);
+    const measuredRepoCount = Object.entries(snap.repos)
+        .filter(([repo, pct]) => visibleRepos.has(repo) && typeof pct === "number")
+        .length;
     document.getElementById("snapshot-date").textContent =
-        "Latest snapshot · " + snap.date;
+        `Latest snapshot · ${snap.date} · ${measuredRepoCount}/${visibleRepos.size} measured`;
 
     const fill  = document.getElementById("overall-fill");
     const label = document.getElementById("overall-label");
@@ -60,7 +64,6 @@ function renderHero(snap, services) {
 
     // Tier breakdown — group the repos in the snapshot by completion tier.
     const byTier = Object.fromEntries(TIER_DEFS.map(t => [t.key, []]));
-    const visibleRepos = registeredRepoNames(services);
     for (const [repo, pct] of Object.entries(snap.repos)
         .filter(([repo]) => visibleRepos.has(repo))) {
         byTier[tierOf(pct).key].push(repo);
