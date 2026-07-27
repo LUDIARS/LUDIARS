@@ -92,7 +92,10 @@
 | Pe | [Peregrinatio](https://github.com/LUDIARS/Peregrinatio) | 旅のしおり PWA (地図で目的地/周辺施設 + 施設名/Kindle連番画像からクロール/LLM解析でサマる + ピン/経路探索/PDF出力) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
-| Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy) |
+| Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
+| Lw | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ludellus Web 媒体クライアント (Electron + PWA、幼少向けうにゲーム) |
+| Ln | [Ludellus-Native](https://github.com/LUDIARS/Ludellus-Native) | Ludellus native 媒体クライアント (C++ Vulkan、MMO ワールド / MR) |
+| Lo | [Ludellus-Core](https://github.com/LUDIARS/Ludellus-Core) | Ludellus の概念・思想・サービスマップ + データ契約 (正本、実装なし) |
 
 ## Hub / 運用協調
 
