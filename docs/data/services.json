@@ -7,14 +7,14 @@
       "accent": "#9a8cff",
       "repos": [
         "LUDIARS",
-        "infra",
+        "Infra",
         "AIFormat",
-        "All-In-OneTest",
         "Foedus",
         "Lapilli",
         "Excubitor",
         "Augur",
-        "Vestigium"
+        "Vestigium",
+        "Revisor"
       ]
     },
     {
@@ -45,20 +45,11 @@
       "repos": [
         "Actio",
         "Schedula",
-        "Calicula",
         "Aedilis",
         "Discutere",
-        "Actio-PublicModules"
-      ]
-    },
-    {
-      "id": "game",
-      "label": "ゲーム",
-      "accent": "#f39c9c",
-      "repos": [
-        "AdventureCube",
-        "Ludellus",
-        "Ludellus-Server"
+        "Actio-PublicModules",
+        "Calliope",
+        "Ostiarius"
       ]
     },
     {
@@ -75,11 +66,9 @@
       "label": "アセット / ツール",
       "accent": "#e8a2ff",
       "repos": [
-        "Curare",
         "Clio",
         "Signum",
         "Figmentum",
-        "Imperativus",
         "Iter",
         "Custos",
         "Susurrus",
@@ -90,7 +79,13 @@
         "Lector",
         "Anatomia",
         "Thaleia",
-        "Canalis"
+        "Canalis",
+        "Fistula",
+        "Omnipotens",
+        "Spectator",
+        "Vitia",
+        "Volputas",
+        "VolputasData"
       ]
     },
     {
@@ -106,13 +101,12 @@
       "label": "UI / デザインシステム",
       "accent": "#c0e0a8",
       "repos": [
-        "Foundation",
         "Fundamentum"
       ]
     },
     {
       "id": "local",
-      "label": "ローカルログツール",
+      "label": "ローカル / ワークフロー",
       "accent": "#a4d8a0",
       "repos": [
         "Memoria",
@@ -122,7 +116,8 @@
         "Quaestor",
         "Peregrinatio",
         "MemoriaPlugin",
-        "Famulus"
+        "Famulus",
+        "Concordia-RWF"
       ]
     },
     {
@@ -130,12 +125,8 @@
       "label": "未着手 / 計画中",
       "accent": "#8a8a8a",
       "repos": [
-        "Ars-Musa",
-        "Educatus",
         "Ludus",
-        "Voluptas",
-        "Tessera",
-        "Hora"
+        "Tessera"
       ]
     }
   ],
@@ -151,11 +142,11 @@
         "GitHub Actions"
       ]
     },
-    "infra": {
+    "Infra": {
       "icon": "🛢",
       "category": "infra",
       "purpose": "ワークフロー",
-      "summary": "Cernere/Schedula/Curare/Nuntius 共有の PostgreSQL・Redis・MinIO・MailHog を Docker Compose で統一管理",
+      "summary": "認証・予定・通知サービス共有の PostgreSQL・Redis・MinIO・MailHog を Docker Compose で統一管理",
       "stack": [
         "Docker",
         "PostgreSQL 17",
@@ -190,7 +181,7 @@
       "icon": "⚙",
       "category": "engine",
       "purpose": "ワークフロー",
-      "summary": "C++17 モジュール群 + Web 開発者ツール。AdventureCube 等で共用される入力・音響・パーティクル・UI 基盤",
+      "summary": "C++17 モジュール群 + Web 開発者ツール。ゲーム群で共用される入力・音響・パーティクル・UI 基盤",
       "stack": [
         "C++17",
         "Vulkan",
@@ -217,17 +208,6 @@
       "stack": [
         "Markdown",
         "Convention"
-      ]
-    },
-    "All-In-OneTest": {
-      "icon": "🧪",
-      "category": "infra",
-      "purpose": "ワークフロー",
-      "summary": "LUDIARS 統合 CI 用の private monorepo。各サービスを submodule で束ね self-hosted runner で end-to-end テストを回す",
-      "stack": [
-        "GitHub Actions",
-        "Docker Compose",
-        "Submodule"
       ]
     },
     "Foedus": {
@@ -278,17 +258,6 @@
         "Drizzle"
       ]
     },
-    "Calicula": {
-      "icon": "📓",
-      "category": "schedule",
-      "purpose": "ワークフロー",
-      "summary": "カリキュラム予定管理の独立デスクトップアプリ。Tauri 2 + 内蔵 Web UI。Actio curriculum-scheduler へ JSON export",
-      "stack": [
-        "Tauri 2",
-        "SQLite",
-        "Rust"
-      ]
-    },
     "Discutere": {
       "icon": "💬",
       "category": "schedule",
@@ -299,18 +268,6 @@
         "Hono",
         "React",
         "Anthropic Haiku"
-      ]
-    },
-    "AdventureCube": {
-      "icon": "🎮",
-      "category": "game",
-      "purpose": "ゲーム開発",
-      "summary": "Vulkan + Pictor で描画する BPM アクション 3D ゲーム。キューブプレイヤーでスキル・装備を駆使してステージクリア",
-      "stack": [
-        "C++20",
-        "Vulkan",
-        "Pictor",
-        "Ergo"
       ]
     },
     "Synergos": {
@@ -334,18 +291,6 @@
         "Synergos-net"
       ]
     },
-    "Curare": {
-      "icon": "💎",
-      "category": "asset",
-      "purpose": "データ",
-      "summary": "ゲーム開発アセット管理サーバ。バージョン管理 + ワークフロー + 依存 DAG + マジックリンクを統合",
-      "stack": [
-        "TypeScript",
-        "Hono",
-        "Drizzle",
-        "MinIO"
-      ]
-    },
     "Clio": {
       "icon": "🧭",
       "category": "asset",
@@ -365,18 +310,6 @@
         "Hono",
         "React 19",
         "pngjs"
-      ]
-    },
-    "Imperativus": {
-      "icon": "🎙",
-      "category": "asset",
-      "purpose": "データ",
-      "summary": "WebRTC 音声入力をコマンドルーティング。Claude Code CLI バックエンド、faster-whisper/Vosk 等 STT 対応",
-      "stack": [
-        "Node.js",
-        "Python gRPC",
-        "mediasoup",
-        "faster-whisper"
       ]
     },
     "Iter": {
@@ -454,18 +387,6 @@
         "Rust"
       ]
     },
-    "Hora": {
-      "icon": "🕰",
-      "category": "planned",
-      "purpose": "新時代",
-      "status": "Planned",
-      "summary": "Desktop Ojisan アプリ。pivot spec + relation model + dialogue pack。残 24 issue で本格実装フェーズ",
-      "stack": [
-        "Tauri 2",
-        "Rust",
-        "React"
-      ]
-    },
     "Custos": {
       "icon": "🛡",
       "category": "asset",
@@ -525,57 +446,8 @@
         "WebRTC"
       ]
     },
-    "Ludellus": {
-      "icon": "🦄",
-      "category": "game",
-      "purpose": "新時代",
-      "summary": "知育系教材アプリ (旧 UniLand)。Claude Web モックを軽量に動かし入力動態を分析する Capacitor/PWA/Electron クライアント。マスコット「うに」",
-      "stack": [
-        "TypeScript",
-        "Capacitor",
-        "PWA",
-        "Electron"
-      ]
-    },
-    "Ludellus-Server": {
-      "icon": "🛰",
-      "category": "game",
-      "purpose": "新時代",
-      "summary": "Ludellus 中央 Web サーバ。子供プロファイル / スコア sync / 分岐ストア / Cernere PASETO + Memoria 通知",
-      "stack": [
-        "TypeScript",
-        "Hono",
-        "Cernere",
-        "PASETO"
-      ]
-    },
-    "Ars-Musa": {
-      "icon": "🎭",
-      "category": "planned",
-      "purpose": "ライブラリ",
-      "summary": "Ars 向け音声・UI モジュール群 (Melpomene / Terpsichore / Thaleia)。LUDIARS 外で再構成予定のためダッシュボード上は計画扱い",
-      "stack": [
-        "Tauri 2",
-        "Rust",
-        "axum"
-      ]
-    },
-    "Educatus": {
-      "icon": "🎓",
-      "category": "planned",
-      "purpose": "新時代",
-      "summary": "未着手 / 計画中のプレースホルダリポ",
-      "stack": []
-    },
     "Ludus": {
       "icon": "🎲",
-      "category": "planned",
-      "purpose": "新時代",
-      "summary": "未着手 / 計画中のプレースホルダリポ",
-      "stack": []
-    },
-    "Voluptas": {
-      "icon": "✨",
       "category": "planned",
       "purpose": "新時代",
       "summary": "未着手 / 計画中のプレースホルダリポ",
@@ -609,7 +481,7 @@
       "icon": "🎤",
       "category": "asset",
       "purpose": "新時代",
-      "summary": "面接練習アプリ。 ES/portfolio 学習 AI + 音声対話 (Imperativus 経由) + 複合 LLM (Sonnet/GPT/Opus) 評価",
+      "summary": "面接練習アプリ。 ES/portfolio 学習 AI + 音声対話基盤 + 複合 LLM (Sonnet/GPT/Opus) 評価",
       "stack": [
         "TypeScript",
         "Hono",
@@ -641,17 +513,6 @@
         "esbuild"
       ]
     },
-    "Foundation": {
-      "icon": "🧱",
-      "category": "ui",
-      "purpose": "ライブラリ",
-      "summary": "LUDIARS 全 Web フロントエンド共通デザインシステム。 CSS Variables + Tailwind + モバイル縦画面対応",
-      "stack": [
-        "CSS",
-        "Tailwind",
-        "TypeScript"
-      ]
-    },
     "Lector": {
       "icon": "📖",
       "category": "asset",
@@ -668,14 +529,21 @@
       "category": "local",
       "purpose": "新時代",
       "summary": "旅程・目的地・周辺施設をまとめ、経路探索とPDF出力を行う旅のしおりPWA。",
-      "stack": ["PWA", "Google Maps", "LLM"]
+      "stack": [
+        "PWA",
+        "Google Maps",
+        "LLM"
+      ]
     },
     "MemoriaPlugin": {
       "icon": "🧩",
       "category": "local",
       "purpose": "ライブラリ",
       "summary": "Memoriaホストへ機能を追加するインプロセス・プラグインフレームワーク。",
-      "stack": ["TypeScript", "Memoria"]
+      "stack": [
+        "TypeScript",
+        "Memoria"
+      ]
     },
     "Lapilli": {
       "icon": "🧰",
@@ -689,77 +557,233 @@
       "category": "infra",
       "purpose": "ワークフロー",
       "summary": "サービス死活監視・ログ集約・エラー分析・リモート設定・自動修復の基盤。",
-      "stack": ["TypeScript", "SQLite", "Claude Code CLI"]
+      "stack": [
+        "TypeScript",
+        "SQLite",
+        "Claude Code CLI"
+      ]
     },
     "Augur": {
       "icon": "🔭",
       "category": "infra",
       "purpose": "ワークフロー",
       "summary": "目的駆動のテスト計画と修正方針を立案するサービス。",
-      "stack": ["TypeScript", "Test planning"]
+      "stack": [
+        "TypeScript",
+        "Test planning"
+      ]
     },
     "Famulus": {
       "icon": "🤖",
       "category": "local",
       "purpose": "新時代",
       "summary": "ローカルLLMの起動とブラックボックス・モデル切替を担うスパナー。",
-      "stack": ["TypeScript", "LLM"]
+      "stack": [
+        "TypeScript",
+        "LLM"
+      ]
     },
     "Anatomia": {
       "icon": "🧬",
       "category": "asset",
       "purpose": "ワークフロー",
       "summary": "コード解析・動作構造・決定的キャッシュにより、仕様と実装の一貫性を支えるオラクル。",
-      "stack": ["TypeScript", "Kuzu", "Content-addressed DAG"]
+      "stack": [
+        "TypeScript",
+        "Kuzu",
+        "Content-addressed DAG"
+      ]
     },
     "Fundamentum": {
       "icon": "🗃️",
       "category": "ui",
       "purpose": "データ",
       "summary": "masterの不変ストアとuserの可変オーバーレイからなる共通データ基盤。",
-      "stack": ["TypeScript", "Content-addressed store"]
+      "stack": [
+        "TypeScript",
+        "Content-addressed store"
+      ]
     },
     "Vestigium": {
       "icon": "📜",
       "category": "infra",
       "purpose": "ライブラリ",
       "summary": "サービス横断のJSONLログ収集・日次ローテーション・保持を行うライブラリとCLI。",
-      "stack": ["TypeScript", "JSONL", "CLI"]
+      "stack": [
+        "TypeScript",
+        "JSONL",
+        "CLI"
+      ]
     },
     "Thaleia": {
       "icon": "🔗",
       "category": "asset",
       "purpose": "ワークフロー",
       "summary": "Praeformaの仕様とAnatomiaの解析結果を突合する企画↔実装トレーサビリティサービス。",
-      "stack": ["TypeScript", "Hono", "MUSA"]
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "MUSA"
+      ]
     },
     "Canalis": {
       "icon": "🌊",
       "category": "asset",
       "purpose": "データ",
       "summary": "crawl→clean→saveを契約で接続する共有データ取込パイプライン。",
-      "stack": ["TypeScript", "Data pipeline"]
+      "stack": [
+        "TypeScript",
+        "Data pipeline"
+      ]
     },
     "Actio-PublicModules": {
       "icon": "📚",
       "category": "schedule",
       "purpose": "ライブラリ",
       "summary": "Schedula向けの公開モジュール集。モジュールごとにブランチで管理する。",
-      "stack": ["TypeScript", "npm", "Schedula"]
+      "stack": [
+        "TypeScript",
+        "npm",
+        "Schedula"
+      ]
     },
     "UnityFoundation": {
       "icon": "🎮",
       "category": "engine",
       "purpose": "ゲーム開発",
       "summary": "Unityベースシステムとゲーム内バグ報告Melpomeneランタイムを提供する共通基盤。",
-      "stack": ["Unity", "C#", "Melpomene"]
+      "stack": [
+        "Unity",
+        "C#",
+        "Melpomene"
+      ]
     },
     "ErgoDLLs": {
       "icon": "🧱",
       "category": "engine",
       "purpose": "ライブラリ",
       "summary": "Ergo関連のランタイムDLLを配布・管理する共有コンポーネント。",
-      "stack": ["C++", "DLL"]
+      "stack": [
+        "C++",
+        "DLL"
+      ]
+    },
+    "Calliope": {
+      "icon": "🎼",
+      "category": "schedule",
+      "purpose": "ワークフロー",
+      "summary": "Actio・Schedula・Memoriaを束ね、目標・優先度・実績から計画とスプリントを統括するPM秘書オーケストレータ。",
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "React",
+        "Drizzle"
+      ]
+    },
+    "Concordia-RWF": {
+      "icon": "🔁",
+      "category": "local",
+      "purpose": "ワークフロー",
+      "summary": "Discordリアクションを指示へ変換し、headless実行やセッション注入を行うConcordia用Reaction-Workflowプラグイン。",
+      "stack": [
+        "TypeScript",
+        "Vitest",
+        "Concordia"
+      ]
+    },
+    "Fistula": {
+      "icon": "🎵",
+      "category": "asset",
+      "purpose": "新時代",
+      "summary": "楽曲の波形・ピッチを解析し、オタマトーン向け運指譜とスクロール演奏ガイドを生成する個人練習アプリ。",
+      "stack": [
+        "Tauri 2",
+        "Rust",
+        "React 19",
+        "TypeScript"
+      ]
+    },
+    "Omnipotens": {
+      "icon": "🌐",
+      "category": "asset",
+      "purpose": "ワークフロー",
+      "summary": "ゲームの企画・実装・体験・市場性・運用を、根拠と不確実性付きで統合分析するスキルと配布基盤。",
+      "stack": [
+        "JavaScript",
+        "PowerShell",
+        "Codex Skills",
+        "WPF"
+      ]
+    },
+    "Ostiarius": {
+      "icon": "🚪",
+      "category": "schedule",
+      "purpose": "ワークフロー",
+      "summary": "会場LAN内でpasskey assertionをオフライン検証し、Aedilis向け出席証跡へ署名するチェックインゲートウェイ。",
+      "stack": [
+        "TypeScript",
+        "Hono",
+        "WebAuthn",
+        "SQLite"
+      ]
+    },
+    "Revisor": {
+      "icon": "🔎",
+      "category": "infra",
+      "purpose": "ワークフロー",
+      "summary": "GitHub ActionsからPRを受け付け、反対系統モデルとAnatomiaで安全にレビューする独立ローカルサービス。",
+      "stack": [
+        "JavaScript",
+        "GitHub Actions",
+        "Anatomia",
+        "SQLite"
+      ]
+    },
+    "Spectator": {
+      "icon": "🎥",
+      "category": "asset",
+      "purpose": "データ",
+      "summary": "ゲーム動画の時刻に本人の反応を記録し、感情曲線の一次データをローカル保存・JSON出力するWindowsアプリ。",
+      "stack": [
+        "C#",
+        ".NET 8",
+        "WPF",
+        "SQLite"
+      ]
+    },
+    "Vitia": {
+      "icon": "🧭",
+      "category": "asset",
+      "purpose": "ワークフロー",
+      "summary": "ラベル中立・倫理・根拠重視でマーケティング、UX、オンボーディング、価格と収益化を評価する分析スキル。",
+      "stack": [
+        "Python",
+        "Codex Skills",
+        "Evidence Review"
+      ]
+    },
+    "Volputas": {
+      "icon": "✨",
+      "category": "asset",
+      "purpose": "データ",
+      "summary": "アンケート、プレイ情報、ユーザの声、動画上の感情曲線、ペルソナ分析を扱うプレイヤーリサーチツール。",
+      "stack": [
+        "JavaScript",
+        "React",
+        "Electron",
+        "Cernere"
+      ]
+    },
+    "VolputasData": {
+      "icon": "🗂️",
+      "category": "asset",
+      "purpose": "データ",
+      "summary": "Volputasのローカルモード向けに、公開アンケート定義と匿名サンプルを提供する独立データリポジトリ。",
+      "stack": [
+        "JSON",
+        "JSON Schema",
+        "Git"
+      ]
     }
   },
   "roadmaps": [
@@ -770,17 +794,42 @@
       "accent": "#7ddba2",
       "summary": "個人の意思決定・記録・対話を支えるAIエコシステム。",
       "members": [
-        { "repo": "Concordia", "mediumTermTarget": 80 },
-        { "repo": "Lictor", "mediumTermTarget": 75 },
-        { "repo": "Memoria", "mediumTermTarget": 85 },
-        { "repo": "Quaestor", "mediumTermTarget": 70 },
-        { "repo": "Famulus", "mediumTermTarget": 65 },
-        { "repo": "Legatus", "mediumTermTarget": 70 },
-        { "repo": "Cernere", "mediumTermTarget": 85 },
-        { "repo": "Hora", "mediumTermTarget": 55 },
-        { "repo": "Susurrus", "mediumTermTarget": 55 },
-        { "repo": "Imperativus", "mediumTermTarget": 65 },
-        { "repo": "Nuntius", "mediumTermTarget": 80 }
+        {
+          "repo": "Concordia",
+          "mediumTermTarget": 80
+        },
+        {
+          "repo": "Lictor",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Memoria",
+          "mediumTermTarget": 85
+        },
+        {
+          "repo": "Quaestor",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Famulus",
+          "mediumTermTarget": 65
+        },
+        {
+          "repo": "Legatus",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Cernere",
+          "mediumTermTarget": 85
+        },
+        {
+          "repo": "Susurrus",
+          "mediumTermTarget": 55
+        },
+        {
+          "repo": "Nuntius",
+          "mediumTermTarget": 80
+        }
       ]
     },
     {
@@ -790,23 +839,66 @@
       "accent": "#e8a2ff",
       "summary": "ゲーム開発支援ツール群と「9人の女神」計画。",
       "members": [
-        { "repo": "Ars", "mediumTermTarget": 70 },
-        { "repo": "Anatomia", "mediumTermTarget": 75 },
-        { "repo": "Thaleia", "mediumTermTarget": 80 },
-        { "repo": "Praeforma", "mediumTermTarget": 50 },
-        { "repo": "Curare", "mediumTermTarget": 70 },
-        { "repo": "Clio", "mediumTermTarget": 55 },
-        { "repo": "Actio", "mediumTermTarget": 75 },
-        { "repo": "UnityFoundation", "mediumTermTarget": 70 },
-        { "repo": "Concordia", "mediumTermTarget": 80 },
-        { "repo": "AIFormat", "mediumTermTarget": 80 },
-        { "repo": "Pictor", "mediumTermTarget": 75 },
-        { "repo": "Foundation", "mediumTermTarget": 75 },
-        { "repo": "Discutere", "mediumTermTarget": 70 },
-        { "repo": "Ergo", "mediumTermTarget": 70 },
-        { "repo": "Custos", "mediumTermTarget": 65 },
-        { "repo": "Memoria", "mediumTermTarget": 85 },
-        { "repo": "Nuntius", "mediumTermTarget": 80 }
+        {
+          "repo": "Ars",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Anatomia",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Thaleia",
+          "mediumTermTarget": 80
+        },
+        {
+          "repo": "Praeforma",
+          "mediumTermTarget": 50
+        },
+        {
+          "repo": "Clio",
+          "mediumTermTarget": 55
+        },
+        {
+          "repo": "Actio",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "UnityFoundation",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Concordia",
+          "mediumTermTarget": 80
+        },
+        {
+          "repo": "AIFormat",
+          "mediumTermTarget": 80
+        },
+        {
+          "repo": "Pictor",
+          "mediumTermTarget": 75
+        },
+        {
+          "repo": "Discutere",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Ergo",
+          "mediumTermTarget": 70
+        },
+        {
+          "repo": "Custos",
+          "mediumTermTarget": 65
+        },
+        {
+          "repo": "Memoria",
+          "mediumTermTarget": 85
+        },
+        {
+          "repo": "Nuntius",
+          "mediumTermTarget": 80
+        }
       ]
     },
     {
