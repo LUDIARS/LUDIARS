@@ -7,6 +7,10 @@ LUDIARS org の全サービスの完成度・進捗を一画面で俯瞰でき�
 
 公開 URL: <https://ludiars.github.io/LUDIARS/> (Pages 有効化後)
 
+公開ダッシュボードには GitHub 上で `public` のリポジトリだけを登録します。
+カテゴリとロードマップは `services.json` の登録済みリポジトリを表示境界とし、
+過去スナップショットに現在非公開のリポジトリ名が残っていても一覧へ再表示しません。
+
 ## ディレクトリ
 
 ```
@@ -29,6 +33,9 @@ docs/
 2. `data/snapshots.json` の `snapshots` 配列に新エントリを追加、
    `latest` を更新する
 3. commit + push (Pages は自動再デプロイ)
+
+更新前に GitHub の visibility を確認し、private リポジトリや旧リポジトリ名を
+`services.json`、`snapshots.json`、公開 Markdown へ追加しないでください。
 
 エントリ形式:
 
