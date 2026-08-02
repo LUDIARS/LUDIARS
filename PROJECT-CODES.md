@@ -83,7 +83,7 @@
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
 | Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
 | Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 (ISBN / QR スキャン + admin 返却) |
-| Qu | [Quaestor](https://github.com/LUDIARS/Quaestor) | 個人会計自動化 (レシート撮影 + 取込 + 照合) |
+| Qs | [Quaestor](https://github.com/LUDIARS/Quaestor) | 個人会計自動化 (レシート撮影 + 取込 + 照合) |
 | Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 + クレバーマージ支援 |
 | Fd | [Foedus](https://github.com/LUDIARS/Foedus) | Cernere↔Hub 連結契約の横断静的チェッカー (manifest と Cernere registry を突合し連結契約 / データ境界違反を検出) |
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
