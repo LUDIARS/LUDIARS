@@ -6,6 +6,7 @@
     "setup": "node setup.mjs",
     "start": "node setup.mjs --start",
     "stop": "node setup.mjs --stop",
-    "infisical": "node scripts/infisical.mjs"
+    "infisical": "node scripts/infisical.mjs",
+    "check:service-map": "node scripts/check-service-map.mjs"
   }
 }

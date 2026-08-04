@@ -10,6 +10,17 @@ org 横断の orchestration ツール。 各サービスの dev 体験を統一�
 
 新サービス追加時はここに 1 行 + PORT-MAP 更新。
 
+## check-service-map.mjs — service map 構造検査
+
+```sh
+npm run check:service-map
+```
+
+ルーティング正本 `service-map.json` と人間可読ビュー `ServiceMap.md` の整合を
+検査する。 JSON が壊れている / `repos` が無い / entry に `name` `role` が無い
+場合は **失敗** (exit 1)。 JSON にあるが `ServiceMap.md` に載っていない entry は
+**警告のみ** (正本に足してから書き足すまでの中間状態を塞がないため)。
+
 ## infisical.mjs — Infisical 一括操作
 
 各サービスの `env:<op>` (Infisical) を横串で実行する。 単一サービスでの

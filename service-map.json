@@ -39,7 +39,7 @@
     { "name": "Quaestor", "code": "Qu", "category": "data", "role": "個人会計データ基盤 (レシート / クレカ / 銀行)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 26 },
     { "name": "Pictor", "code": "Pc", "category": "library", "role": "Data-Driven Rendering Pipeline (C++20 / Vulkan)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 26 },
     { "name": "Ergo", "code": "Eg", "category": "workflow", "role": "C++ モジュラーフレームワーク", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 23 },
-    { "name": "Augur", "code": "Ag", "category": "workflow", "role": "テスト計画オラクル (目的駆動テスト計画 / port 4210)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 17 },
+    { "name": "Augur", "code": "Ag", "category": "workflow", "role": "テスト計画オラクル (目的駆動テスト計画 / 常駐なし CLI)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 17 },
 
     { "name": "LUDIARS", "code": "L", "category": "meta", "role": "組織メタ + ダッシュボード (PROJECT-CODES / ServiceMap 正本)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 21 },
     { "name": "GLAB-Hub", "code": null, "org": "VGA-GLAB", "category": "workflow", "role": "GLAB (Vantan ゲーム制作ラボ) 運営 hub (Corpus 派生)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 16 },

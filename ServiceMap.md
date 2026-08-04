@@ -39,7 +39,7 @@
 | [Quaestor](https://github.com/LUDIARS/Quaestor) | Qu | 個人会計データ基盤 (レシート / クレカ / 銀行) | 26 |
 | [Pictor](https://github.com/LUDIARS/Pictor) | Pc | Data-Driven Rendering Pipeline (C++20 / Vulkan) | 26 |
 | [Ergo](https://github.com/LUDIARS/Ergo) | Eg | C++ モジュラーフレームワーク | 23 |
-| [Augur](https://github.com/LUDIARS/Augur) | Ag | テスト計画オラクル (目的駆動テスト計画 / port 4210) | 17 |
+| [Augur](https://github.com/LUDIARS/Augur) | Ag | テスト計画オラクル (目的駆動テスト計画 / 常駐なし CLI) | 17 |
 
 ## Tier 2 — PR レビューのみ
 
