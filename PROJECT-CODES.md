@@ -96,6 +96,7 @@
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
 | Sa | [Satelles](https://github.com/LUDIARS/Satelles) | SDK 型ヘッドレス Codex エージェントランナー (app-server 直結 / ask マーカー / Cc delegation target) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
+| Ip | [Interpres](https://github.com/LUDIARS/Interpres) | 全ゲーム共通 MR 入力サービス (カメラ姿勢/ハンド認識・ジャンプ検知・アプリ別 MR 入力モード) |
 | Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
 | Lw | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ludellus Web 媒体クライアント (Electron + PWA、幼少向けうにゲーム) |
 | Ln | [Ludellus-Native](https://github.com/LUDIARS/Ludellus-Native) | Ludellus native 媒体クライアント (C++ Vulkan、MMO ワールド / MR) |
