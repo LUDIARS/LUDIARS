@@ -53,7 +53,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 |
 | Nt | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知配信基盤 |
 | — | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 |
-| — | [VantanHub](https://github.com/LUDIARS/VantanHub) | Vantan 校特化 hub (Corpus 派生) |
+| — | [VantanHub](https://github.com/LUDIARS/VantanHub) | EducationPartner 校特化 hub (Corpus 派生) |
 | Eg | [Ergo](https://github.com/LUDIARS/Ergo) | C++ モジュラーフレームワーク (ゲーム開発ワークフローの整備) |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (開発ワークフロー支援) |
 | Af | [AIFormat](https://github.com/LUDIARS/AIFormat) | レビュー / 設計フォーマット標準 |
@@ -83,11 +83,11 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | Code | Repo | ゲーム内容 |
 |------|------|------------|
 | AC | [AdventureCube](https://github.com/LUDIARS/AdventureCube) | beat 駆動 rolling-cube ゲーム (LUDIARS org) |
-| — | [KuzuSurvivors](https://github.com/MELPOT/KuzuSurvivors) | ヴァンサバ風サバイバー (MELPOT org / Pictor + Ergo の試験アプリ) |
+| — | [PrivateGame](https://github.com/PrivateProject/PrivateGame) | ヴァンサバ風サバイバー (PrivateProject org / Pictor + Ergo の試験アプリ) |
 | — | [Project-September](https://github.com/Project-September/Project-September) | Unity Fusion ベース公開ゲーム (外部 org / 6 anti-pattern 検証台) |
 
-> **メモ**: KuzuSurvivors と Project-September は LUDIARS org **外** (それぞれ
-> MELPOT / Project-September org) だが、 内部的には Pictor / Ergo / Concordia /
+> **メモ**: PrivateGame と Project-September は LUDIARS org **外** (それぞれ
+> PrivateProject / Project-September org) だが、 内部的には Pictor / Ergo / Concordia /
 > Lictor 等の LUDIARS スタックの検証対象として運用している。 ライブラリ群の
 > ドッグフード環境としての位置付け。
 
@@ -100,7 +100,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 
 | Code | Repo | 従属先 |
 |------|------|--------|
-| Pc | [Pictor](https://github.com/LUDIARS/Pictor) | 下層描画 (Vulkan)。 Ergo / AdventureCube / KuzuSurvivors が使う |
+| Pc | [Pictor](https://github.com/LUDIARS/Pictor) | 下層描画 (Vulkan)。 Ergo / AdventureCube / PrivateGame が使う |
 | Te | [Tessera](https://github.com/LUDIARS/Tessera) | モバイルゲーム通信 (Synergos 派生) |
 | Cx | [Codex](https://github.com/LUDIARS/Codex) | 署名済イベント検証台帳 (Tessera / Synergos 系の light client) |
 | — | [Vestigium](https://github.com/LUDIARS/Vestigium) | サービス横断ログ収集ライブラリ |

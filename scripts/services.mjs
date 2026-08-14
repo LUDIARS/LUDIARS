@@ -10,7 +10,7 @@
 // 除外している (Infisical 一括処理の対象外のため):
 //
 //   - C++ / Rust 等のライブラリ・クライアント: Pictor, Ergo, Synergos, Tessera,
-//     Codex, Curare, Clio, Signum, Iter, AdventureCube, KuzuSurvivors, Ludellus,
+//     Codex, Curare, Clio, Signum, Iter, AdventureCube, PrivateGame, Ludellus,
 //     Ludellus-Server, Ars 系, infra (docker compose), AIFormat, All-In-OneTest,
 //     Foundation, Conciliator
 //   - Tauri デスクトップ専用 (host port bind 無し): Hora, Calicula
@@ -174,7 +174,7 @@ export const SERVICES = [
   },
   {
     id: 'vantanhub',
-    displayName: 'VantanHub (Vantan 校 hub)',
+    displayName: 'VantanHub (EducationPartner 校 hub)',
     repoDir: '../VantanHub',
     port: 5186,
     needsCernere: true,

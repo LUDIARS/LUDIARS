@@ -26,6 +26,10 @@ function tierOf(pct) {
     return TIER_DEFS[TIER_DEFS.length - 1];
 }
 
+function registeredRepoNames(services) {
+    return new Set(services.categories.flatMap(category => category.repos));
+}
+
 async function main() {
     const [services, snapshots] = await Promise.all([
         fetch("./data/services.json").then(r => r.json()),
@@ -43,8 +47,12 @@ async function main() {
 }
 
 function renderHero(snap, services) {
+    const visibleRepos = registeredRepoNames(services);
+    const measuredRepoCount = Object.entries(snap.repos)
+        .filter(([repo, pct]) => visibleRepos.has(repo) && typeof pct === "number")
+        .length;
     document.getElementById("snapshot-date").textContent =
-        "Latest snapshot · " + snap.date;
+        `Latest snapshot · ${snap.date} · ${measuredRepoCount}/${visibleRepos.size} measured`;
 
     const fill  = document.getElementById("overall-fill");
     const label = document.getElementById("overall-label");
@@ -56,7 +64,8 @@ function renderHero(snap, services) {
 
     // Tier breakdown — group the repos in the snapshot by completion tier.
     const byTier = Object.fromEntries(TIER_DEFS.map(t => [t.key, []]));
-    for (const [repo, pct] of Object.entries(snap.repos)) {
+    for (const [repo, pct] of Object.entries(snap.repos)
+        .filter(([repo]) => visibleRepos.has(repo))) {
         byTier[tierOf(pct).key].push(repo);
     }
     const grid = document.getElementById("tier-grid");
@@ -156,6 +165,7 @@ function renderCategories(services, snap) {
 function renderRoadmaps(services, snap) {
     const root = document.getElementById("roadmaps-root");
     root.innerHTML = "";
+    const visibleRepos = registeredRepoNames(services);
 
     for (const roadmap of (services.roadmaps ?? []).filter(r => r.visibility === "public")) {
         const card = document.createElement("article");
@@ -172,7 +182,7 @@ function renderRoadmaps(services, snap) {
 
         const list = document.createElement("ul");
         list.className = "roadmap-service-list";
-        for (const member of roadmap.members) {
+        for (const member of roadmap.members.filter(member => visibleRepos.has(member.repo))) {
             const item = document.createElement("li");
             const link = document.createElement("a");
             link.href = `https://github.com/LUDIARS/${encodeURIComponent(member.repo)}`;

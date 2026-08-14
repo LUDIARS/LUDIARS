@@ -46,7 +46,7 @@
 | サービス | Code | 役割 | 30d |
 |---------|------|------|-----|
 | [LUDIARS](https://github.com/LUDIARS/LUDIARS) | L | 組織メタ + ダッシュボード | 21 |
-| [GLAB-Hub](https://github.com/VGA-GLAB/GLAB-Hub) | — | GLAB (Vantan ゲーム制作ラボ) 運営 hub ※org 外 | 16 |
+| [EducationHub](https://github.com/VGA-EducationLab/EducationHub) | — | EducationLab (EducationPartner ゲーム制作ラボ) 運営 hub ※org 外 | 16 |
 | [Figmentum](https://github.com/LUDIARS/Figmentum) | Fg | 3D 体型モデルの対話的進化 | 15 |
 | [AIFormat](https://github.com/LUDIARS/AIFormat) | Af | レビュー / 設計フォーマット標準 + harness ゲート | 15 |
 | [Lapilli](https://github.com/LUDIARS/Lapilli) | Lp | 共有パッケージ群 (llm-gateway / encrypted-config / blackbox / log-weaver) | 12 |
@@ -78,7 +78,7 @@
 
 UnityFoundation (Uf)、Fundamentum (Fm)、Concordia-RWF、Cocoiru、Ars (Ar)、Voluptas、VantanHub (Vh)、Susurrus (Su)、Codex (Cx)、All-In-OneTest (Ao)、Actio-SchoolModules (As)、Iter (It)、Ars-PlatformPlugin (Ax)、Ars-Musa (Au)、Tessera (Te)、Ludus (Lu)、Lector (Lc)、Curare (Cu)、AdventureCube (AC)、Actio-PublicModules (Ap)、Infra (In)、Ars-Module (Am)、Legatus (Lg)、Imperativus (Iv)、Clio (Cl)、Educatus
 
-org 外 dogfood: KuzuSurvivors (KS / MELPOT)、Project-September (外部 org)
+org 外 dogfood: PrivateGame (KS / PrivateProject)、Project-September (外部 org)
 
 ## 記録リポ (レビュー対象外)
 

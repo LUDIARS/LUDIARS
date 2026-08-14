@@ -52,7 +52,7 @@
 | Code | Project | 役割 |
 |------|---------|------|
 | AC | [AdventureCube](https://github.com/LUDIARS/AdventureCube) | beat 駆動 rolling-cube ゲーム (Ergo/Pictor 試験アプリ) |
-| KS | [KuzuSurvivors](https://github.com/LUDIARS/KuzuSurvivors) | ヴァンサバ風ゲーム (Pictor/Ergo 試験アプリ) |
+| KS | [PrivateGame](https://github.com/LUDIARS/PrivateGame) | ヴァンサバ風ゲーム (Pictor/Ergo 試験アプリ) |
 | Ul | [UniLand](https://github.com/LUDIARS/UniLand) | Web ゲーム (Uni キャラ描画) |
 | Lu | [Ludus](https://github.com/LUDIARS/Ludus) | ゲームコンテンツ + game-lexicon / game-template |
 | Vo | [Volputas](https://github.com/LUDIARS/Voluptas) | ゲームプレイ記録 + プレイヤー嗜好・感想プロファイル基盤 |
@@ -93,8 +93,12 @@
 | Tr | [Tirocinium](https://github.com/LUDIARS/Tirocinium) | 面接練習アプリ (ES/ポートフォリオ学習 AI + 音声対話 + 複合 LLM 評価) |
 | Pe | [Peregrinatio](https://github.com/LUDIARS/Peregrinatio) | 旅のしおり PWA (地図で目的地/周辺施設 + 施設名/Kindle連番画像からクロール/LLM解析でサマる + ピン/経路探索/PDF出力) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
+| Sa | [Satelles](https://github.com/LUDIARS/Satelles) | SDK 型ヘッドレス Codex エージェントランナー (app-server 直結 / ask マーカー / Cc delegation target) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
-| Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy) |
+| Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
+| Lw | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ludellus Web 媒体クライアント (Electron + PWA、幼少向けうにゲーム) |
+| Ln | [Ludellus-Native](https://github.com/LUDIARS/Ludellus-Native) | Ludellus native 媒体クライアント (C++ Vulkan、MMO ワールド / MR) |
+| Lo | [Ludellus-Core](https://github.com/LUDIARS/Ludellus-Core) | Ludellus の概念・思想・サービスマップ + データ契約 (正本、実装なし) |
 
 ## Hub / 運用協調
 
@@ -105,7 +109,7 @@
 | Ex | [Excubitor](https://github.com/LUDIARS/Excubitor) | サービス監視 + 運用コア + ランチャー |
 | Fa | [Famulus](https://github.com/LUDIARS/Famulus) | ローカル LLM スポナー + 黒箱モデル切り替え機 |
 | Lg | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 (OwnTracks → Actio forwarder) |
-| Vh | [VantanHub](https://github.com/LUDIARS/VantanHub) | Vantan 校特化 Hub (Corpus submodule + 5 モジュール + Electron マスコット) |
+| Vh | [VantanHub](https://github.com/LUDIARS/VantanHub) | EducationPartner 校特化 Hub (Corpus submodule + 5 モジュール + Electron マスコット) |
 
 ## Ars プラグイン
 

@@ -42,7 +42,7 @@
     { "name": "Augur", "code": "Ag", "category": "workflow", "role": "テスト計画オラクル (目的駆動テスト計画 / 常駐なし CLI)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 17 },
 
     { "name": "LUDIARS", "code": "L", "category": "meta", "role": "組織メタ + ダッシュボード (PROJECT-CODES / ServiceMap 正本)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 21 },
-    { "name": "GLAB-Hub", "code": null, "org": "VGA-GLAB", "category": "workflow", "role": "GLAB (Vantan ゲーム制作ラボ) 運営 hub (Corpus 派生)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 16 },
+    { "name": "EducationHub", "code": null, "org": "VGA-EducationLab", "category": "workflow", "role": "EducationLab (EducationPartner ゲーム制作ラボ) 運営 hub (Corpus 派生)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 16 },
     { "name": "Figmentum", "code": "Fg", "category": "new-era", "role": "3D 体型モデルの対話的進化", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 15 },
     { "name": "AIFormat", "code": "Af", "category": "workflow", "role": "レビュー / 設計フォーマット標準 + harness ゲート", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 15 },
     { "name": "Lapilli", "code": "Lp", "category": "library", "role": "共有パッケージ群 (llm-gateway / encrypted-config / blackbox / log-weaver)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 12 },
@@ -76,7 +76,7 @@
     { "name": "Cocoiru", "code": null, "category": "library", "role": "Schedula 在席シェアリングモジュール", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 3 },
     { "name": "Ars", "code": "Ar", "category": "new-era", "role": "コンテンツ設計エディタ + ゲームエンジン (Tauri / React / C++)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Voluptas", "code": null, "category": "game", "role": "プレイヤープロファイル backend (嗜好・感情分析)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
-    { "name": "VantanHub", "code": "Vh", "category": "workflow", "role": "Vantan 校特化 hub (Corpus 派生)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
+    { "name": "VantanHub", "code": "Vh", "category": "workflow", "role": "EducationPartner 校特化 hub (Corpus 派生)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Susurrus", "code": "Su", "category": "new-era", "role": "ローカル先行 + md 正本のチャット", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Codex", "code": "Cx", "category": "library", "role": "署名済イベント検証台帳 (light client)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "All-In-OneTest", "code": "Ao", "category": "workflow", "role": "統合 CI monorepo", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
@@ -96,10 +96,10 @@
     { "name": "Imperativus", "code": "Iv", "category": "data", "role": "WebRTC 音声コマンドルータ (音声 / GPS 個人ログ)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 0 },
     { "name": "Clio", "code": "Cl", "category": "new-era", "role": "リソース抽象化 / 自動取得", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 0 },
     { "name": "Educatus", "code": null, "category": "planned", "role": "未着手", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 0 },
-    { "name": "KuzuSurvivors", "code": "KS", "org": "MELPOT", "category": "game", "role": "ヴァンサバ風サバイバー (Pictor / Ergo dogfood、org 外)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": null },
+    { "name": "PrivateGame", "code": "KS", "org": "PrivateProject", "category": "game", "role": "ヴァンサバ風サバイバー (Pictor / Ergo dogfood、org 外)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": null },
     { "name": "Project-September", "code": null, "org": "Project-September", "category": "game", "role": "Unity Fusion 公開ゲーム (anti-pattern 検証台、org 外)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": null },
 
     { "name": "Castra", "code": null, "category": "records", "role": "記録リポ (過去 Review 履歴 / セッションログ / backups。reviews/ はローカル専用)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 104 },
-    { "name": "roadmap-*", "code": null, "category": "records", "role": "ロードマップ文書リポ群 (school-hub / personal-ai / musa / kuzu-survivors / back-office / dx-workflow / ludellus)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 7 }
+    { "name": "roadmap-*", "code": null, "category": "records", "role": "ロードマップ文書リポ群 (school-hub / personal-ai / musa / PrivateGame / back-office / dx-workflow / ludellus)", "tier": "records", "daily_review": false, "pr_review": false, "activity_30d": 7 }
   ]
 }
