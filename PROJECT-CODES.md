@@ -97,7 +97,9 @@
 | Sa | [Satelles](https://github.com/LUDIARS/Satelles) | SDK 型ヘッドレス Codex エージェントランナー (app-server 直結 / ask マーカー / Cc delegation target) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
 | Ip | [Interpres](https://github.com/LUDIARS/Interpres) | 全ゲーム共通 MR 入力サービス (カメラ姿勢/ハンド認識・ジャンプ検知・アプリ別 MR 入力モード) |
+| Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone Web UI からキーボードレス Windows 機へキー/マウス/ショートカット入力を注入するリモート入力サービス |
 | Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
+| Hi | [Histrio](https://github.com/LUDIARS/Histrio) | ペルソナ + 会話エンジン (Cc から切り出し。persona 正本 / 発話判定 / 中央 Haiku 描画 / アンビエント参加。Di の討論生成にも API 提供) |
 | Lw | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ludellus Web 媒体クライアント (Electron + PWA、幼少向けうにゲーム) |
 | Ln | [Ludellus-Native](https://github.com/LUDIARS/Ludellus-Native) | Ludellus native 媒体クライアント (C++ Vulkan、MMO ワールド / MR) |
 | Lo | [Ludellus-Core](https://github.com/LUDIARS/Ludellus-Core) | Ludellus の概念・思想・サービスマップ + データ契約 (正本、実装なし) |
