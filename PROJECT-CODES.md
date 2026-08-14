@@ -75,6 +75,7 @@
 | Cu | [Curare](https://github.com/LUDIARS/Curare) | アセット管理サーバ |
 | Cl | [Clio](https://github.com/LUDIARS/Clio) | リソース抽象化 / 自動取得モジュール |
 | Si | [Signum](https://github.com/LUDIARS/Signum) | 画像アウトライン → SVG 生成 |
+| Vu | [Vultus](https://github.com/LUDIARS/Vultus) | 顔特徴解析・類似検索サービス (顔検出 / パーツ幾何 / 埋め込み / タグ検索) |
 | Fg | [Figmentum](https://github.com/LUDIARS/Figmentum) | LLM 支援 3D モデル生成 (手続き SDF / 骨格 → CPU 生成 + LOD + 体型対話進化) |
 | Iv | [Imperativus](https://github.com/LUDIARS/Imperativus) | 音声コマンドルータ / GPS |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (設計段階) |
