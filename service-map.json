@@ -36,7 +36,7 @@
     { "name": "Lictor", "code": "Li", "category": "workflow", "role": "per-session sidecar (CLI ↔ Concordia 中継)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 43 },
     { "name": "Memoria", "code": "Mm", "category": "data", "role": "個人ログ基盤 (ブックマーク / 日記 / タスク / レビュー閲覧)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 40 },
     { "name": "Ludellus", "code": "Ul", "category": "new-era", "role": "知育アプリ (旧 UniLand、マスコット「うに」)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 29 },
-    { "name": "Quaestor", "code": "Qu", "category": "data", "role": "個人会計データ基盤 (レシート / クレカ / 銀行)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 26 },
+    { "name": "Quaestor", "code": "Qs", "category": "data", "role": "個人会計データ基盤 (レシート / クレカ / 銀行)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 26 },
     { "name": "Pictor", "code": "Pc", "category": "library", "role": "Data-Driven Rendering Pipeline (C++20 / Vulkan)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 26 },
     { "name": "Ergo", "code": "Eg", "category": "workflow", "role": "C++ モジュラーフレームワーク", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 23 },
     { "name": "Augur", "code": "Ag", "category": "workflow", "role": "テスト計画オラクル (目的駆動テスト計画 / 常駐なし CLI)", "tier": 1, "daily_review": true, "pr_review": true, "activity_30d": 17 },

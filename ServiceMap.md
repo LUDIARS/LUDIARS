@@ -36,7 +36,7 @@
 | [Lictor](https://github.com/LUDIARS/Lictor) | Li | per-session sidecar (CLI ↔ Concordia 中継) | 43 |
 | [Memoria](https://github.com/LUDIARS/Memoria) | Mm | 個人ログ基盤 (ブックマーク / 日記 / タスク / レビュー閲覧) | 40 |
 | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ul | 知育アプリ (旧 UniLand、マスコット「うに」) | 29 |
-| [Quaestor](https://github.com/LUDIARS/Quaestor) | Qu | 個人会計データ基盤 (レシート / クレカ / 銀行) | 26 |
+| [Quaestor](https://github.com/LUDIARS/Quaestor) | Qs | 個人会計データ基盤 (レシート / クレカ / 銀行) | 26 |
 | [Pictor](https://github.com/LUDIARS/Pictor) | Pc | Data-Driven Rendering Pipeline (C++20 / Vulkan) | 26 |
 | [Ergo](https://github.com/LUDIARS/Ergo) | Eg | C++ モジュラーフレームワーク | 23 |
 | [Augur](https://github.com/LUDIARS/Augur) | Ag | テスト計画オラクル (目的駆動テスト計画 / 常駐なし CLI) | 17 |
