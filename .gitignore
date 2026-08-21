@@ -3,3 +3,6 @@ node_modules/
 .env
 # scripts/infisical.mjs setup-batch の shared credentials + per-service projectId 設定
 .infisical-batch.json
+
+# Anatomia のローカル状態 (ドメイン定義の正本は spec/domains/)
+.anatomia/

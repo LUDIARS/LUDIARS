@@ -1,0 +1,32 @@
+{
+  "name": "workspace-governance",
+  "description": "LUDIARS 全体の統括ドキュメント。 プロジェクトコード表、 リポジトリ分類、 サービスマップ。 実装ではなく取り決めの正本。",
+  "presetRules": [],
+  "templateRules": [],
+  "membership": [
+    {
+      "pathPattern": "(^|/)scripts/(?:.*/)?[^/]+$"
+    },
+    {
+      "pathPattern": "(^|/)setup\\.mjs$"
+    },
+    {
+      "pathPattern": "(^|/)compose/(?:.*/)?[^/]+$"
+    },
+    {
+      "pathPattern": "(^|/)docs/(?:.*/)?[^/]+$"
+    },
+    {
+      "pathPattern": "(^|/)PROJECT-CODES\\.md$"
+    },
+    {
+      "pathPattern": "(^|/)REPO-CLASSIFICATION-BY-PURPOSE\\.md$"
+    },
+    {
+      "pathPattern": "(^|/)ServiceMap\\.md$"
+    },
+    {
+      "pathPattern": "(^|/)service-map\\.json$"
+    }
+  ]
+}
