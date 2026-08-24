@@ -77,6 +77,7 @@
 | Si | [Signum](https://github.com/LUDIARS/Signum) | 画像アウトライン → SVG 生成 |
 | Vu | [Vultus](https://github.com/LUDIARS/Vultus) | 顔特徴解析・類似検索サービス (顔検出 / パーツ幾何 / 埋め込み / タグ検索) |
 | Fg | [Figmentum](https://github.com/LUDIARS/Figmentum) | LLM 支援 3D モデル生成 (手続き SDF / 骨格 → CPU 生成 + LOD + 体型対話進化) |
+| Om | [Omnipotents](https://github.com/LUDIARS/Omnipotents) | ゲームプロジェクト全方位分析スキル |
 | Iv | [Imperativus](https://github.com/LUDIARS/Imperativus) | 音声コマンドルータ / GPS |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (設計段階) |
 | An | [Anatomia](https://github.com/LUDIARS/Anatomia) | コード解析 × 決定的キャッシュで AI のクリーンなコード生成を支える建築規約オラクル |
@@ -111,6 +112,7 @@
 |------|---------|------|
 | Cc | [Concordia](https://github.com/LUDIARS/Concordia) | 複数 AI セッション協調・記録サービス |
 | Co | [Corpus](https://github.com/LUDIARS/Corpus) | 汎用 hub フレームワーク (各サービスにコネクタ接続して集約) |
+| Cy | [Curia](https://github.com/LUDIARS/Curia) | LUDIARS 統合デスクトップスイート / hub shell |
 | Ex | [Excubitor](https://github.com/LUDIARS/Excubitor) | サービス監視 + 運用コア + ランチャー |
 | Fa | [Famulus](https://github.com/LUDIARS/Famulus) | ローカル LLM スポナー + 黒箱モデル切り替え機 |
 | Lg | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 (OwnTracks → Actio forwarder) |
@@ -132,6 +134,7 @@
   単独表記は文脈で判断する。
 - Cocoiru など repo に紐づかない子モジュールはフルネーム運用。
 - C 系が多いので注意: Cc=Concordia / Ci=Canalis / Cl=Clio / Cn=Conciliator /
-  Co=Corpus / Cr=Cernere / Cs=Custos / Ca=Calicula / Cu=Curare / Cx=Codex。
+  Co=Corpus / Cr=Cernere / Cs=Custos / Ca=Calicula / Cu=Curare / Cx=Codex /
+  Cy=Curia。
 - 大文字・小文字を区別する (`At` ≠ `at`、`KS` ≠ `Ks`)。
 - 新しい略称を追加するときは PR で本ファイルを更新する。
