@@ -82,6 +82,7 @@
 | An | [Anatomia](https://github.com/LUDIARS/Anatomia) | コード解析 × 決定的キャッシュで AI のクリーンなコード生成を支える建築規約オラクル |
 | Gn | [Genius](https://github.com/LUDIARS/Genius) | 過去の作業記録から状況依存の判断カードを供給する個人判断ナレッジ基盤 |
 | Ag | [Augur](https://github.com/LUDIARS/Augur) | 目的駆動のテスト計画 & 修正方針サービス (テストは実行せず計画と方針を返す託宣) |
+| Ob | [Orbis](https://github.com/LUDIARS/Orbis) | 関心グラフ・ブラウザ (Electron zero-patch Chromium。1 関心 = 1 グラフ = 1 ウインドウ、用途別 Habitus、Cc 専用 Vinculum MCP) |
 | Mm | [Memoria](https://github.com/LUDIARS/Memoria) | Web ブックマーキング + RAG + タスク |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
 | Su | [Susurrus](https://github.com/LUDIARS/Susurrus) | ローカル先行チャット (Cernere auth + Synergos P2P) |
