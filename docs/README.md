@@ -1,7 +1,7 @@
 # LUDIARS Services Dashboard (GitHub Pages)
 
 LUDIARS org の全サービスの完成度・進捗を一画面で俯瞰できる静的サイト。
-毎週月曜 03:00 JST に `ludiars-status-weekly` routine が走り、新しい
+毎日 03:00 JST に `ludiars-status-daily` Scheduled task が走り、新しい
 スナップショットを `docs/snapshots/YYYY-MM-DD.md` と
 `docs/data/snapshots.json` に追記します。
 
@@ -22,7 +22,7 @@ docs/
 │   └── style.css           # ダークテーマ
 ├── data/
 │   ├── services.json       # サービスカタログ (カテゴリ / 概要 / icon)
-│   └── snapshots.json      # 時系列の完成度データ (週次追記)
+│   └── snapshots.json      # 時系列の完成度データ (日次追記)
 └── snapshots/
     └── YYYY-MM-DD.md       # 生 Markdown のスナップショット (人間向け詳細)
 ```
@@ -49,7 +49,9 @@ docs/
 }
 ```
 
-## routine 自動化
+## 日報の自動化
 
-`ludiars-status-weekly` routine は Claude 側で上記 JSON の更新と md 追加を
-まとめて行います。詳細は routine の prompt を参照。
+`ludiars-status-daily` は登録済みリポジトリの `main` に入った直近24時間の
+変更を日報としてまとめます。未マージ branch は含めず、根拠がない完成度は
+直前値を継承します。設定内容と正本プロンプトは
+[`DAILY-REPORT-PROMPT.md`](./DAILY-REPORT-PROMPT.md) を参照してください。

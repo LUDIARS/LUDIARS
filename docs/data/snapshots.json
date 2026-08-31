@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-07-28",
+  "latest": "2026-08-31",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -593,6 +593,53 @@
         "新規登録: Calliope / Concordia-RWF / Fistula / Omnipotens / Ostiarius / Revisor / Spectator / Vitia / Volputas / VolputasData",
         "非公開・旧名の項目と関連履歴を公開表示から除外",
         "新規登録リポジトリの完成度は次回の進捗評価まで未計測"
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "weighted_completion": 72,
+      "_calc": "日次活動スナップショット。進捗値は前回評価から継承し、登録済みリポジトリの local main に入った直近24時間の変更だけを日報として記録。",
+      "md": "snapshots/2026-08-31.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Figmentum": 49,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "日報運用を開始。登録済みリポジトリの local main を対象に、直近24時間の活動をダッシュボードへ記録",
+        "Concordia: 子会社タスクフローの所有スコープを永続化し、組織別表示に対応",
+        "Concordia: Taskflow のリポジトリ誤選択と絵文字リアクションによる誤引継ぎを防止",
+        "Concordia: リアクションワークフローをセッション面に限定し、単発絵文字による誤起動を修復",
+        "完成度は定量的な再評価を行わず、2026-07-28 の値を継承"
       ]
     }
   ]

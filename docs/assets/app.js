@@ -7,8 +7,9 @@
 ///   - Categories with per-service completion
 ///   - Snapshot history timeline
 ///
-/// The routine (`ludiars-status`) appends to `data/snapshots.json` and
-/// drops a `.md` into `snapshots/YYYY-MM-DD.md` each week. The site
+/// The Scheduled task (`ludiars-status-daily`) appends to
+/// `data/snapshots.json` and drops a `.md` into
+/// `snapshots/YYYY-MM-DD.md` each day. The site
 /// re-renders from whatever JSON is there — no build step.
 
 const TIER_DEFS = [
