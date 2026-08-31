@@ -81,6 +81,7 @@
         "Thaleia",
         "Canalis",
         "Fistula",
+        "Manus",
         "Omnipotens",
         "Spectator",
         "Vitia",
@@ -93,7 +94,9 @@
       "label": "Hub フレームワーク",
       "accent": "#c8b9ff",
       "repos": [
-        "Corpus"
+        "Corpus",
+        "Curia",
+        "Conexus"
       ]
     },
     {
@@ -113,6 +116,7 @@
         "Legatus",
         "Concordia",
         "Lictor",
+        "Satelles",
         "Quaestor",
         "Peregrinatio",
         "MemoriaPlugin",
@@ -784,6 +788,52 @@
         "JSON Schema",
         "Git"
       ]
+    },
+    "Curia": {
+      "icon": "🏛️",
+      "category": "hub",
+      "purpose": "ワークフロー",
+      "summary": "VolputasとDiscutereを1ウィンドウへ統合し、任意のLUDIARSアプリを着脱できるElectron hub shell。",
+      "stack": [
+        "Electron",
+        "TypeScript",
+        "Volputas",
+        "Discutere"
+      ]
+    },
+    "Manus": {
+      "icon": "📱",
+      "category": "asset",
+      "purpose": "ワークフロー",
+      "summary": "iPhoneのWeb UIからキーボードレスWindows機へキーボード、マウス、ショートカット入力を注入するリモート入力サービス。",
+      "stack": [
+        "TypeScript",
+        "WebSocket",
+        "C#",
+        "Win32 SendInput"
+      ]
+    },
+    "Satelles": {
+      "icon": "🤖",
+      "category": "local",
+      "purpose": "ワークフロー",
+      "summary": "codex app-serverへJSON-RPCで直結し、PTYやウィンドウなしでCodexセッションを実行するSDK型ヘッドレスエージェントランナー。",
+      "stack": [
+        "TypeScript",
+        "Codex app-server",
+        "JSON-RPC"
+      ]
+    },
+    "Conexus": {
+      "icon": "🔌",
+      "category": "hub",
+      "purpose": "ワークフロー",
+      "summary": "LUDIARSサービスへDiscordとSlackの連携を追加するオプションの統合ゲートウェイ。",
+      "stack": [
+        "Discord",
+        "Slack",
+        "Gateway"
+      ]
     }
   },
   "roadmaps": [
@@ -884,6 +934,10 @@
           "mediumTermTarget": 70
         },
         {
+          "repo": "Curia",
+          "mediumTermTarget": 70
+        },
+        {
           "repo": "Ergo",
           "mediumTermTarget": 70
         },
@@ -923,6 +977,14 @@
         {
           "repo": "Praeforma",
           "mediumTermTarget": 75
+        },
+        {
+          "repo": "Satelles",
+          "mediumTermTarget": 80
+        },
+        {
+          "repo": "Conexus",
+          "mediumTermTarget": 60
         }
       ]
     },
@@ -948,6 +1010,10 @@
         {
           "repo": "Pictor",
           "mediumTermTarget": 80
+        },
+        {
+          "repo": "Manus",
+          "mediumTermTarget": 55
         }
       ]
     }

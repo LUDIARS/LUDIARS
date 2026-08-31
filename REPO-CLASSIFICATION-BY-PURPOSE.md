@@ -41,8 +41,11 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 |------|------|----------------------|
 | Cr | [Cernere](https://github.com/LUDIARS/Cernere) | 認証 / WS リレー基盤 |
 | — | [Corpus](https://github.com/LUDIARS/Corpus) | 汎用 hub フレームワーク (各サービスを集約) |
+| Cy | [Curia](https://github.com/LUDIARS/Curia) | Volputas / Discutere と任意の LUDIARS アプリを集約するデスクトップ hub shell |
 | — | [Concordia](https://github.com/LUDIARS/Concordia) | 複数 AI agent セッション協調 + 観測 |
+| Sa | [Satelles](https://github.com/LUDIARS/Satelles) | Codex app-server 直結の SDK 型ヘッドレスエージェントランナー |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | per-session sidecar (CLI と Concordia を中継) |
+| — | [Conexus](https://github.com/LUDIARS/Conexus) | LUDIARS サービスへ Discord / Slack 連携を追加する統合ゲートウェイ |
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 |
 | Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 |
 | Cs | [Custos](https://github.com/LUDIARS/Custos) | 遠隔テストランナー |
@@ -56,6 +59,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | — | [VantanHub](https://github.com/LUDIARS/VantanHub) | EducationPartner 校特化 hub (Corpus 派生) |
 | Eg | [Ergo](https://github.com/LUDIARS/Ergo) | C++ モジュラーフレームワーク (ゲーム開発ワークフローの整備) |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (開発ワークフロー支援) |
+| Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone の Web UI から Windows 機へ入力を中継するリモート入力サービス |
 | Af | [AIFormat](https://github.com/LUDIARS/AIFormat) | レビュー / 設計フォーマット標準 |
 | In | [infra](https://github.com/LUDIARS/infra) | 共有 PostgreSQL / Redis / MinIO |
 | Ao | [All-In-OneTest](https://github.com/LUDIARS/All-In-OneTest) | 統合 CI monorepo |
@@ -119,7 +123,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | カテゴリ | 件数 | 主な傾向 |
 |----------|------|----------|
 | 1. 新時代 | 9 | 一番尖った layer。 ここを増やしたい |
-| 2. ワークフロー | 21 | 一番太い layer。 「悪い病気」 自認の通り過剰、 隔週レビュー対象 |
+| 2. ワークフロー | 25 | 一番太い layer。 「悪い病気」 自認の通り過剰、 隔週レビュー対象 |
 | 3. データ | 4 | Memoria を軸に複数 vertical の個人データ蓄積 |
 | 4. ゲーム開発 | 3 | LUDIARS 外 2 / 内 1。 Pictor / Ergo の dogfood |
 | 5. ライブラリ | 11 | 上の 4 種を支える下層 |
@@ -144,3 +148,4 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 - 2026-05-28 初版 (5 / 20 / 5+α / 3 / 14 = 47)
 - 2026-05-28 改訂: Susurrus / Discutere / Ludus / Clio を新時代、 Ergo / Iter を
   ワークフロー、 Ludus を 新時代に格上げ (5 → 9 / 20 → 21 / 5+α → 4 / 3 / 14 → 11)
+- 2026-08-31 改訂: Curia / Manus / Satelles / Conexus をワークフローへ追加 (21 → 25)
