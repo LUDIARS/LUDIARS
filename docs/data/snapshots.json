@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-08-31",
+  "latest": "2026-09-02",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -642,6 +642,54 @@
         "Concordia: Taskflow のリポジトリ誤選択と絵文字リアクションによる誤引継ぎを防止",
         "Concordia: リアクションワークフローをセッション面に限定し、単発絵文字による誤起動を修復",
         "完成度は定量的な再評価を行わず、2026-07-28 の値を継承。新規4リポジトリは未計測"
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "weighted_completion": 72,
+      "_calc": "2026-08-31 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。",
+      "md": "snapshots/2026-09-02.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Figmentum": 49,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "61/62 public checkout の local main を確認し、6リポジトリで27 commit。ErgoDLLs は local checkout 不在のため未確認",
+        "Concordia: 子会社・チーム運用、セッション終了回収、委託安全性、定期運用を19 commitで横断更新",
+        "Quaestor: 請求書のDiscord確認、配信修正、到達ログ、公開面集約を4 commitで実施",
+        "AIFormat / Anatomia / Revisor: 着手時バンドル、除外理由通知、fail-closed解析ゲートを整備",
+        "Lictor: SendUserFile のDiscordセッションチャンネル中継を追加",
+        "完成度は定量的な再評価を行わず、2026-08-31 の値を継承"
       ]
     }
   ]
