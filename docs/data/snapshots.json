@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-09-02",
+  "latest": "2026-09-03",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -690,6 +690,55 @@
         "AIFormat / Anatomia / Revisor: 着手時バンドル、除外理由通知、fail-closed解析ゲートを整備",
         "Lictor: SendUserFile のDiscordセッションチャンネル中継を追加",
         "完成度は定量的な再評価を行わず、2026-08-31 の値を継承"
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "weighted_completion": 72,
+      "_calc": "2026-09-02 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。",
+      "md": "snapshots/2026-09-03.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Figmentum": 49,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "61/62 public checkout の local main を確認し、6リポジトリで24 commit。ErgoDLLs は local checkout 不在のため未確認",
+        "Concordia: forum spawn のモデル選択、子会社向けアクション制御、承認・委託ライフサイクル、プロジェクト管理を17 commitで更新",
+        "Cernere: composite SDK をログインUIの本流にし、パスキー登録・ログインとメールアドレス不要登録を内蔵",
+        "Quaestor: Gmail の決定的分類と請求書PDF取込、送付者名・暗号化設定のメール反映を追加",
+        "Memoria / Lictor: Discord WS 障害隔離と detached 起動時の trust / MCP 初期設定を安定化",
+        "LUDIARS: 前日の日報と snapshot catalog の回帰テストを追加",
+        "完成度は定量的な再評価を行わず、2026-09-02 の値を継承"
       ]
     }
   ]

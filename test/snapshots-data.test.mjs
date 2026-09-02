@@ -48,4 +48,14 @@ test("snapshot catalog keeps a unique, resolvable latest entry", async () => {
   const latest = catalog.snapshots.at(-1);
   assert.equal(catalog.latest, latest.date);
   assert.match(latest._calc, /\S/u, "latest snapshot must explain its calculation");
+
+  const latestMarkdown = await readFile(resolve(repoRoot, "docs", latest.md), "utf8");
+  assert.match(
+    latestMarkdown,
+    new RegExp(`^# LUDIARS Services Daily Report — ${latest.date}$`, "mu"),
+    "latest Markdown heading must identify the snapshot date",
+  );
+  for (const section of ["今日の要約", "ワークストリーム別の変更", "集計上の制約", "完成度", "集計ルール"]) {
+    assert.match(latestMarkdown, new RegExp(`^## ${section}$`, "mu"));
+  }
 });
