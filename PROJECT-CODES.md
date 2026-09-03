@@ -137,4 +137,6 @@
   Co=Corpus / Cr=Cernere / Cs=Custos / Ca=Calicula / Cu=Curare / Cx=Codex /
   Cy=Curia。
 - 大文字・小文字を区別する (`At` ≠ `at`、`KS` ≠ `Ks`)。
+- LUDIARS 外の private リポは本表に載せない。正本は Concordia の project-code
+  registry (`GET /v1/project-codes`)。
 - 新しい略称を追加するときは PR で本ファイルを更新する。
