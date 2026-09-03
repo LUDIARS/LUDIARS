@@ -58,4 +58,13 @@ test("snapshot catalog keeps a unique, resolvable latest entry", async () => {
   for (const section of ["今日の要約", "ワークストリーム別の変更", "集計上の制約", "完成度", "集計ルール"]) {
     assert.match(latestMarkdown, new RegExp(`^## ${section}$`, "mu"));
   }
+  const reportingStart = new Date(`${latest.date}T00:00:00Z`);
+  reportingStart.setUTCDate(reportingStart.getUTCDate() - 1);
+  const reportingStartDate = reportingStart.toISOString().slice(0, 10);
+  assert.match(
+    latestMarkdown,
+    new RegExp(`${reportingStartDate} 03:00 から ${latest.date} 03:00 \\(Asia/Tokyo\\)`, "u"),
+    "latest Markdown must state the preceding 24-hour reporting window",
+  );
+  assert.match(latestMarkdown, /local `main`/u, "latest Markdown must identify local main as the source");
 });

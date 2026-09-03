@@ -26,4 +26,3 @@ memory_links:
 - local checkout を確認できなかった公開リポジトリがある場合は、日報に明記して未確認を変更なしと断定しない。
 - snapshot catalog の最新 Markdown が日付と日報の必須節を持つことを回帰テストで確認する。
 - サービス起動、main 更新、merge、auto-merge を行わない。
-
