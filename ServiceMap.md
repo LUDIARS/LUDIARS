@@ -50,7 +50,7 @@
 | [Figmentum](https://github.com/LUDIARS/Figmentum) | Fg | 3D 体型モデルの対話的進化 | 15 |
 | [AIFormat](https://github.com/LUDIARS/AIFormat) | Af | レビュー / 設計フォーマット標準 + harness ゲート | 15 |
 | [Lapilli](https://github.com/LUDIARS/Lapilli) | Lp | 共有パッケージ群 (llm-gateway / encrypted-config / blackbox / log-weaver) | 12 |
-| [Thaleia](https://github.com/LUDIARS/Thaleia) | Th | 企画↔実装トレーサビリティ (Praeforma ↔ Anatomia) | 11 |
+| [Thaleia](https://github.com/LUDIARS/Thaleia) | Th | 施策設計ツール (企画の成否リスクをスコア化) | 11 |
 | [Foedus](https://github.com/LUDIARS/Foedus) | Fd | Cernere↔Hub 連結契約の横断静的チェッカー | 11 |
 | [Calliope](https://github.com/LUDIARS/Calliope) | — | PM 秘書オーケストレータ (Actio / Schedula / Memoria 統括) | 11 |
 | [Aedilis](https://github.com/LUDIARS/Aedilis) | Ae | 施設予約 + 出席チェックイン | 11 |

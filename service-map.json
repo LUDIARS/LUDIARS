@@ -46,7 +46,7 @@
     { "name": "Figmentum", "code": "Fg", "category": "new-era", "role": "3D 体型モデルの対話的進化", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 15 },
     { "name": "AIFormat", "code": "Af", "category": "workflow", "role": "レビュー / 設計フォーマット標準 + harness ゲート", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 15 },
     { "name": "Lapilli", "code": "Lp", "category": "library", "role": "共有パッケージ群 (llm-gateway / encrypted-config / blackbox / log-weaver)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 12 },
-    { "name": "Thaleia", "code": "Th", "category": "workflow", "role": "企画↔実装トレーサビリティ (Praeforma ↔ Anatomia)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 11 },
+    { "name": "Thaleia", "code": "Th", "category": "workflow", "role": "施策設計ツール (企画の成否リスクをスコア化)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 11 },
     { "name": "Foedus", "code": "Fd", "category": "workflow", "role": "Cernere↔Hub 連結契約の横断静的チェッカー", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 11 },
     { "name": "Calliope", "code": null, "category": "workflow", "role": "PM 秘書オーケストレータ (Actio / Schedula / Memoria 統括)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 11 },
     { "name": "Aedilis", "code": "Ae", "category": "workflow", "role": "施設予約 + 出席チェックイン", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 11 },

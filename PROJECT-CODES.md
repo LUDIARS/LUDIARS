@@ -92,13 +92,14 @@
 | Cn | [Conciliator](https://github.com/LUDIARS/Conciliator) | バイナリ / 非マージファイルの作業衝突検知 + クレバーマージ支援 |
 | Fd | [Foedus](https://github.com/LUDIARS/Foedus) | Cernere↔Hub 連結契約の横断静的チェッカー (manifest と Cernere registry を突合し連結契約 / データ境界違反を検出) |
 | Pf | [Praeforma](https://github.com/LUDIARS/Praeforma) | 仕様書 ↔ 実装連携 (placeholder + 構造化 spec + asset 差し替え) |
-| Th | [Thaleia](https://github.com/LUDIARS/Thaleia) | 企画↔実装トレーサビリティ (Praeforma の仕様 × Anatomia の解析を突合する MUSA タレイア) |
+| Th | [Thaleia](https://github.com/LUDIARS/Thaleia) | 施策設計ツール (企画の成否リスクを 5 軸でスコア化 + 根拠と可視化。解析/議論/テスト計画/判断基準は An/Di/Ag/Genius を呼ぶだけ。関数粒度トレースは継続) |
 | Tr | [Tirocinium](https://github.com/LUDIARS/Tirocinium) | 面接練習アプリ (ES/ポートフォリオ学習 AI + 音声対話 + 複合 LLM 評価) |
 | Pe | [Peregrinatio](https://github.com/LUDIARS/Peregrinatio) | 旅のしおり PWA (地図で目的地/周辺施設 + 施設名/Kindle連番画像からクロール/LLM解析でサマる + ピン/経路探索/PDF出力) |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | Claude Code セッション付き沿いサイドカー (端末タイトル / セッションメタ / sidecar) |
 | Sa | [Satelles](https://github.com/LUDIARS/Satelles) | SDK 型ヘッドレス Codex エージェントランナー (app-server 直結 / ask マーカー / Cc delegation target) |
 | Hr | [Hora](https://github.com/LUDIARS/Hora) | Desktop Ojisan アプリ (Tauri 2) |
 | Ip | [Interpres](https://github.com/LUDIARS/Interpres) | 全ゲーム共通 MR 入力サービス (カメラ姿勢/ハンド認識・ジャンプ検知・アプリ別 MR 入力モード) |
+| Sp | [Spatium](https://github.com/LUDIARS/Spatium) | AR セッション層 (Meshing / 光推定 / アンカーを端末クラス別に保証。ARCore / ARKit / 再生ファイルを同じ契約に載せ、Pictor には依存しない。2026-09-02 新設、private リポ) |
 | Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone Web UI からキーボードレス Windows 機へキー/マウス/ショートカット入力を注入するリモート入力サービス |
 | Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
 | Hi | [Histrio](https://github.com/LUDIARS/Histrio) | ペルソナ + 会話エンジン (Cc から切り出し。persona 正本 / 発話判定 / 中央 Haiku 描画 / アンビエント参加。Di の討論生成にも API 提供) |

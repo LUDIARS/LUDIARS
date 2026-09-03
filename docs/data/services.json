@@ -623,7 +623,7 @@
       "icon": "🔗",
       "category": "asset",
       "purpose": "ワークフロー",
-      "summary": "Praeformaの仕様とAnatomiaの解析結果を突合する企画↔実装トレーサビリティサービス。",
+      "summary": "企画の成否リスクを5軸でスコア化し、根拠と可視化を提供する施策設計ツール。",
       "stack": [
         "TypeScript",
         "Hono",
