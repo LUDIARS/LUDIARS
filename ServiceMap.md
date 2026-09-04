@@ -76,7 +76,7 @@
 
 ## Tier 3 — 休眠 (CI 床のみ)
 
-UnityFoundation (Uf)、Fundamentum (Fm)、Concordia-RWF、Cocoiru、Ars (Ar)、Voluptas、VantanHub (Vh)、Susurrus (Su)、Codex (Cx)、All-In-OneTest (Ao)、Actio-SchoolModules (As)、Iter (It)、Ars-PlatformPlugin (Ax)、Ars-Musa (Au)、Tessera (Te)、Ludus (Lu)、Lector (Lc)、Curare (Cu)、AdventureCube (AC)、Actio-PublicModules (Ap)、Infra (In)、Ars-Module (Am)、Legatus (Lg)、Imperativus (Iv)、Clio (Cl)、Educatus
+UnityFoundation (Uf)、Fundamentum (Fm)、Concordia-RWF、Cocoiru、Ars (Ar)、Voluptas、Susurrus (Su)、Codex (Cx)、All-In-OneTest (Ao)、Actio-SchoolModules (As)、Iter (It)、Ars-PlatformPlugin (Ax)、Ars-Musa (Au)、Tessera (Te)、Ludus (Lu)、Lector (Lc)、Curare (Cu)、AdventureCube (AC)、Actio-PublicModules (Ap)、Infra (In)、Ars-Module (Am)、Legatus (Lg)、Imperativus (Iv)、Clio (Cl)、Educatus
 
 org 外 dogfood: PrivateGame (KS / PrivateProject)、Project-September (外部 org)
 

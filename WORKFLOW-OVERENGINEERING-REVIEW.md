@@ -19,7 +19,7 @@
 
 ## 対象リポ一覧 (2026-05-28 現在)
 
-ワークフローカテゴリの 21 件。 リポを巡回するため番号を振っておく
+ワークフローカテゴリの 20 件。 リポを巡回するため番号を振っておく
 (次回どこから始めるか分かるように)。
 
 1. Cernere
@@ -36,13 +36,12 @@
 12. Bibliotheca
 13. Nuntius
 14. Legatus
-15. VantanHub
-16. Ergo
-17. Iter
-18. AIFormat
-19. infra
-20. All-In-OneTest
-21. LUDIARS
+15. Ergo
+16. Iter
+17. AIFormat
+18. infra
+19. All-In-OneTest
+20. LUDIARS
 
 ---
 
@@ -116,7 +115,7 @@
 
 ## 想定スケジュール
 
-21 リポを 1 回 1〜3 件で巡回すると、 1 周に 7〜21 週 (約 2〜5 ヶ月)。
+20 リポを 1 回 1〜3 件で巡回すると、 1 周に 7〜20 週 (約 2〜5 ヶ月)。
 3 周目あたりで母集団が変わるので、 巡回再開時に対象リポ一覧を
 [REPO-CLASSIFICATION-BY-PURPOSE.md](./REPO-CLASSIFICATION-BY-PURPOSE.md) と
 照合して更新する。

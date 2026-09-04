@@ -56,7 +56,6 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 |
 | Nt | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知配信基盤 |
 | — | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 |
-| — | [VantanHub](https://github.com/LUDIARS/VantanHub) | EducationPartner 校特化 hub (Corpus 派生) |
 | Eg | [Ergo](https://github.com/LUDIARS/Ergo) | C++ モジュラーフレームワーク (ゲーム開発ワークフローの整備) |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (開発ワークフロー支援) |
 | Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone の Web UI から Windows 機へ入力を中継するリモート入力サービス |
@@ -123,7 +122,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | カテゴリ | 件数 | 主な傾向 |
 |----------|------|----------|
 | 1. 新時代 | 9 | 一番尖った layer。 ここを増やしたい |
-| 2. ワークフロー | 25 | 一番太い layer。 「悪い病気」 自認の通り過剰、 隔週レビュー対象 |
+| 2. ワークフロー | 24 | 一番太い layer。 「悪い病気」 自認の通り過剰、 隔週レビュー対象 |
 | 3. データ | 4 | Memoria を軸に複数 vertical の個人データ蓄積 |
 | 4. ゲーム開発 | 3 | LUDIARS 外 2 / 内 1。 Pictor / Ergo の dogfood |
 | 5. ライブラリ | 11 | 上の 4 種を支える下層 |

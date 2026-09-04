@@ -116,7 +116,6 @@
 | Ex | [Excubitor](https://github.com/LUDIARS/Excubitor) | サービス監視 + 運用コア + ランチャー |
 | Fa | [Famulus](https://github.com/LUDIARS/Famulus) | ローカル LLM スポナー + 黒箱モデル切り替え機 |
 | Lg | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 (OwnTracks → Actio forwarder) |
-| Vh | [VantanHub](https://github.com/LUDIARS/VantanHub) | EducationPartner 校特化 Hub (Corpus submodule + 5 モジュール + Electron マスコット) |
 
 ## Ars プラグイン
 

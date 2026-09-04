@@ -172,15 +172,6 @@ export const SERVICES = [
     hasEnvCli: false,
     note: '汎用 hub フレームワーク。 declarative renderer + connector レジストリ。 env は自前 bootstrap',
   },
-  {
-    id: 'vantanhub',
-    displayName: 'VantanHub (EducationPartner 校 hub)',
-    repoDir: '../VantanHub',
-    port: 5186,
-    needsCernere: true,
-    hasEnvCli: true,
-    note: 'Corpus submodule + 学校特化プラグインパック。 自前 env-cli.config.ts で独立 Infisical project',
-  },
 ];
 
 /**

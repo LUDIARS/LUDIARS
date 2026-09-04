@@ -76,7 +76,6 @@
     { "name": "Cocoiru", "code": null, "category": "library", "role": "Schedula 在席シェアリングモジュール", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 3 },
     { "name": "Ars", "code": "Ar", "category": "new-era", "role": "コンテンツ設計エディタ + ゲームエンジン (Tauri / React / C++)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Voluptas", "code": null, "category": "game", "role": "プレイヤープロファイル backend (嗜好・感情分析)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
-    { "name": "VantanHub", "code": "Vh", "category": "workflow", "role": "EducationPartner 校特化 hub (Corpus 派生)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Susurrus", "code": "Su", "category": "new-era", "role": "ローカル先行 + md 正本のチャット", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Codex", "code": "Cx", "category": "library", "role": "署名済イベント検証台帳 (light client)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "All-In-OneTest", "code": "Ao", "category": "workflow", "role": "統合 CI monorepo", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
