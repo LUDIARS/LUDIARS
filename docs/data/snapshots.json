@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-09-04",
+  "latest": "2026-09-05",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -788,6 +788,54 @@
         "Memoria: 蔵書・読破履歴・新刊確認とNDL書誌検索、朝のタスク棚卸しを3 commitで更新",
         "Revisor / Anatomia / Lictor / Excubitor は審査・解析・spawn・外部確認運用を6 commitで安定化し、Ars は誤追跡node_modulesを除去",
         "完成度は定量的な再評価を行わず、2026-09-03 の値を継承"
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "weighted_completion": 72,
+      "_calc": "2026-09-04 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。",
+      "md": "snapshots/2026-09-05.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Figmentum": 49,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "61/62 public checkout の local main を確認し、12リポジトリで51 commit。ErgoDLLs は local checkout 不在のため取得できず",
+        "Concordia: inbox・催促、チーム管理、注入元追跡、module台帳、build鮮度と委託安全性を19 commitで横断更新",
+        "Revisor: 段階別審査再開、依存更新分類、秘匿語検知、用途別model選択、公開状態と終了理由の可視化を14 commitで整備",
+        "Lapilli / Quaestor / Concordia: Gmail history・Pub/Sub受信から取込通知、watch定期更新までを接続",
+        "Actio: Concordiaチーム同期・role middleware・メンバー管理APIを追加",
+        "完成度は定量的な再評価を行わず、2026-09-04 の値を継承"
       ]
     }
   ]
