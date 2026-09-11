@@ -7,7 +7,12 @@ LUDIARS org の全サービスの完成度・進捗を一画面で俯瞰でき�
 
 公開 URL: <https://ludiars.github.io/LUDIARS/>
 
-公開ダッシュボードには GitHub 上で `public` のリポジトリだけを登録します。
+公開ダッシュボードには原則として GitHub 上で `public` のリポジトリを登録します。
+例外として、2026-09-11 に掲載承認された **Orbis / Tela** は、名前・概要・進捗を
+「公開予定」として掲載します。リポジトリ自体は private のままで、GitHub のリンク先は
+一般公開まで閲覧できません。完成度は未計測とし、承認された機能の実装状況・残件を
+掲載します。2件の進捗は公開リポジトリの日次 commit 集計と分け、未承認の情報や
+他の非公開プロジェクト名を含めません。
 カテゴリとロードマップは `services.json` の登録済みリポジトリを表示境界とし、
 過去スナップショットに現在非公開のリポジトリ名が残っていても一覧へ再表示しません。
 
@@ -55,8 +60,9 @@ docs/
    `latest` を更新する
 3. commit + push (Pages は自動再デプロイ)
 
-更新前に GitHub の visibility を確認し、private リポジトリや旧リポジトリ名を
-`services.json`、`snapshots.json`、公開 Markdown へ追加しないでください。
+更新前に GitHub の visibility を確認し、上記の掲載承認済み2件以外の private
+リポジトリや旧リポジトリ名を `services.json`、`snapshots.json`、公開 Markdown へ
+追加しないでください。掲載承認はリポジトリの公開設定変更を許可するものではありません。
 
 エントリ形式:
 

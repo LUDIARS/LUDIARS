@@ -15,6 +15,7 @@ ChatGPT Scheduled task で毎日実行するための正本プロンプト。
 LUDIARS の公開サービスダッシュボードを日報として更新してください。
 
 1. docs/data/services.json に登録済みの公開リポジトリを対象にする。
+   docs/README.md に掲載承認が記録された Orbis / Tela の名前・概要・進捗は「公開予定」としてカタログに保持する。2件の承認された機能の実装状況・残件は、main の根拠を確認して公開リポジトリの日次 commit 集計とは別に更新する。未承認情報や他の非公開プロジェクト名は公開しない。
 2. 各ローカル checkout の main だけを調べ、直近24時間に main へ入った変更をワークストリーム別に要約する。未マージ branch、worktree 内だけの変更、private リポジトリは含めない。
 3. docs/snapshots/YYYY-MM-DD.md を追加し、docs/data/snapshots.json の snapshots に同日エントリを追加して latest を更新する。
 4. 完成度は明確な定量的根拠がある場合だけ変更し、それ以外は直前値を継承して _calc と Markdown に明記する。

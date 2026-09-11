@@ -68,7 +68,6 @@
       "repos": [
         "Clio",
         "Signum",
-        "Figmentum",
         "Iter",
         "Custos",
         "Susurrus",
@@ -84,6 +83,7 @@
         "Manus",
         "Omnipotens",
         "Spectator",
+        "Orbis",
         "Vitia",
         "Volputas",
         "VolputasData"
@@ -104,7 +104,8 @@
       "label": "UI / デザインシステム",
       "accent": "#c0e0a8",
       "repos": [
-        "Fundamentum"
+        "Fundamentum",
+        "Tela"
       ]
     },
     {
@@ -135,6 +136,20 @@
     }
   ],
   "services": {
+    "Orbis": {
+      "icon": "🌐",
+      "category": "asset",
+      "purpose": "新時代",
+      "summary": "関心ごとにページをグラフで巡るデスクトップブラウザ。Windows の CEF/Tela ホストと戻る・進む・再読込を実装済み。URL 入力、タブ、関心・履歴グラフ、既存データ・連携の移行と配布・実機確認が残る",
+      "status": "公開予定・ネイティブ移行中"
+    },
+    "Tela": {
+      "icon": "🧵",
+      "category": "ui",
+      "purpose": "ライブラリ",
+      "summary": "Pictor を使う再利用可能な C++ 宣言型ツール UI。宣言型 UI・図形描画、Windows/Unity 連携、macOS AppKit アダプタを実装済み。Mac のネイティブビルドと実機確認、Windows/Unity の操作・負荷確認が残る",
+      "status": "公開予定・実機確認待ち"
+    },
     "LUDIARS": {
       "icon": "🏛",
       "category": "infra",
@@ -490,18 +505,6 @@
         "TypeScript",
         "Hono",
         "Tauri",
-        "LLM"
-      ]
-    },
-    "Figmentum": {
-      "icon": "🧍",
-      "category": "asset",
-      "purpose": "新時代",
-      "summary": "LLM 支援 3D モデル生成。形状を CPU 評価可能な幾何計算式 (手続き SDF / 骨格) へ落とす。骨格の対話的進化で体型を作る",
-      "stack": [
-        "C++20",
-        "CMake",
-        "SDF",
         "LLM"
       ]
     },

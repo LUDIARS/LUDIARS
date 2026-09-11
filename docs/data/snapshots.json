@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-09-05",
+  "latest": "2026-09-11",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -836,6 +836,56 @@
         "Lapilli / Quaestor / Concordia: Gmail history・Pub/Sub受信から取込通知、watch定期更新までを接続",
         "Actio: Concordiaチーム同期・role middleware・メンバー管理APIを追加",
         "完成度は定量的な再評価を行わず、2026-09-04 の値を継承"
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "weighted_completion": 72,
+      "_calc": "2026-09-02 の評価値を継承。72% は過去の評価値であり、今回の公開61件を再集計した割合ではない。現在非公開のリポジトリは今回の repos から除外。commit 数を完成度変更の根拠にしない。",
+      "md": "snapshots/2026-09-11.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-09-11 08:25 JST 時点: 公開61リポジトリ中59件の local main を確認、11件に32 commit。ErgoDLLs / Omnipotens は未確認",
+        "Orbis: Windows CEF/Tela ホストを実装済み。URL 入力・タブ・関心グラフ・既存データの移行と配布・実機確認が残る",
+        "Tela: 宣言型 UI・図形描画、Windows/Unity 連携、macOS アダプタを実装済み。Mac ビルドと実機確認、Windows/Unity の操作・負荷確認が残る",
+        "Orbis / Tela は公開予定として承認済みの進捗を掲載。カタログは計63件、2件の完成度は未計測",
+        "Concordia: 復旧・受入ハーネス、質問の終了処理、チャットと workflow 別 Git 制御を整備",
+        "Custos: 所有 Android / iOS 端末の永続予約管理を追加",
+        "Excubitor: Android APK 制御と DMZ Viewer の分離、Praeforma: Web DOM/CSS 編集と隔離プレビューを追加",
+        "Revisor / Vitia: 複雑度の助言化と価値・パフォーマンスの独立評価を整備",
+        "完成度は前回値を継承。今回の更新ではテスト・起動・デプロイは未実施"
       ]
     }
   ]
