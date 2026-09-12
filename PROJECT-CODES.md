@@ -103,6 +103,7 @@
 | Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone Web UI からキーボードレス Windows 機へキー/マウス/ショートカット入力を注入するリモート入力サービス |
 | Ll | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | ゲームサーバ (Hono + Cernere PASETO + Claude API proxy)。Ludellus 4 リポ体制のデータ正本 |
 | Hi | [Histrio](https://github.com/LUDIARS/Histrio) | ペルソナ + 会話エンジン (Cc から切り出し。persona 正本 / 発話判定 / 中央 Haiku 描画 / アンビエント参加。Di の討論生成にも API 提供) |
+| St | [Stilus](https://github.com/LUDIARS/Stilus) | 執筆ワークスペース (AIノート / AIマガジン / 台本。文体規則・記事索引・記事共有の通知手順を持つ。実装はしない。2026-09-12 新設、private リポ) |
 | Lw | [Ludellus](https://github.com/LUDIARS/Ludellus) | Ludellus Web 媒体クライアント (Electron + PWA、幼少向けうにゲーム) |
 | Ln | [Ludellus-Native](https://github.com/LUDIARS/Ludellus-Native) | Ludellus native 媒体クライアント (C++ Vulkan、MMO ワールド / MR) |
 | Lo | [Ludellus-Core](https://github.com/LUDIARS/Ludellus-Core) | Ludellus の概念・思想・サービスマップ + データ契約 (正本、実装なし) |
