@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-09-14",
+  "latest": "2026-09-15",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -980,6 +980,54 @@
         "LUDIARS: 前日の日報と snapshot catalog を更新",
         "Orbis / Tela は local main に追加変更なし。公開予定として承認済みの実装状況・残件を継承し、完成度は未計測",
         "完成度は定量的な再評価を行わず、2026-09-13 の値を継承。テスト・起動・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "weighted_completion": 72,
+      "_calc": "2026-09-14 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-09-15.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-09-15 03:03 JST 時点: 公開61リポジトリ中59件の local main を確認、3件に6 commit。ErgoDLLs / Omnipotens は取得できず",
+        "Concordia: Test Forum の詳細審査報告・マージ処理、実測コンテキスト観測、push 時の workflow 解決を整備",
+        "Concordia: プロジェクト別にデプロイ / リリース通知と子会社宛先を選べる設定・管理 UI を追加",
+        "Revisor: モデルレビュー本文を秘密情報の行を伏せて保存し、審査レポートへ渡すよう更新",
+        "LUDIARS: 前日の日報と snapshot catalog を更新",
+        "Orbis / Tela は local main に追加変更なし。公開予定として承認済みの実装状況・残件を継承し、完成度は未計測",
+        "完成度は定量的な再評価を行わず、2026-09-14 の値を継承。テスト・起動・デプロイは未実施"
       ]
     }
   ]
