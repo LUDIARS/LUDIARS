@@ -20,7 +20,6 @@ SKIP_IMPERATIVUS="${SKIP_IMPERATIVUS:-false}"
 SERVICES_TO_UP=(
   cernere-postgres cernere-redis cernere-backend
   actio-postgres actio-redis actio-backend
-  nuntius-postgres nuntius-redis nuntius-api nuntius-worker
 )
 if [[ "$SKIP_IMPERATIVUS" != "true" ]]; then
   SERVICES_TO_UP+=(imperativus-stt imperativus-app)

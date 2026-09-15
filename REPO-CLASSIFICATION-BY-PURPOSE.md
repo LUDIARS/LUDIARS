@@ -54,7 +54,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | Ae | [Aedilis](https://github.com/LUDIARS/Aedilis) | 施設予約 + 予定登録/反映 |
 | Ca | [Calicula](https://github.com/LUDIARS/Calicula) | カリキュラム予定管理 |
 | Bb | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | 本 / 機材 貸出台帳 |
-| Nt | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知配信基盤 |
+| Nt | [Nuntius](https://github.com/LUDIARS/Nuntius) | 通知配信基盤 (obsolete 2026-09-15、通知の共通化は Lapilli) |
 | — | [Legatus](https://github.com/LUDIARS/Legatus) | 個人 PC 常駐の LUDIARS サービス代理人 |
 | Eg | [Ergo](https://github.com/LUDIARS/Ergo) | C++ モジュラーフレームワーク (ゲーム開発ワークフローの整備) |
 | It | [Iter](https://github.com/LUDIARS/Iter) | C++ コンパイルエラー可視化 (開発ワークフロー支援) |

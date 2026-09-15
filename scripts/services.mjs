@@ -73,15 +73,6 @@ export const SERVICES = [
     note: '予定 / カレンダー基盤 (2026-05-20 Actio から再分離)',
   },
   {
-    id: 'nuntius',
-    displayName: 'Nuntius (通知)',
-    repoDir: '../Nuntius',
-    port: 3100,
-    needsCernere: true,
-    hasEnvCli: true,
-    note: '統合通知 (Slack / Discord / LINE / Email / SMS)',
-  },
-  {
     id: 'imperativus',
     displayName: 'Imperativus (GPS/音声)',
     repoDir: '../Imperativus',

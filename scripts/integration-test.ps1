@@ -41,14 +41,12 @@ $failures = 0
 # 1. Host-side health
 if (-not (Test-Endpoint "Cernere health"    "http://localhost:18080/health"))         { $failures++ }
 if (-not (Test-Endpoint "Actio live"        "http://localhost:13000/api/health/live")){ $failures++ }
-if (-not (Test-Endpoint "Nuntius health"    "http://localhost:13100/api/health"))     { $failures++ }
 if (-not $skipImperativus) {
   if (-not (Test-Endpoint "Imperativus health" "http://localhost:15963/api/health"))  { $failures++ }
 }
 
-# 2. In-network: Actio / Nuntius / Imperativus → Cernere
+# 2. In-network: Actio / Imperativus → Cernere
 if (-not (Invoke-InContainer "ludiars-ci-actio-backend" 'wget -qO- --timeout=5 http://cernere-backend:8080/health | head -c 200; echo')) { $failures++ }
-if (-not (Invoke-InContainer "ludiars-ci-nuntius-api"   'wget -qO- --timeout=5 http://cernere-backend:8080/health | head -c 200; echo')) { $failures++ }
 if (-not $skipImperativus) {
   if (-not (Invoke-InContainer "ludiars-ci-imperativus-app" 'wget -qO- --timeout=5 http://cernere-backend:8080/health | head -c 200; echo')) { $failures++ }
 }
@@ -56,7 +54,6 @@ if (-not $skipImperativus) {
 # 3. DB readiness (inside each Postgres container)
 if (-not (Invoke-InContainer "ludiars-ci-cernere-pg" 'pg_isready -U cernere')) { $failures++ }
 if (-not (Invoke-InContainer "ludiars-ci-actio-pg"   'pg_isready -U actio'))   { $failures++ }
-if (-not (Invoke-InContainer "ludiars-ci-nuntius-pg" 'pg_isready -U nuntius')) { $failures++ }
 
 if ($failures -gt 0) {
   Write-Host "✗ $failures integration checks failed"

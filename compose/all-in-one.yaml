@@ -1,6 +1,6 @@
 # LUDIARS All-in-One Integration Stack
 #
-# Cernere + Actio + Nuntius + Imperativus を 1 つの compose で起動する。
+# Cernere + Actio + Imperativus を 1 つの compose で起動する。
 # - 各サービスのソースは $SERVICES_ROOT/<Name> に clone されている前提
 #   (scripts/fetch-services.sh が保証する)
 # - 共通 network `ludiars` を通じてサービス間で名前解決できる
@@ -28,8 +28,6 @@ volumes:
   cernere-redis: {}
   actio-pg: {}
   actio-redis: {}
-  nuntius-pg: {}
-  nuntius-redis: {}
   imperativus-data: {}
   imperativus-stt-models: {}
 
@@ -155,84 +153,6 @@ services:
       timeout: 5s
       retries: 15
       start_period: 30s
-
-  # ─── Nuntius ────────────────────────────────────────────────
-
-  nuntius-postgres:
-    image: postgres:17-alpine
-    container_name: ludiars-ci-nuntius-pg
-    environment:
-      POSTGRES_USER: nuntius
-      POSTGRES_PASSWORD: nuntius
-      POSTGRES_DB: nuntius
-    volumes:
-      - nuntius-pg:/var/lib/postgresql/data
-    networks: [ludiars]
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U nuntius"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-
-  nuntius-redis:
-    image: redis:7-alpine
-    container_name: ludiars-ci-nuntius-redis
-    command: ["redis-server", "--appendonly", "yes"]
-    volumes:
-      - nuntius-redis:/data
-    networks: [ludiars]
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-
-  nuntius-api:
-    build:
-      context: ${SERVICES_ROOT}/Nuntius
-      dockerfile: Dockerfile
-      target: prod
-    container_name: ludiars-ci-nuntius-api
-    command: ["node", "dist/src/index.js"]
-    ports:
-      - "13100:3100"
-    environment:
-      BACKEND_PORT: "3100"
-      DATABASE_URL: "postgresql://nuntius:nuntius@nuntius-postgres:5432/nuntius"
-      REDIS_URL: "redis://nuntius-redis:6379"
-      CERNERE_URL: "http://cernere-backend:8080"
-      JWT_SECRET: "ci-jwt-secret-insecure-do-not-use-in-prod"
-    networks: [ludiars]
-    depends_on:
-      nuntius-postgres:
-        condition: service_healthy
-      nuntius-redis:
-        condition: service_healthy
-      cernere-backend:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3100/api/health || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 15
-      start_period: 30s
-
-  nuntius-worker:
-    build:
-      context: ${SERVICES_ROOT}/Nuntius
-      dockerfile: Dockerfile
-      target: prod
-    container_name: ludiars-ci-nuntius-worker
-    command: ["node", "dist/src/worker.js"]
-    environment:
-      DATABASE_URL: "postgresql://nuntius:nuntius@nuntius-postgres:5432/nuntius"
-      REDIS_URL: "redis://nuntius-redis:6379"
-    networks: [ludiars]
-    depends_on:
-      nuntius-postgres:
-        condition: service_healthy
-      nuntius-redis:
-        condition: service_healthy
 
   # ─── Imperativus ────────────────────────────────────────────
   # STT (faster-whisper) を伴うので初回ビルドは重い。

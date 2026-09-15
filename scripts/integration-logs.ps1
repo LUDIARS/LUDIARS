@@ -12,7 +12,6 @@ New-Item -Force -ItemType Directory -Path $logDir | Out-Null
 $containers = @(
   "ludiars-ci-cernere-pg","ludiars-ci-cernere-redis","ludiars-ci-cernere-backend",
   "ludiars-ci-actio-pg","ludiars-ci-actio-redis","ludiars-ci-actio-backend",
-  "ludiars-ci-nuntius-pg","ludiars-ci-nuntius-redis","ludiars-ci-nuntius-api","ludiars-ci-nuntius-worker",
   "ludiars-ci-imperativus-stt","ludiars-ci-imperativus-app"
 )
 

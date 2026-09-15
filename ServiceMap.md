@@ -61,7 +61,7 @@
 | [Schedula](https://github.com/LUDIARS/Schedula) | Sc | 予定 / カレンダー基盤 | 8 |
 | [Custos](https://github.com/LUDIARS/Custos) | Cs | 遠隔テストランナー (Unity 自動テスト) | 8 |
 | [Vestigium](https://github.com/LUDIARS/Vestigium) | Vg | サービス横断ログ収集 | 7 |
-| [Nuntius](https://github.com/LUDIARS/Nuntius) | Nt | 通知配信基盤 | 7 |
+| [Nuntius](https://github.com/LUDIARS/Nuntius) | Nt | 通知配信基盤 (obsolete 2026-09-15、通知の共通化は Lapilli) | 7 |
 | [Ludellus-Server](https://github.com/LUDIARS/Ludellus-Server) | Ll | Ludellus 中央サーバ (Hono + Cernere PASETO) | 7 |
 | [Bibliotheca](https://github.com/LUDIARS/Bibliotheca) | Bb | 本 / 機材貸出台帳 | 7 |
 | [Ostiarius](https://github.com/LUDIARS/Ostiarius) | Os | 会場 LAN チェックインゲートウェイ | 6 |

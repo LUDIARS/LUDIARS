@@ -7,8 +7,7 @@ $skipImperativus = ($env:SKIP_IMPERATIVUS -eq "true")
 
 $containers = @(
   "ludiars-ci-cernere-backend",
-  "ludiars-ci-actio-backend",
-  "ludiars-ci-nuntius-api"
+  "ludiars-ci-actio-backend"
 )
 if (-not $skipImperativus) { $containers += "ludiars-ci-imperativus-app" }
 

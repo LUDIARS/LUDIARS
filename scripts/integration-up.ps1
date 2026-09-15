@@ -16,8 +16,7 @@ $skipImperativus = ($env:SKIP_IMPERATIVUS -eq "true")
 
 $services = @(
   "cernere-postgres","cernere-redis","cernere-backend",
-  "actio-postgres","actio-redis","actio-backend",
-  "nuntius-postgres","nuntius-redis","nuntius-api","nuntius-worker"
+  "actio-postgres","actio-redis","actio-backend"
 )
 if (-not $skipImperativus) {
   $services += @("imperativus-stt","imperativus-app")

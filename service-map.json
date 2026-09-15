@@ -57,7 +57,7 @@
     { "name": "Schedula", "code": "Sc", "category": "workflow", "role": "予定 / カレンダー基盤", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 8 },
     { "name": "Custos", "code": "Cs", "category": "workflow", "role": "遠隔テストランナー (Unity 自動テスト)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 8 },
     { "name": "Vestigium", "code": "Vg", "category": "library", "role": "サービス横断ログ収集", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 7 },
-    { "name": "Nuntius", "code": "Nt", "category": "workflow", "role": "通知配信基盤", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 7 },
+    { "name": "Nuntius", "code": "Nt", "category": "workflow", "role": "通知配信基盤 (obsolete 2026-09-15、通知の共通化は Lapilli)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 7 },
     { "name": "Ludellus-Server", "code": "Ll", "category": "new-era", "role": "Ludellus 中央サーバ (Hono + Cernere PASETO)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 7 },
     { "name": "Bibliotheca", "code": "Bb", "category": "workflow", "role": "本 / 機材貸出台帳", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 7 },
     { "name": "Ostiarius", "code": "Os", "category": "workflow", "role": "会場 LAN チェックインゲートウェイ (passkey オフライン検証)", "tier": 2, "daily_review": false, "pr_review": true, "activity_30d": 6 },

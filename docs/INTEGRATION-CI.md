@@ -1,6 +1,6 @@
 # All-in-One Integration CI
 
-Runs **Cernere + Actio + Nuntius + Imperativus** end-to-end on every push
+Runs **Cernere + Actio + Imperativus** end-to-end on every push
 to `main` and on every pull request, across **Linux / macOS / Windows**
 self-hosted runners.
 
@@ -17,19 +17,17 @@ subsequent runs land in 2–5 minutes when no service code changed.
  ├── $GITHUB_WORKSPACE/../ludiars-services
  │    ├── Cernere   (git clone / pull, depth=50)
  │    ├── Actio
- │    ├── Nuntius
  │    └── Imperativus
  └── docker daemon (Docker Desktop on macOS / Windows, native on Linux)
       └── compose project "ludiars-ci"
            ├── cernere-{pg, redis, backend}        :18080
            ├── actio-{pg, redis, backend}          :13000
-           ├── nuntius-{pg, redis, api, worker}    :13100
            └── imperativus-{stt, app}              :15963
 ```
 
 Each service gets its own Postgres + Redis to keep schemas isolated. All
 containers share a user-defined network named `ludiars` so they resolve
-each other by container name (`cernere-backend`, `nuntius-api`, …).
+each other by container name (`cernere-backend`, `actio-backend`, …).
 
 ## Per-OS runner requirements
 
@@ -98,13 +96,12 @@ even with BSD coreutils.
 1. Every service's host-exposed health endpoint returns HTTP 200
    - `http://localhost:18080/health` (Cernere)
    - `http://localhost:13000/api/health/live` (Actio)
-   - `http://localhost:13100/api/health` (Nuntius)
    - `http://localhost:15963/api/health` (Imperativus)
 2. Inside the `ludiars` network, each downstream container (`actio-backend`,
-   `nuntius-api`, `imperativus-app`) can reach `cernere-backend:8080`
+   `imperativus-app`) can reach `cernere-backend:8080`
 3. Every Postgres responds to `pg_isready` (migrations completed)
 
-Cross-service auth (Cernere project → `service_token` → Actio/Nuntius/
+Cross-service auth (Cernere project → `service_token` → Actio/
 Imperativus) is deferred. See *Not yet wired in* at the bottom.
 
 ## Incremental behaviour
@@ -161,7 +158,6 @@ $env:INTEGRATION_PURGE = "true"
 
 - Cernere admin bootstrap (project creation → `client_id`/`secret`
   injection for downstream services)
-- Actio ↔ Nuntius notification flow end-to-end
 - Imperativus STT + gRPC happy-path ping
 - Artefact publishing of built images to `ghcr.io`
 - Regression-tracking of integration-test duration

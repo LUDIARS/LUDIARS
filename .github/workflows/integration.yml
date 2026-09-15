@@ -1,6 +1,6 @@
 name: All-in-One Integration
 
-# LUDIARS の 4 コアサービス (Cernere / Actio / Nuntius / Imperativus) を
+# LUDIARS の 3 コアサービス (Cernere / Actio / Imperativus) を
 # self-hosted runner 上で統合ビルド & 動作確認する。
 #
 # 対応 OS: Linux / macOS / Windows (Docker Desktop バックエンド)

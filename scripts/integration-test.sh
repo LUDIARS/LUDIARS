@@ -4,7 +4,7 @@
 #   1. Every service's health endpoint returns 2xx from the host
 #   2. The containers can reach each other on the internal `ludiars` network
 #      (Actio → Cernere over HTTP inside docker)
-# Cross-service auth flow (Cernere project → Actio/Nuntius/Imperativus
+# Cross-service auth flow (Cernere project → Actio/Imperativus
 # service_token) is intentionally out of scope for the first iteration.
 
 set -euo pipefail
@@ -39,7 +39,6 @@ failures=0
 # 1. Host-side health
 check_http "Cernere health"    "http://localhost:18080/health"          200 || failures=$((failures+1))
 check_http "Actio live"        "http://localhost:13000/api/health/live" 200 || failures=$((failures+1))
-check_http "Nuntius health"    "http://localhost:13100/api/health"      200 || failures=$((failures+1))
 if [[ "$SKIP_IMPERATIVUS" != "true" ]]; then
   check_http "Imperativus health" "http://localhost:15963/api/health" 200 || failures=$((failures+1))
 fi
@@ -48,11 +47,6 @@ fi
 #    We use `wget -qO-` because the Actio image is a Node slim base that
 #    has wget available.
 run_in ludiars-ci-actio-backend \
-  'wget -qO- --timeout=5 http://cernere-backend:8080/health | head -c 200; echo' \
-  || failures=$((failures+1))
-
-# 3. Nuntius → Cernere (network)
-run_in ludiars-ci-nuntius-api \
   'wget -qO- --timeout=5 http://cernere-backend:8080/health | head -c 200; echo' \
   || failures=$((failures+1))
 
@@ -65,7 +59,6 @@ fi
 # 4. Each service's DB is reachable (ensures migrations ran)
 run_in ludiars-ci-cernere-pg  'pg_isready -U cernere'  || failures=$((failures+1))
 run_in ludiars-ci-actio-pg    'pg_isready -U actio'    || failures=$((failures+1))
-run_in ludiars-ci-nuntius-pg  'pg_isready -U nuntius'  || failures=$((failures+1))
 
 if (( failures > 0 )); then
   echo "✗ $failures integration checks failed"

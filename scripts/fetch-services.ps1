@@ -13,7 +13,7 @@ $env:SERVICES_ROOT = $servicesRoot
 
 $clean   = ($env:CLEAN_SERVICES -eq "true")
 $token   = $env:GITHUB_TOKEN
-$services = @("Cernere", "Actio", "Nuntius", "Imperativus")
+$services = @("Cernere", "Actio", "Imperativus")
 
 function Get-AuthPrefix {
   if ($token) { return "https://x-access-token:$token@github.com/LUDIARS" }

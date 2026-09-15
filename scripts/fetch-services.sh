@@ -11,7 +11,7 @@ set -euo pipefail
 : "${GITHUB_TOKEN:=}"          # optional; supplied by actions/checkout
 
 CLEAN="${CLEAN_SERVICES:-false}"
-SERVICES=(Cernere Actio Nuntius Imperativus)
+SERVICES=(Cernere Actio Imperativus)
 
 mkdir -p "$SERVICES_ROOT"
 

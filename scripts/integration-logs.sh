@@ -16,10 +16,6 @@ CONTAINERS=(
   ludiars-ci-actio-pg
   ludiars-ci-actio-redis
   ludiars-ci-actio-backend
-  ludiars-ci-nuntius-pg
-  ludiars-ci-nuntius-redis
-  ludiars-ci-nuntius-api
-  ludiars-ci-nuntius-worker
   ludiars-ci-imperativus-stt
   ludiars-ci-imperativus-app
 )

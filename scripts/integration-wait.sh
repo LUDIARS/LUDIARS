@@ -12,7 +12,6 @@ TIMEOUT_SEC="${WAIT_TIMEOUT_SEC:-300}"
 CONTAINERS=(
   ludiars-ci-cernere-backend
   ludiars-ci-actio-backend
-  ludiars-ci-nuntius-api
 )
 if [[ "$SKIP_IMPERATIVUS" != "true" ]]; then
   CONTAINERS+=(ludiars-ci-imperativus-app)
