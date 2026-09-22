@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-09-22",
+  "latest": "2026-09-23",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -1463,6 +1463,52 @@
         "LUDIARS: 3日分の日報と snapshot catalog を追加",
         "Orbis / Tela は local main に追加変更なし。公開予定として承認済みの実装状況・残件を継承し、完成度は未計測",
         "完成度は定量的な再評価を行わず、2026-09-21 の値を継承。テスト・起動・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "weighted_completion": 72,
+      "_calc": "2026-09-22 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-09-23.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-09-23 03:04 JST 時点: 公開予定2件を別枠とした61リポジトリ中60件の local main を確認、1件に1 commit。ErgoDLLs は取得できず",
+        "LUDIARS: 2026-09-22 のサービスダッシュボード日報と snapshot catalog を追加",
+        "登録61リポジトリの public 設定を確認。カタログ未登録の公開リポジトリ8件は表示境界外として集計対象外",
+        "Orbis / Tela は local main に追加変更なし。公開予定として承認済みの実装状況・残件を継承し、完成度は未計測",
+        "完成度は定量的な再評価を行わず、2026-09-22 の値を継承。テスト・起動・デプロイは未実施"
       ]
     }
   ]
