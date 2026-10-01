@@ -147,7 +147,7 @@
       "icon": "🧵",
       "category": "ui",
       "purpose": "ライブラリ",
-      "summary": "Pictor を使う再利用可能な C++ 宣言型ツール UI。宣言型 UI・図形描画、Windows/Unity 連携、macOS AppKit アダプタを実装済み。Mac のネイティブビルドと実機確認、Windows/Unity の操作・負荷確認が残る",
+      "summary": "Pictor を使う再利用可能な C++ 宣言型ツール UI。宣言型 UI・図形描画、Windows/Unity 連携、macOS AppKit アダプタに加え、ソース表示とデスクトップに浮かぶ面を実装済み。Mac のネイティブビルドと実機確認、Windows/Unity・デスクトップ面の操作と負荷確認が残る",
       "status": "公開予定・実機確認待ち"
     },
     "LUDIARS": {
