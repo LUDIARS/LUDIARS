@@ -41,7 +41,7 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 |------|------|----------------------|
 | Cr | [Cernere](https://github.com/LUDIARS/Cernere) | 認証 / WS リレー基盤 |
 | — | [Corpus](https://github.com/LUDIARS/Corpus) | 汎用 hub フレームワーク (各サービスを集約) |
-| Cy | [Curia](https://github.com/LUDIARS/Curia) | Volputas / Discutere と任意の LUDIARS アプリを集約するデスクトップ hub shell |
+| Cy | [Curia](https://github.com/LUDIARS/Curia) | Voluptas / Discutere と任意の LUDIARS アプリを集約するデスクトップ hub shell |
 | — | [Concordia](https://github.com/LUDIARS/Concordia) | 複数 AI agent セッション協調 + 観測 |
 | Sa | [Satelles](https://github.com/LUDIARS/Satelles) | Codex app-server 直結の SDK 型ヘッドレスエージェントランナー |
 | Li | [Lictor](https://github.com/LUDIARS/Lictor) | per-session sidecar (CLI と Concordia を中継) |
