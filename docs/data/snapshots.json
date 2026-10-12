@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-12",
+  "latest": "2026-10-13",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -2236,6 +2236,55 @@
         "LUDIARS：2026-10-11 の日報と snapshot 一覧を更新",
         "Orbis / Tela：main HEAD と承認済み機能の根拠を確認し、前回と同一のため実装状況・残件を継承。完成度は未計測",
         "全体72%とリポジトリ別完成度は2026-10-11の値を継承。テスト・起動・merge・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "weighted_completion": 72,
+      "_calc": "2026-10-12 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-10-13.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-10-13 03:01 JST 時点：公開予定2件を別枠とした61件中60件の local main を確認。7件に28 commit。ErgoDLLs は取得できず",
+        "Actio：スプリント会話の要約をタスクへ反映し、管理者判断の取り込みとフェーズ画面の時刻処理を改善",
+        "Concordia：拠点間の投稿・権限と返信確認、タスク移行、委託の終了報告と状態照会の分離、作業先と worktree 復旧を整備",
+        "Cernere：公開フロントエンドの接続先提供と、対象プロジェクトの有無に応じたデータ移行を修正",
+        "Lictor / Infra / AIFormat：明示的な再開の会話履歴、CLI 登録と hook 起動、接続設定の分離、常駐プロセスの起動規約を整備",
+        "LUDIARS：2026-10-12 の日報と snapshot 一覧を更新",
+        "Orbis / Tela：main HEAD と承認済み機能の根拠が前回と同一のため実装状況・残件を継承。完成度は未計測",
+        "全体72%とリポジトリ別完成度は2026-10-12の値を継承。テスト・起動・merge・デプロイは未実施"
       ]
     }
   ]
