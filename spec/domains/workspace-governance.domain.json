@@ -27,6 +27,12 @@
     },
     {
       "pathPattern": "(^|/)service-map\\.json$"
+    },
+    {
+      "pathPattern": "(^|/)setup/(?:.*/)?[^/]+$"
+    },
+    {
+      "pathPattern": "(^|/)test/aio-setup[.]test[.]mjs$"
     }
   ]
 }

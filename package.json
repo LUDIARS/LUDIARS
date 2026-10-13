@@ -8,6 +8,7 @@
     "stop": "node setup.mjs --stop",
     "infisical": "node scripts/infisical.mjs",
     "check:service-map": "node scripts/check-service-map.mjs",
-    "test": "node --test test/snapshots-data.test.mjs test/public-service-graph-data.test.mjs"
+    "test": "node --test test/snapshots-data.test.mjs test/public-service-graph-data.test.mjs test/aio-setup.test.mjs",
+    "setup:aio": "node setup/aio/main.mjs"
   }
 }
