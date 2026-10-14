@@ -58,6 +58,7 @@
 | Vo | [Voluptas](https://github.com/LUDIARS/Voluptas) | ゲームプレイ記録 + プレイヤー嗜好・感想プロファイル基盤 |
 | SUPERFAT | [SUPERFAT](https://github.com/LUDIARS/SUPERFAT) | Plague.inc 系「逆侵略」SLG (Pictor native C++、コードは略さず SUPERFAT) |
 | Pa | [Pagus](https://github.com/LUDIARS/Pagus) | AI 村: LLM 駆動の創発シミュ (村人が自律行動 → 事件 → 裁判 → 教育/改変。Web/TS + PixiJS、研究/ゼミ用) |
+| Tk | [Tokyo2070](https://github.com/LUDIARS/Tokyo2070) | 現実の街で遊ぶ AR MMO (中高生向け)。廃墟化した渋谷を 1/10 尺度の自我を持つ AI が村を作って暮らし、敵と戦う。Web (C++→WebGL2 + TS)、バックエンドは Ludellus-Server。2026-10-14 新設、private リポ |
 
 ## ネットワーク
 
