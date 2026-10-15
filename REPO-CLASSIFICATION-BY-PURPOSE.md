@@ -61,7 +61,6 @@ LUDIARS org の全リポジトリを **作る目的の方向性** で 5 種に�
 | Mn | [Manus](https://github.com/LUDIARS/Manus) | iPhone の Web UI から Windows 機へ入力を中継するリモート入力サービス |
 | Af | [AIFormat](https://github.com/LUDIARS/AIFormat) | レビュー / 設計フォーマット標準 |
 | In | [infra](https://github.com/LUDIARS/infra) | 共有 PostgreSQL / Redis / MinIO |
-| Ao | [All-In-OneTest](https://github.com/LUDIARS/All-In-OneTest) | 統合 CI monorepo |
 | L / Ld | [LUDIARS](https://github.com/LUDIARS/LUDIARS) | 組織メタ + ダッシュボード |
 
 ---

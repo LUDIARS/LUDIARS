@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-13",
+  "updated": "2026-10-15",
   "description": "レビュー運用のルーティング正本。PR レビュー workflow / デイリー突合レビューはこのファイルから対象と設定を引く。人間可読ビューは ServiceMap.md、設計は docs/REVIEW-STRATEGY.md。",
   "defaults": {
     "ci_floor": ["compile", "typecheck", "harness"],
@@ -78,7 +78,6 @@
     { "name": "Voluptas", "code": null, "category": "game", "role": "プレイヤープロファイル backend (嗜好・感情分析)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Susurrus", "code": "Su", "category": "new-era", "role": "ローカル先行 + md 正本のチャット", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Codex", "code": "Cx", "category": "library", "role": "署名済イベント検証台帳 (light client)", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
-    { "name": "All-In-OneTest", "code": "Ao", "category": "workflow", "role": "統合 CI monorepo", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Actio-SchoolModules", "code": "As", "category": "library", "role": "Actio 学校系モジュール", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 2 },
     { "name": "Iter", "code": "It", "category": "workflow", "role": "C++ コンパイルエラー可視化", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 1 },
     { "name": "Ars-PlatformPlugin", "code": "Ax", "category": "library", "role": "Ars エディタ向けプラグイン", "tier": 3, "daily_review": false, "pr_review": false, "activity_30d": 1 },

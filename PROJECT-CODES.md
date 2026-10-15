@@ -11,7 +11,6 @@
 | L / Ld | [LUDIARS](https://github.com/LUDIARS/LUDIARS) | 組織メタ + サービスダッシュボード |
 | In | [infra](https://github.com/LUDIARS/infra) | 共有 PostgreSQL / Redis / MinIO 基盤 |
 | Af | [AIFormat](https://github.com/LUDIARS/AIFormat) | レビュー / 設計フォーマット標準 |
-| Ao | [All-In-OneTest](https://github.com/LUDIARS/All-In-OneTest) | 統合 CI 用 private monorepo |
 
 ## コアエンジン / SDK
 

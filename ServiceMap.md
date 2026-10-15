@@ -5,7 +5,7 @@
 > [REPO-CLASSIFICATION-BY-PURPOSE.md](./REPO-CLASSIFICATION-BY-PURPOSE.md)、
 > レビュー戦略の設計は [docs/REVIEW-STRATEGY.md](./docs/REVIEW-STRATEGY.md) を参照。
 
-最終更新: 2026-07-13 (30 日コミット数はこの日時点の実測値)
+最終更新: 2026-10-15 (30 日コミット数は 2026-07-13 時点の実測値)
 
 ## Tier とレビュー運用
 
@@ -13,7 +13,7 @@
 |------|------|----|------------|---------------------|
 | 1 | 活発な開発対象 (15) | 床 + 既存テスト | ○ (相互レビュー) | ○ (Codex × Opus) |
 | 2 | 低頻度開発 (28) | 床 + 既存テスト | ○ (相互レビュー) | — |
-| 3 | 休眠 (26+) | 床のみ | — (スイッチで個別 ON 可) | — |
+| 3 | 休眠 (25+) | 床のみ | — (スイッチで個別 ON 可) | — |
 | records | 記録リポ | — | — | — |
 
 - **CI 床** = compile + typecheck + harness ゲート (AIFormat 構造チェック)。全リポ共通の最低ライン。
@@ -76,7 +76,7 @@
 
 ## Tier 3 — 休眠 (CI 床のみ)
 
-UnityFoundation (Uf)、Fundamentum (Fm)、Concordia-RWF、Cocoiru、Ars (Ar)、Voluptas、Susurrus (Su)、Codex (Cx)、All-In-OneTest (Ao)、Actio-SchoolModules (As)、Iter (It)、Ars-PlatformPlugin (Ax)、Ars-Musa (Au)、Tessera (Te)、Ludus (Lu)、Lector (Lc)、Curare (Cu)、AdventureCube (AC)、Actio-PublicModules (Ap)、Infra (In)、Ars-Module (Am)、Legatus (Lg)、Imperativus (Iv)、Clio (Cl)、Educatus
+UnityFoundation (Uf)、Fundamentum (Fm)、Concordia-RWF、Cocoiru、Ars (Ar)、Voluptas、Susurrus (Su)、Codex (Cx)、Actio-SchoolModules (As)、Iter (It)、Ars-PlatformPlugin (Ax)、Ars-Musa (Au)、Tessera (Te)、Ludus (Lu)、Lector (Lc)、Curare (Cu)、AdventureCube (AC)、Actio-PublicModules (Ap)、Infra (In)、Ars-Module (Am)、Legatus (Lg)、Imperativus (Iv)、Clio (Cl)、Educatus
 
 org 外 dogfood: PrivateGame (KS / PrivateProject)、Project-September (外部 org)
 
