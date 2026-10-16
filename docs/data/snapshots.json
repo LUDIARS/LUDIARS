@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-16",
+  "latest": "2026-10-17",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -2432,6 +2432,55 @@
         "Aedilis / Infra / Discutere / Peregrinatio / Calliope / LUDIARS：会議リンクの外部連携、読み取り専用 DB ビューア、導入・再読込・検査対象選択、日報・サービス一覧を整備（未承認名・接続先は掲載しない）",
         "Orbis / Tela：main HEAD と承認済み機能の根拠が前回と同一のため実装状況・残件を継承。完成度は未計測",
         "全体72%とリポジトリ別完成度は2026-10-15の値を継承。テスト・起動・merge・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "weighted_completion": 72,
+      "_calc": "2026-10-16 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-10-17.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-10-17 集計：公開予定2件を別枠とした61件中60件の local main を確認。10件に24 commit、50件変更なし。ErgoDLLs は取得できず",
+        "Cernere：PC パスキー登録の案内、他プロジェクトの共有項目入力、モバイルでの権限一覧表示を整備",
+        "Actio / Synergos：Redis を任意キャッシュとして扱う復旧・待機制御、双方向通信・接続維持と作業ツリーの状態確認・一括公開を整備",
+        "Memoria / Concordia：LLM 残量履歴のグラフ・期間選択・移動、日次コード追加量の記録、観測履歴90日保持を追加",
+        "Concordia：巡回チャットの学習と話題選択、失敗時の再試行間隔、委託完了判定・タイトル・設計レビュー引継ぎを改善",
+        "Ergo / Augur / Quaestor / Lapilli / LUDIARS：リモート指定の検査、import 拡張子の整合、導入手順と既知問題・前日日報の記録を更新",
+        "Orbis / Tela：main HEAD と承認済み機能の根拠が前日と同一のため実装状況・残件を継承。完成度は未計測",
+        "全体72%とリポジトリ別完成度は2026-10-16の値を継承。テスト・起動・merge・デプロイは未実施"
       ]
     }
   ]
