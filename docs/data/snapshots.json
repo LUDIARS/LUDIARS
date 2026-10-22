@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-22",
+  "latest": "2026-10-23",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -2720,6 +2720,53 @@
         "Excubitor：旧外部シークレット連携を撤去し、Vault と不足時の起動拒否を維持。LUDIARS は前日日報を更新",
         "Orbis / Tela：main HEAD と承認済み機能の README 根拠が前日と同一のため実装状況・残件を継承。完成度は未計測",
         "全体72%とリポジトリ別完成度は2026-10-21の値を継承。テスト・起動・merge・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "weighted_completion": 72,
+      "_calc": "2026-10-22 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-10-23.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-10-23 集計：公開予定2件を別枠とした61件中60件の local main を確認。7件13 commit、53件変更なし。ErgoDLLs は取得できず",
+        "Cernere / Aedilis：登録・プロフィール統合の移行と参照先を整備し、PC パスキー登録・スマートフォン承認とログイン後の端末追加の案内を改善",
+        "Ergo / Pictor / Memoria：不正な Content-Length の変換例外、FBX ノード終端による読取位置の後退、生 HTML の表示境界を修正",
+        "Concordia：週次利用枠のみ確認できる代替候補の選択とプロバイダー中立の要約生成を整備し、日次 CVE・ネイティブ依存調査の手順を強化",
+        "LUDIARS：2026-10-22 の日報更新を main で確認。Orbis / Tela は main HEAD と README が前日と同一のため承認済み進捗を継承",
+        "全体72%とリポジトリ別完成度は2026-10-22の値を継承。Orbis / Tela は未計測。テスト・起動・merge・デプロイは未実施"
       ]
     }
   ]
