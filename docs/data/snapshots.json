@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-24",
+  "latest": "2026-10-25",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -2814,6 +2814,53 @@
         "Actio：プレイテスト由来タスクの受付を追加。Revisor：登録 checkout の main 前進後に古いマージ準備結果を再利用する問題を修正。Anatomia：テスト対応付けと実行環境の独立性を整備",
         "LUDIARS：前日日報を更新。Orbis / Tela は main HEAD と README が前日と同一のため承認済み進捗を継承し、完成度は未計測",
         "全体72%と個別完成度は2026-10-23の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-10-25",
+      "weighted_completion": 72,
+      "_calc": "2026-10-24 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-10-25.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-10-25 集計：公開予定2件を別枠とした61件中60件の local main を確認。7件15 commit、53件変更なし。ErgoDLLs は取得できず",
+        "Canalis / Discutere：Steam レビューの新書式と同一ホスト内転送へ追従。代理人物の好み一覧の上限、本人らしさの判別評価、英語のトークン見積もりを修正",
+        "Concordia / Revisor：タスク紐付けの範囲判定と不明時の通知、最終出力に基づく進捗判定、審査完了通知の受付根拠の永続化を整備",
+        "Synergos：未指定 bind IP の別表記を拒否し、IPC 接続先の上書きと常駐デーモンからの試験分離を追加。Vitia：参考レンズと既存採点の突合・実例を追加",
+        "LUDIARS：前日日報を更新。Orbis / Tela は main HEAD と README が前日と同一のため承認済み進捗を継承し、完成度は未計測",
+        "全体72%と個別完成度は2026-10-24の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
       ]
     }
   ]
