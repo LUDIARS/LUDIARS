@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-28",
+  "latest": "2026-10-29",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3000,6 +3000,53 @@
         "Tirocinium：提出資料の要点を使う面接と資料の一時保持・削除、環境に依存しない参照先解決を追加。外部 HTML・フィード走査の計算量を改善",
         "Peregrinatio：GTFS ZIP の展開量と逐次受信量に上限を追加。LUDIARS：前日日報を更新",
         "Orbis / Tela は main と README が前日と同一のため進捗・残件を継承。全体72%と個別完成度は2026-10-27の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "weighted_completion": 72,
+      "_calc": "2026-10-28 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-10-29.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-10-29 集計：公開予定2件を別枠とした61件中60件の local main を確認。7件11 commit、53件変更なし。ErgoDLLs は取得できず",
+        "Cernere：在校生・OBの登録タブと条件付き項目・必須判定を追加。Memoria：フィード発見の未終端タグ走査を改善",
+        "Concordia：学習日記の外部テキストを無害化し、拠点間調査の読取範囲を制限。Excubitor：要求単位の侵入フィルタ、サービス別アクセス記録、認証不備と停止の区別を追加",
+        "Revisor：JavaScript評価と同名メソッドの判定を分離し、ネイティブ解析の全体待ち時間を対象数に合わせて調整",
+        "Conexus：認証・検疫・永続キューを備えるDiscord・LINE・Slack等の外部連携を実装し、境界レビュー入口を登録。実接続・既存経路移行は未完了。LUDIARS：前日日報を更新",
+        "Orbis / Tela は main と README が前日と同一のため進捗・残件を継承。全体72%と個別完成度は2026-10-28の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
       ]
     }
   ]
