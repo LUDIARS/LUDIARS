@@ -25,6 +25,7 @@
 | Lc | [Lector](https://github.com/LUDIARS/Lector) | 共有パーサパッケージ |
 | Fm | [Fundamentum](https://github.com/LUDIARS/Fundamentum) | 共通データ基盤 (master=content-addressed 不変 / user=可変 overlay の 2 層ストア) |
 | Uf | [UnityFoundation](https://github.com/LUDIARS/UnityFoundation) | Unity ベースシステム (Foundation 2.0 取込) + ゲーム内バグ報告 Melpomene ランタイム |
+| Pt | [Portus](https://github.com/LUDIARS/Portus) | Node サーバ基盤ライブラリ (実行時依存ゼロ。HTTP 表駆動ルータ / WebSocket / Web Push / S3 / Redis / AI クライアント / 構造化ログ / ホットリロード。2026-10-31 新設) |
 
 ## 認証 / 通知
 
