@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-10-29",
+  "latest": "2026-11-02",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3047,6 +3047,51 @@
         "Revisor：JavaScript評価と同名メソッドの判定を分離し、ネイティブ解析の全体待ち時間を対象数に合わせて調整",
         "Conexus：認証・検疫・永続キューを備えるDiscord・LINE・Slack等の外部連携を実装し、境界レビュー入口を登録。実接続・既存経路移行は未完了。LUDIARS：前日日報を更新",
         "Orbis / Tela は main と README が前日と同一のため進捗・残件を継承。全体72%と個別完成度は2026-10-28の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "weighted_completion": 72,
+      "_calc": "2026-10-29 の weighted_completion とリポジトリ別完成度を継承。直近24時間の commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-11-02.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "2026-11-02 集計：公開予定2件を別枠とした61件中60件の local main を確認。2件3 commit、58件変更なし。ErgoDLLs は取得できず",
+        "Cernere：Composite ログインの許可 origin に Actio の公開先を追加。設定反映・実ログインの受入確認は今回未実施",
+        "Concordia：相談の Codex 公開リンク取得を既存の共通取得器に接続。Actio へのローカル書込みに指示者を引き渡す処理を追加",
+        "Orbis / Tela は main と README の根拠が前回と同一のため進捗・残件を継承。全体72%と個別完成度は2026-10-29の値を継承。テスト・起動・merge・main 更新・デプロイは未実施"
       ]
     }
   ]
