@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-07",
+  "latest": "2026-11-08",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3318,6 +3318,52 @@
         "Discutere：C++ 移行の基盤と議論処理・Discord hook・main を実装し、413応答とWindowsのパス解決を修正",
         "Concordia：稼働中の委託実装に10分進捗報告を追加し、モニター書式へ接続。Excubitor：ネットワーク宛先の調査根拠を保持",
         "LUDIARS：11月6日の日報を記録。Orbis / Tela は main の根拠が不変のため継承。全体72%と個別完成度は2026-11-06の値を継承"
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "weighted_completion": 72,
+      "_calc": "2026-11-07 の weighted_completion とリポジトリ別完成度を継承。commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-11-08.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開予定2件を別枠とした61件中60件の local main を確認。6件6 commit、54件変更なし。ErgoDLLs は取得できず",
+        "Aedilis：用途別に認可された会議操作の受付を追加。Corpus：コールバックのクエリ内容を開示せず操作へ結び付ける修正",
+        "Ostiarius：会場 LAN 証明の発行をネイティブのサービスセッションへ結び付けた",
+        "Spectator：中継用 TURN 認証情報の取得・更新を実装。Concordia：登録済みプロジェクトからのサービス起動許可条件を更新",
+        "LUDIARS：11月7日の日報を記録。Orbis / Tela の main 根拠は不変。全体72%と個別完成度は2026-11-07の値を継承"
       ]
     }
   ]
