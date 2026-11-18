@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-18",
+  "latest": "2026-11-19",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3815,6 +3815,52 @@
         "Tirocinium：旧 SQLite から native PostgreSQL への移行スクリプトと Windows ビルド互換性を整備",
         "Revisor：解析報告の扱い、公開済み履歴を除外する送信前検査、CI 依存準備、リリース認証を修正。LUDIARS：前日日報を反映",
         "Orbis / Tela は main の根拠不変のため進捗・残件を継承。完成度72%と個別値は前日から継承"
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "weighted_completion": 72,
+      "_calc": "2026-11-18 の weighted_completion とリポジトリ別完成度を継承。commit 数は活動量であり、完成度変更の定量的根拠には用いない。Orbis / Tela は公開予定のため完成度未計測。",
+      "md": "snapshots/2026-11-19.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開予定2件を別枠とした61件中60件の local main を確認。5件10 commit、55件変更なし。ErgoDLLs は取得できず",
+        "Praeforma：基本4画面の整理、個人用モードの PostgreSQL 対応と SQLite 移行ツール、各ブランチへの設計データの書き出しと比較",
+        "Concordia：自動確認に進捗率と原因調査を追加。Lapilli：単発実行のモデル選択を役割対応表へ移行",
+        "Revisor：公開失敗時の新規ローカルタグの後始末を修正。LUDIARS：前日の日報を反映",
+        "Orbis と Tela は掲載済みの進捗・残件を継承。完成度72%と個別値は前日から継承"
       ]
     }
   ]
