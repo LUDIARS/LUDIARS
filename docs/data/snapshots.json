@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-19",
+  "latest": "2026-11-20",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3861,6 +3861,52 @@
         "Concordia：自動確認に進捗率と原因調査を追加。Lapilli：単発実行のモデル選択を役割対応表へ移行",
         "Revisor：公開失敗時の新規ローカルタグの後始末を修正。LUDIARS：前日の日報を反映",
         "Orbis と Tela は掲載済みの進捗・残件を継承。完成度72%と個別値は前日から継承"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "weighted_completion": 72,
+      "_calc": "2026-11-19 の weighted_completion とリポジトリ別完成度を継承。完成度を変更できる定量的根拠は取得できず。Orbis / Tela は公開予定で数値完成度は未計測。",
+      "md": "snapshots/2026-11-20.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開登録61件中60件のローカル main を確認。12件19コミット、48件変更なし。ErgoDLLs はコミット数を取得できず",
+        "モデル設定を Concordia の役割名に移行し、Curia の設定例も更新",
+        "Concordia と Revisor：委託先の作業場所、起動時の引き継ぎ、local PR の提出と再審査通知を改善",
+        "Praeforma：仕様確認を3タブに整理し、遷移図キャプチャの配置保存に対応。LUDIARS：前日の日報を反映",
+        "Orbis と Tela は公開予定の進捗・残件を継承。完成度72%と個別値は前日から継承"
       ]
     }
   ]
