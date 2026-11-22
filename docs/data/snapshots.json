@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-22",
+  "latest": "2026-11-23",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -3998,6 +3998,51 @@
         "Volputas と Discutere が試遊感想を議論・改善提案につなぎ、Cernere は連携済みアカウントの権限を修正",
         "Excubitor と Revisor がクラウド実行・外部ビルド連携を更新。Revisor の審査失敗通知も改善",
         "Orbis と Tela の掲載済み進捗と残件、加重完成度72%および個別値を継承"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "weighted_completion": 72,
+      "_calc": "完成度を変更できる定量的根拠は取得できず。2026-11-22 の加重完成度とリポジトリ別完成度を継承。Orbis / Tela の数値完成度は未計測。",
+      "md": "snapshots/2026-11-23.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開カタログ61件中60件のローカル main を集計。6件で15コミット、54件で変更なし。ErgoDLLs のコミット数は取得できず",
+        "Actio は自律スプリントの進行と管制を追加。Concordia は依頼とビルドの連携、指令ブリッジおよび照会処理を更新",
+        "Cernere はサービス管理画面で戻り先の登録と鍵の再発行に対応。Excubitor は監視と連携設定を改善",
+        "Volputas は設定検証を整理。LUDIARS は前日日報を反映。Orbis と Tela の進捗・残件、加重完成度72%および個別値を継承"
       ]
     }
   ]
