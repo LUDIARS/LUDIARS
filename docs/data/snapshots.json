@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-24",
+  "latest": "2026-11-25",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -4089,6 +4089,52 @@
         "Discutere は未決論点・論拠の扱いを改良し、モデル呼び出しを削減。Volputas はプレイ統計の絞り込みと終了記録欠落時の集計を改善",
         "Concordia は指令・回答の一覧を追加。Excubitor は経路単位のアクセス設定を拡張。LUDIARS は前日日報を反映",
         "公開予定の Tela の進捗を更新し、Orbis の進捗と残件および加重完成度72%・個別値を継承"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "weighted_completion": 72,
+      "_calc": "完成度を変更できる定量的根拠は取得できず。2026-11-24 の加重完成度とリポジトリ別完成度を継承。Orbis / Tela の数値完成度は未計測。",
+      "md": "snapshots/2026-11-25.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開登録61件中60件のローカル main を集計。6件で31コミット、54件で変更なし。ErgoDLLs のコミット数は取得できず",
+        "Ergo Studio のプロジェクト選択とシーン作業画面を刷新し、FBX 取り込みとアセット一覧を連携。Pictor は Linux ビルドと glTF の入力検証を修正",
+        "Actio はチーム別バックログと活動表示を更新。Discutere は対話形式の質問票と議論者テンプレートを改善",
+        "Concordia はプロジェクトグラフとセッション画面を更新。LUDIARS は前日日報を反映",
+        "公開予定の Tela に詳細欄切り替えの演出を追加。Orbis の進捗と残件および加重完成度72%・個別値を継承"
       ]
     }
   ]

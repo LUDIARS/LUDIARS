@@ -147,7 +147,7 @@
       "icon": "🧵",
       "category": "ui",
       "purpose": "ライブラリ",
-      "summary": "Pictor を使う再利用可能な C++ 宣言型ツール UI。既存の宣言型 UI・図形描画、Windows/Unity 連携に加え、macOS のデスクトップ面、マーク付き一覧、仕様図の等倍ページ移動、入力コントロールのブラウザ描画と Vulkan 描画を実装済み。Mac のネイティブビルドと実機確認、Windows/Unity・デスクトップ面の操作と負荷、ブラウザと Vulkan の実画面での描画・入力確認が残る",
+      "summary": "Pictor を使う再利用可能な C++ 宣言型ツール UI。既存の宣言型 UI・図形描画、Windows/Unity 連携に加え、macOS のデスクトップ面、マーク付き一覧、仕様図の等倍ページ移動、入力コントロールのブラウザ描画と Vulkan 描画を実装済み。Pictor/Vulkan 描画で詳細欄の切り替えを短い演出で示す機能を追加した。macOS のネイティブビルドと実機確認、Windows/Unity・デスクトップ面の操作と負荷、ブラウザと Vulkan の実画面での描画・入力確認が残る",
       "status": "公開予定・実機確認待ち"
     },
     "LUDIARS": {
