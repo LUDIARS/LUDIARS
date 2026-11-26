@@ -1,6 +1,6 @@
 {
   "_schema": "v1. latest is the most recent date key in snapshots[]. Each snapshot holds overall + per-repo completion % and a pointer to the human-readable .md file.",
-  "latest": "2026-11-26",
+  "latest": "2026-11-27",
   "snapshots": [
     {
       "date": "2026-04-24",
@@ -4180,6 +4180,53 @@
         "Actio は優先度順と複数チーム所属、直接接続用の参照 API、C++ 移行基盤を追加。Quaestor は復旧中も通常の Gmail 取り込みを継続",
         "Concordia は人が行う作業の表示と Actio 経由の依頼割り当てを追加。Concordia と Lictor が Grok CLI に対応し、LUDIARS は前日日報を反映",
         "Augur と Revisor は正常な契約観測の記録量を削減。Vestigium はログ転送の再開と Revisor のログ形式に対応",
+        "公開予定の Orbis と Tela は main で進捗と残件を確認。加重完成度72%と個別値は前日から継承"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "weighted_completion": 72,
+      "_calc": "完成度を変更できる定量的根拠は取得できず。2026-11-26 の加重完成度とリポジトリ別完成度を継承。Orbis / Tela の数値完成度は未計測。",
+      "md": "snapshots/2026-11-27.md",
+      "repos": {
+        "LUDIARS": 81,
+        "Infra": 91,
+        "AIFormat": 89,
+        "Foedus": 49,
+        "Ars": 64,
+        "Ergo": 93,
+        "Pictor": 90,
+        "Cernere": 93,
+        "Nuntius": 78,
+        "Actio": 91,
+        "Schedula": 48,
+        "Aedilis": 52,
+        "Discutere": 96,
+        "Synergos": 72,
+        "Codex": 65,
+        "Clio": 28,
+        "Signum": 64,
+        "Iter": 65,
+        "Custos": 59,
+        "Susurrus": 77,
+        "Bibliotheca": 61,
+        "Conciliator": 75,
+        "Praeforma": 69,
+        "Tirocinium": 89,
+        "Lector": 30,
+        "Corpus": 84,
+        "Memoria": 95,
+        "Legatus": 47,
+        "Concordia": 98,
+        "Lictor": 92,
+        "Quaestor": 75
+      },
+      "highlights": [
+        "公開集計対象61件の公開状態を確認し、60件のローカル main を集計した。8件で46コミット、52件で変更なし。ErgoDLLs は対応するローカル checkout が見つからず、コミット数を取得できず。",
+        "Actio はタスク・スプリント・チーム管理の HTTP 処理を Portus へ移し、AI メンバーとスプリント操作権限を拡張",
+        "Concordia は Discord のチーム相談と Actio 本文取得を改善。Lictor は Grok CLI のセッションログ中継を追加",
+        "Praeforma はゲーム画面から仕様に基づく表示を提案。UnityFoundation は Foundation 2.0 などをローカル main に取り込み",
+        "Vestigium はログ書き出しを C++ に移行。Revisor は local PR の重複作成を抑止",
         "公開予定の Orbis と Tela は main で進捗と残件を確認。加重完成度72%と個別値は前日から継承"
       ]
     }
